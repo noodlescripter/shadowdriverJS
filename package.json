@@ -10,8 +10,8 @@
     "parser/**"
   ],
   "scripts": {
-    "shadow": "node ./shadow.js",
-    "postinstall": "node ./installer.js"
+    "shadow": "node shadow.js",
+    "preinstall": "node installer.js"
   },
   "repository": {
     "type": "git",
