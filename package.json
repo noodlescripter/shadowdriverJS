@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "shadow": "node ./shadow.js",
-    "preinstall": "node ./installer.js.js"
+    "preinstall": "node ./installer.js"
   },
   "repository": {
     "type": "git",
