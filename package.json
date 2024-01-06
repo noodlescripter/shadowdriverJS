@@ -1,0 +1,43 @@
+{
+  "name": "shadowdriverjs",
+  "version": "1.0.0",
+  "description": "A JavaScript project using Selenium WebDriverJS for testing or automation with the respect of the Protractor JS",
+  "main": "shadow.js",
+  "files": [
+    "shadow.conf.js.bak",
+    "installer.js",
+    "lib/**",
+    "parser/**"
+  ],
+  "scripts": {
+    "shadow": "node ./shadow.js",
+    "preinstall": "node ./installer.js.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noodlescripter/shadowdriverJS.git"
+  },
+  "keywords": [
+    "shadowdriverJS",
+    "selenium",
+    "webdriverJS",
+    "JavaScript",
+    "Protractor Dupe"
+  ],
+  "author": "Hamim Alam",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^11.1.0",
+    "glob": "^10.3.10",
+    "mocha": "^10.2.0",
+    "selenium-webdriver": "^4.16.0"
+  },
+  "bugs": {
+    "url": "https://github.com/noodlescripter/shadhowdriver/issues"
+  },
+  "homepage": "https://github.com/noodlescripter/shadowdriver#readme",
+  "devDependencies": {
+    "mochawesome": "^7.1.3"
+  }
+}
