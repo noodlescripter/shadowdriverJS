@@ -19,7 +19,7 @@ function createProjectFolder(projectName) {
     // Create files with content
     const fileContents = {
         'yolo.conf.js': 'module.exports = {};',
-        'package.json': '{ "name": "' + projectName + '", "version": "1.0.0", "description": "yoloJS testing library, using webdriverJS. Built with the respect of ProtractorJS", "main": "", "scripts": { "yolo": "node ./node_modules/yolojs/yolo.js" }, "author": "", "license": "ISC" }',
+        'package.json': '{ "name": "' + projectName + '", "version": "1.0.0", "description": "shadowdriverJS testing library, build on top webdriverJS. Built with the respect of ProtractorJS", "main": "", "scripts": { "shadow": "node ./node_modules/shadowdriverjs/shadow.js" }, "author": "", "license": "ISC" }',
         'jsconfig.json': '{ "compilerOptions": { "target": "ES6" } }'
     };
 
@@ -59,13 +59,13 @@ rl.question('Enter the project name: ', (projectName) => {
                     console.error(chalk.red(`Error running npm install: ${error}`));
                 } else {
                     console.log(chalk.green(stdout));
-                    console.log(chalk.bgCyan('Developer of this library is looking for a good job, @noodlescripter, hamim.alam.personal@gmail.com, hamimalam@outlook.com'));
-                    console.log(chalk.bgCyan('Thank you for installing yoloJS 1.0.0 BETA, Happy Coding.'));
+                    console.log(chalk.bgCyan('Developer of this library is looking for a good job, github@noodlescripter, hamim.alam.personal@gmail.com, hamimalam@outlook.com'));
+                    console.log(chalk.bgCyan('Thank you for installing @shadowdriverJS 1.0.0 BETA, Happy Coding..........'));
                 }
                 rl.close();
             });
         } else {
-            console.log(chalk.bgBlue('Skipping npm install.'));
+            console.log(chalk.bgBlue('Skipping npm install. Help yourself by doing it manually!!!!'));
             rl.close();
         }
     });
