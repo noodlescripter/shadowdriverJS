@@ -16,6 +16,24 @@ npm install -g shadowdriver-init
 npx shadowdriver-init
 ```
 
+## Configuration (shadow.conf.js)
+You can customize your ShadowdriverJS configuration by creating a shadow.conf.js file in your project directory with the following content:
+```javascript
+module.exports = {
+    browserName: 'chrome',
+    mochaTimeout: 90000,
+    reportName: 'report.html',
+    baseURL: 'https://google.com/',
+    specs: [
+        'e2e/sample.spec.js'
+    ],
+    onPrepare: () => {
+        browser.manage().window().maximize();
+    }
+};
+
+```
+
 ## Familiar API with Supercharged Features
 
 ShadowdriverJS maintains API compatibility with webdriverJS, offering a seamless transition for those familiar with this framework. It also adopts many conventions from Protractor, making it a compelling alternative. Here are some highlights:
@@ -25,6 +43,7 @@ ShadowdriverJS maintains API compatibility with webdriverJS, offering a seamless
 ### 2. **element(...):** Perform a wide range of actions on individual web elements, just like in webdriverJS.
 
 ### 3. **elements(...):** Handle multiple elements with ease, following webdriverJS standards.
+
 
 ...and many more! In essence, ShadowdriverJS embraces the entire API from webdriverJS, ensuring you have a comprehensive toolkit at your disposal.
 
@@ -56,7 +75,7 @@ describe('Sample Test Suite', async function () {
                 console.info("It works")
             }
             console.info(eles.length, "yes yes yes ");
-            console.info(eles.length, "yes yesy yes ");
+            console.info(eles.length, "yes yes yes ");
         })
         await browser.quit();
     });
