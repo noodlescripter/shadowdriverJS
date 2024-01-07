@@ -1,0 +1,19 @@
+describe('Sample Test Suite', async function () {
+
+    it('should perform a sample test case', async function () {
+        await browser.get(baseURL);
+        await browser.sleep(3000);
+        await element(by.xpath('//*[@title="Search"]')).sendKeys("Hello");
+        await browser.sleep(3000);
+        await element(by.xpath('//*[@title="Search"]')).clear();
+        await element(by.xpath('//*[@title="Search"]')).sendKeys("tor mare chudi");
+        await browser.sleep(3000);
+        const windows = await browser.getAllWindowHandles();
+        if (windows.length > 2) {
+            console.info("Many windows found");
+        } else {
+            console.info("No window is here, only one");
+        }
+        await browser.quit();
+    });
+});
