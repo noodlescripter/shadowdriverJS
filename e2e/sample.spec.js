@@ -14,6 +14,12 @@ describe('Sample Test Suite', async function () {
         } else {
             console.info("No window is here, only one");
         }
-        await browser.quit();
     });
+    it('Test using css selector',
+        async ()=>{
+            await browser.get(baseURL);
+            await browser.sleep(3000);
+            await element(by.css('[title="Search"]')).sendKeys(shadowdriver.key().ENTER,'Testing With Shadowdriverjs');
+            await browser.sleep(5000);
+        })
 });
