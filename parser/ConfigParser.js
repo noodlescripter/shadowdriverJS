@@ -4,12 +4,13 @@ const vm = require('vm');
 const Mocha = require('mocha');
 const glob = require('glob');
 const {initializeDriver} = require('../lib/Driver');
+const shadowdriver = require('../lib/shadowdriver');
 const by = require('../lib/By');
 async function configExe(confFile) {
     if (confFile.browserName) {
         global.browser = await initializeDriver(confFile.browserName);
     } else {
-        return new Error("You fucked up")
+        return new Error("something went wrong, please consider checking the log!!!")
     }
     if (confFile.baseURL) {
         global.baseURL = confFile.baseURL;
@@ -18,7 +19,9 @@ async function configExe(confFile) {
     global.element = (_) => browser.findElement(_);
     global.elements = (_) => browser.findElements(_);
 
+
     global.by = await by;
+    global.shadowdriver = shadowdriver;
 
     if (typeof confFile.onPrepare === 'function') {
         await confFile.onPrepare();
