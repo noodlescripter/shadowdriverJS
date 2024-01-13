@@ -91,6 +91,10 @@
             </nav>
 
             <div class="container py-4">
+                <h4 class="text-center text-danger">
+                    This is a BETA version, while the BETA version work perfectly with MOCHA framework, but we are trying to expand this software and make it available to Jasmine framework also.
+                    (BETA is Not Recommended in Prod Env)
+                </h4>
                 <h1>
                     <img src="./shadowdriverJS.png" alt="ShadowdriverJS Logo" style="height: 50px; width: 50px; border-radius: 50%; vertical-align: middle;">
                         ShadowdriverJS: Empowering Web Automation and Testing
@@ -131,7 +135,24 @@
                 <p>...and many more! In essence, ShadowdriverJS embraces the entire API from webdriverJS, ensuring you have a comprehensive toolkit at your disposal.</p>
                 <p>For more details on the API, refer to the official <a href="https://www.selenium.dev/selenium/docs/api/javascript/index.html">webdriverJS API documentation</a>.</p>
 
-                <h2>Sample Test Case</h2>
+                <h2>./shadow.conf.js</h2>
+                <pre><code>
+module.exports = {
+    browserName: 'chrome',
+    mochaTimeout: 90000,
+    reportName: 'report.html',
+    baseURL: 'https://google.com/',
+    specs: [
+        'e2e/sample.spec.js'
+    ],
+    onPrepare: () => {
+        browser.manage().window().maximize();
+    }
+};
+
+        </code></pre>
+
+                <h2>Sample Test Case [e2e/sample.spec.js]</h2>
                 <p>Let's take a peek at a sample test case using ShadowdriverJS. This test suite demonstrates the library's
                     capabilities:</p>
                 <pre><code>
@@ -176,6 +197,12 @@ describe('Sample Test Suite', async function () {
 
                 <p>ShadowdriverJS is your go-to solution for robust and efficient web automation and testing. Try it out, and unlock
                     the full potential of your web application testing workflows!</p>
+                <div class="text-center">
+                    <h5 class="text-danger">
+                        Please note that contribution is not allowed at this time, but we are looking for developers who are expert in
+                        JavaScripts, TypeScripts, NodeJS and have knowledge in testing web-based application. If so, please send an email to <p class="text-info">hamim.alam.personal@gmail.com</p>
+                    </h5>
+                </div>
             </div>
 
             <!-- Bootstrap JS and Dependencies -->
