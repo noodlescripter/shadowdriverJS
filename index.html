@@ -62,10 +62,30 @@
 
         /* Responsive Design */
         @media screen and (max-width: 768px) {
-            h1, h2, h3 {
-                font-size: 90%;
+            h1 {
+                font-size: 24px; /* Smaller font size for h1 */
+            }
+            h2 {
+                font-size: 20px; /* Smaller font size for h2 */
+            }
+            h3, p {
+                font-size: 16px; /* Smaller font size for h3 and paragraphs */
+                line-height: 1.5; /* Increased line height for better readability */
+            }
+            .feature {
+                padding: 10px; /* Adjust padding for feature boxes */
+            }
+            .container {
+                padding: 15px; /* Adjust container padding */
+            }
+            img {
+                max-width: 100%; /* Ensure images are not larger than the screen */
+                height: auto; /* Maintain aspect ratio */
             }
         }
+
+        /* You can add more breakpoints for different screen sizes if needed */
+
     </style>
 </head>
 <body>
@@ -125,21 +145,21 @@
         Explore some highlights:</p>
 
     <div class="api-features text-info">
-        <div class="feature">
+        <div class="feature mb-2">
             <h3><i class="icon fas fa-laptop-code"></i> browser.(...)</h3>
             <p>Access all the powerful methods from webdriverJS to interact with your web application.</p>
         </div>
 
-        <div class="feature">
+        <div class="feature mb-2">
             <h3><i class="icon fas fa-mouse-pointer"></i> element(...)</h3>
             <p>Perform a wide range of actions on individual web elements, just like in webdriverJS.</p>
         </div>
 
-        <div class="feature">
+        <div class="feature mb-2">
             <h3><i class="icon fas fa-mouse-pointer"></i> elements(...)</h3>
             <p>Handle multiple elements with ease, following webdriverJS standards.</p>
         </div>
-        <div class="feature">
+        <div class="feature mb-2">
             <h3><i class="icon fas fa-mouse-pointer"></i> element(by.xpath, css, id, name, buttonText, partialText,
                 text)</h3>
             <p>Locate element with "by." and perform actions.</p>
