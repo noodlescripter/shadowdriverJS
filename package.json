@@ -1,6 +1,6 @@
 {
   "name": "shadowdriverjs",
-  "version": "1.0.2-beta.1",
+  "version": "1.0.3-beta.1",
   "description": "A JavaScript project using Selenium WebDriverJS for testing or automation with the respect of the Protractor JS",
   "main": "shadow.js",
   "files": [
@@ -9,8 +9,6 @@
     "parser/**"
   ],
   "scripts": {
-    "install": "node installer.js",
-    "postinstall": "node",
     "test": "mocha"
   },
   "repository": {
