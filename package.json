@@ -1,6 +1,6 @@
 {
   "name": "shadowdriverjs",
-  "version": "1.0.3-beta.1",
+  "version": "2.0.0",
   "description": "A JavaScript project using Selenium WebDriverJS for testing or automation with the respect of the Protractor JS",
   "main": "shadow.js",
   "files": [
