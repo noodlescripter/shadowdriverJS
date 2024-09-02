@@ -94,7 +94,7 @@
     <div class="container">
         <a class="navbar-brand" href="#">
             <img src="./shadowdriverJS.png" alt="Logo" style="height: 30px;">
-            ShadowdriverJS
+            ShadowdriverJS - V2.0 beta
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -122,6 +122,9 @@
              style="height: 50px; width: 50px; border-radius: 50%; vertical-align: middle;">
         ShadowdriverJS: Empowering Web Automation and Testing
     </h1>
+    <div class="container text-center bg-info py-2">
+        <div>Now With shadowdriverAI</div>
+    </div>
     <p>ShadowdriverJS is a sophisticated JavaScript library that extends the capabilities of <a
             href="https://github.com/SeleniumHQ/selenium/wiki/WebDriverJs">webdriverJS</a> while taking inspiration from
         the renowned <a href="https://www.protractortest.org/#/">Protractor</a>. It is a versatile tool that simplifies
@@ -160,6 +163,10 @@
             <p>Handle multiple elements with ease, following webdriverJS standards.</p>
         </div>
         <div class="feature mb-2">
+            <h3><i class="icon fas fa-mouse-pointer"></i> element.all(...)</h3>
+            <p>Handle multiple elements with ease, following webdriverJS standards.</p>
+        </div>
+        <div class="feature mb-2">
             <h3><i class="icon fas fa-mouse-pointer"></i> element(by.xpath, css, id, name, buttonText, partialText,
                 text)</h3>
             <p>Locate element with "by." and perform actions.</p>
@@ -176,17 +183,31 @@
     <h2>./shadow.conf.js</h2>
     <pre><code>
 module.exports = {
-    browserName: 'chrome',
+    framework: "mocha",
+    ai_res: true,
+    capabilities: {
+        browserName: 'chrome',
+        chromeOptions: {
+            args: ['--no-sandbox', "--headless", "--disable-setuid-sandbox"],
+        }
+    },
     mochaTimeout: 90000,
+
     reportName: 'report.html',
     baseURL: 'https://google.com/',
     specs: [
         'e2e/sample.spec.js'
     ],
+    suites:{
+
+    },
     onPrepare: () => {
         browser.manage().window().maximize();
+    },
+    before:()  =>{
     }
 };
+
 
         </code></pre>
 

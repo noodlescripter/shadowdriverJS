@@ -3,7 +3,7 @@ describe('Sample Test Suite', async function () {
     it('should perform a sample test case', async function () {
         await browser.get(baseURL);
         await browser.sleep(3000);
-        await element(by.xpath('//*[@title="Search"]')).sendKeys("Hello");
+        await element(by.xpath('//*[@title="asdsad"]')).sendKeys("Hello");
         await browser.sleep(3000);
         await element(by.xpath('//*[@title="Search"]')).clear();
         await element(by.xpath('//*[@title="Search"]')).sendKeys("tor mare chudi");
@@ -19,7 +19,12 @@ describe('Sample Test Suite', async function () {
         async ()=>{
             await browser.get(baseURL);
             await browser.sleep(3000);
+            await element.all(by.xpath('//*[@title="Search"]')).then(async function(eles){
+                const len = await eles.length;
+                console.log("Element count is: ", len)
+            })
             await element(by.css('[title="Search"]')).sendKeys(shadowdriver.key().ENTER,'Testing With Shadowdriverjs');
             await browser.sleep(5000);
+            await browser.quit();
         })
 });
