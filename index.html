@@ -1,276 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShadowdriverJS By NoodleScripter</title>
-    <link rel="icon" type="image/png" href="favicon.ico">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
-    <style>
-        /* Custom Styles */
-        body {
-            background-color: #181818;
-            color: #fff;
-            font-family: 'Roboto', sans-serif;
-            background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
-        }
-
-        .container {
-            background-color: #252525;
-            border-radius: 5px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            border: 1px solid #333;
-        }
-
-        h1, h2, h3, p {
-            text-shadow: 1px 1px 2px #000;
-        }
-
-        .feature {
-            background: #303030;
-            padding: 15px;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .feature:hover {
-            transform: translateY(-5px);
-        }
-
-        .navbar-custom {
-            background-color: #333;
-        }
-
-        pre {
-            background-color: #333;
-            color: #9cd33b;
-            padding: 15px;
-            border-radius: 4px;
-            overflow-x: auto;
-        }
-
-        code {
-            font-family: 'Consolas', monospace;
-            background-color: #333;
-            color: #9cd33b;
-            padding: 3px 6px;
-            border-radius: 3px;
-        }
-
-        /* Responsive Design */
-        @media screen and (max-width: 768px) {
-            h1 {
-                font-size: 24px; /* Smaller font size for h1 */
-            }
-            h2 {
-                font-size: 20px; /* Smaller font size for h2 */
-            }
-            h3, p {
-                font-size: 16px; /* Smaller font size for h3 and paragraphs */
-                line-height: 1.5; /* Increased line height for better readability */
-            }
-            .feature {
-                padding: 10px; /* Adjust padding for feature boxes */
-            }
-            .container {
-                padding: 15px; /* Adjust container padding */
-            }
-            img {
-                max-width: 100%; /* Ensure images are not larger than the screen */
-                height: auto; /* Maintain aspect ratio */
-            }
-        }
-
-        /* You can add more breakpoints for different screen sizes if needed */
-
-    </style>
+    <title>ShadowdriverJS - Next-Gen Testing</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-<!-- Bootstrap Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom mb-4">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="./shadowdriverJS.png" alt="Logo" style="height: 30px;">
-            ShadowdriverJS - V2.0 beta
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <!-- More nav items here -->
-            </ul>
+
+<body class="bg-gray-900 text-white font-sans leading-relaxed">
+    <!-- Navbar -->
+    <nav class="bg-gray-900 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex items-center justify-between px-4 py-4">
+            <a href="./index.html" class="flex items-center text-green-400 font-bold text-xl">
+                <img src="./shadowdriverJS.png" alt="ShadowdriverJS Logo" class="h-8 w-8 mr-2">
+                ShadowdriverJS [Version 2.0.1]
+            </a>
+            <button class="md:hidden text-green-400 focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<div class="container py-4">
-    <h4 class="text-center text-danger">
-        This is a BETA version, while the BETA version work perfectly with MOCHA framework, but we are trying to expand
-        this software and make it available to Jasmine framework also.
-        (BETA is Not Recommended in Prod Env)
-    </h4>
-    <h1>
-        <img src="./shadowdriverJS.png" alt="ShadowdriverJS Logo"
-             style="height: 50px; width: 50px; border-radius: 50%; vertical-align: middle;">
-        ShadowdriverJS: Empowering Web Automation and Testing
-    </h1>
-    <div class="container text-center bg-info py-2">
-        <div>Now With shadowdriverAI</div>
-    </div>
-    <p>ShadowdriverJS is a sophisticated JavaScript library that extends the capabilities of <a
-            href="https://github.com/SeleniumHQ/selenium/wiki/WebDriverJs">webdriverJS</a> while taking inspiration from
-        the renowned <a href="https://www.protractortest.org/#/">Protractor</a>. It is a versatile tool that simplifies
-        web automation and testing, providing developers and quality assurance professionals with a powerful and
-        flexible solution.</p>
+    <section class="bg-gradient-to-r from-purple-800 to-indigo-800 py-20">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+            <!-- Left Column: Get Started Content -->
+            <div class="text-center md:text-left">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">Next-Generation Web Testing</h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8">Fast, reliable testing for modern web applications
+                    inspired by Protractor and WebDriverJS</p>
+                <a href="#get-started"
+                    class="bg-green-400 hover:bg-green-500 text-gray-900 px-6 py-3 rounded-full text-lg font-semibold shadow-lg transition">Get
+                    Started</a>
+            </div>
 
-    <h2>Installation Made Easy</h2>
-    <p>Getting started with ShadowdriverJS is a breeze. Follow these simple installation steps:</p>
-    <h3>Step 1: Install ShadowdriverJS</h3>
-    <pre><code>npm install -g shadowdriver-init</code></pre>
-    <h3>Step 2: Initialize Your Project</h3>
-    <pre><code>npx shadowdriver-init</code></pre>
-    <div class="">
-        <div class="text-center">
-            <img src="shadowdriverJS-GIF.gif" alt="Initialization Process" style="max-width:100%; height:auto;">
+            <!-- Right Column: Image -->
+            <div class="flex justify-center">
+                <img src="./My_Movie.gif" alt="Testing Illustration"
+                    class="w-full max-w-2xl md:max-w-3xl rounded-lg shadow-lg">
+            </div>
         </div>
-    </div>
-    <h2>Familiar API with Supercharged Features</h2>
-    <p>ShadowdriverJS maintains API compatibility with webdriverJS, offering a seamless transition for those familiar
-        with this framework. It also adopts many conventions from Protractor, making it a compelling alternative.
-        Explore some highlights:</p>
-
-    <div class="api-features text-info">
-        <div class="feature mb-2">
-            <h3><i class="icon fas fa-laptop-code"></i> browser.(...)</h3>
-            <p>Access all the powerful methods from webdriverJS to interact with your web application.</p>
+    </section>
+    <!-- Features Section -->
+    <section id="features" class="container mx-auto py-20 px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-green-400 mb-12">Why Choose ShadowdriverJS?</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                <i class="fas fa-rocket text-4xl text-green-400 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Fast and Reliable</h3>
+                <p class="text-gray-400">Blazing-fast execution with powerful capabilities to speed up your testing.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                <i class="fas fa-cogs text-4xl text-green-400 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Extensive API</h3>
+                <p class="text-gray-400">Seamlessly integrates with WebDriver and expands functionality.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                <i class="fas fa-users text-4xl text-green-400 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2">Community Support</h3>
+                <p class="text-gray-400">Backed by an active community for continuous improvements and support.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="feature mb-2">
-            <h3><i class="icon fas fa-mouse-pointer"></i> element(...)</h3>
-            <p>Perform a wide range of actions on individual web elements, just like in webdriverJS.</p>
+    <!-- How It Works Section -->
+    <section class="bg-gray-800 py-20">
+        <div class="container mx-auto text-center px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-green-400 mb-12">How ShadowdriverJS Works</h2>
+            <p class="text-gray-300 mb-10">ShadowdriverJS is designed to provide a streamlined testing workflow by
+                combining
+                WebDriverJS capabilities with Protractor-style syntax. Here’s an overview of how it operates:</p>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Configure Step -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-green-400">1. Configure</h3>
+                    <p class="text-gray-300 mb-4">Start by setting up a configuration file, <code>shadow.conf.js</code>,
+                        which defines your testing environment, browser settings, and test suite structure.
+                        ShadowdriverJS
+                        reads this file to configure tests according to WebDriverJS standards, allowing you to customize
+                        settings for different environments.</p>
+                </div>
+
+                <!-- Writing Tests -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-green-400">2. Write Tests</h3>
+                    <p class="text-gray-300 mb-4">Using Protractor-inspired syntax, ShadowdriverJS allows you to write
+                        tests
+                        with WebDriverJS methods, such as <code>element(by.css())</code> for element selection. This
+                        approach simplifies interactions within the DOM, making your tests both readable and
+                        maintainable.
+                    </p>
+                    <pre
+                        class="bg-gray-900 text-green-400 p-4 rounded"><code>element(by.css('.button')).click();</code></pre>
+                </div>
+
+                <!-- Run Tests -->
+                <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 text-green-400">3. Run Tests</h3>
+                    <p class="text-gray-300 mb-4">Execute your tests by running ShadowdriverJS with the configuration
+                        file
+                        and target test specifications. The CLI command enables selective test execution, making it easy
+                        to
+                        focus on specific test cases or suites.</p>
+                    <pre class="bg-gray-900 text-green-400 p-4 rounded overflow-x-auto"><code>shadowdriver run --config shadow.conf.js
+--spec 'tests/*.spec.js'</code></pre>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="feature mb-2">
-            <h3><i class="icon fas fa-mouse-pointer"></i> elements(...)</h3>
-            <p>Handle multiple elements with ease, following webdriverJS standards.</p>
+    <!-- Testimonials Section -->
+    <section class="container mx-auto py-20 text-center px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-green-400 mb-12">What Developers Say</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <p class="text-gray-300 mb-4">"ShadowdriverJS is hands-down the best testing tool I've used. It’s fast,
+                    intuitive, and just works!"</p>
+                <h4 class="text-lg font-semibold text-green-400">- sooo322, Developer</h4>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <p class="text-gray-300 mb-4">"With ShadowdriverJS, we reduced our testing time by 50%. A game-changer!"
+                </p>
+                <h4 class="text-lg font-semibold text-green-400">- Rahul69, , Software Dev Engineer in Test</h4>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                <p class="text-gray-300 mb-4">"The community support is fantastic, and the API is extremely flexible."
+                </p>
+                <h4 class="text-lg font-semibold text-green-400">- Alex_R, Software Engineer</h4>
+            </div>
         </div>
-        <div class="feature mb-2">
-            <h3><i class="icon fas fa-mouse-pointer"></i> element.all(...)</h3>
-            <p>Handle multiple elements with ease, following webdriverJS standards.</p>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="get-started" class="bg-gradient-to-r from-green-500 to-blue-500 text-center py-20">
+        <div class="container mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Get Started?</h2>
+            <p class="text-lg text-gray-100 mb-8">Join thousands of developers using ShadowdriverJS to supercharge their
+                testing workflows.</p>
+            <a href="./docs.html"
+                class="bg-gray-900 hover:bg-gray-700 text-white px-8 py-3 rounded-full text-lg font-semibold shadow-lg transition">Installation
+                & Docs</a>
         </div>
-        <div class="feature mb-2">
-            <h3><i class="icon fas fa-mouse-pointer"></i> element(by.xpath, css, id, name, buttonText, partialText,
-                text)</h3>
-            <p>Locate element with "by." and perform actions.</p>
-        </div>
+    </section>
 
-    </div>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-6 text-center sticky bottom-0">
+        <p>&copy; 2024 ShadowdriverJS. All rights reserved.</p>
+        <p>Made with ❤️ by @noodlescripter (Hamim.Alam [Email: hamim.alam.personal@gmail.com])</p>
+    </footer>
 
-    <p>...and many more! In essence, ShadowdriverJS embraces the entire API from webdriverJS, ensuring you have a
-        comprehensive toolkit at your disposal.</p>
-    <p>For more details on the API, refer to the official <a
-            href="https://www.selenium.dev/selenium/docs/api/javascript/index.html">webdriverJS API documentation</a>.
-    </p>
-
-    <h2>./shadow.conf.js</h2>
-    <pre><code>
-module.exports = {
-    framework: "mocha",
-    ai_res: true,
-    capabilities: {
-        browserName: 'chrome',
-        chromeOptions: {
-            args: ['--no-sandbox', "--headless", "--disable-setuid-sandbox"],
-        }
-    },
-    mochaTimeout: 90000,
-
-    reportName: 'report.html',
-    baseURL: 'https://google.com/',
-    specs: [
-        'e2e/sample.spec.js'
-    ],
-    suites:{
-
-    },
-    onPrepare: () => {
-        browser.manage().window().maximize();
-    },
-    before:()  =>{
-    }
-};
-
-
-        </code></pre>
-
-    <h2>Sample Test Case [e2e/sample.spec.js]</h2>
-    <p>Let's take a peek at a sample test case using ShadowdriverJS. This test suite demonstrates the library's
-        capabilities:</p>
-    <pre><code>
-describe('Sample Test Suite',
-        async  () => {
-
-    it('should perform a sample test case',
-        async () => {
-        await browser.get(baseURL);
-        await browser.sleep(3000);
-        await element(by.xpath('//*[@title="Search"]')).sendKeys("Hello");
-        await browser.sleep(3000);
-        await element(by.xpath('//*[@title="Search"]')).clear();
-        await element(by.xpath('//*[@title="Search"]')).sendKeys("tor mare chudi");
-        await browser.sleep(3000);
-        const windows = await browser.getAllWindowHandles();
-        if (windows.length > 2) {
-            console.info("Many windows found");
-        } else {
-            console.info("No window is here, only one");
-        }
-    });
-    it('Test using css selector',
-        async ()=> {
-            await browser.get(baseURL);
-            await browser.sleep(3000);
-            await element(by.css('[title="Search"]')).sendKeys(shadowdriver.key().ENTER,'Testing With Shadowdriverjs');
-            await browser.sleep(5000);
-        })
-});
-
-        </code></pre>
-
-    <h2>Running Your Tests</h2>
-    <p>Running tests with ShadowdriverJS is effortless. If you've initialized your project using
-        <code>shadowdriver-init</code>, simply execute:</p>
-    <pre><code>npm run shadow</code></pre>
-
-    <h2>Contributing</h2>
-    <p>We welcome contributions from the community. If you have ideas, bug fixes, or enhancements, please open an issue
-        to discuss your proposal before submitting a pull request. Your input is valuable in making ShadowdriverJS even
-        better.</p>
-    <p>Please ensure that you keep your tests up-to-date and follow our contribution guidelines.</p>
-
-    <p>ShadowdriverJS is your go-to solution for robust and efficient web automation and testing. Try it out, and unlock
-        the full potential of your web application testing workflows!</p>
-    <div class="text-center">
-        <h5 class="text-danger">
-            Please note that contribution is not allowed at this time, but we are looking for developers who are expert
-            in
-            JavaScripts, TypeScripts, NodeJS and have knowledge in testing web-based application. If so, please send an
-            email to <p class="text-info">hamim.alam.personal@gmail.com</p>
-        </h5>
-    </div>
-</div>
-
-<!-- Bootstrap JS and Dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Font Awesome for Icons (Optional) -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mocha Test Report</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+        .report-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .pass {
+            color: #4caf50;
+        }
+        .fail {
+            color: #f44336;
+        }
+        .test-case {
+            border: 1px solid #e0e0e0;
+            border-left: 5px solid;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .pass {
+            border-left-color: #4caf50;
+        }
+        .fail {
+            border-left-color: #f44336;
+        }
+        h2 {
+            margin: 0;
+            font-size: 22px;
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .test-summary {
+            margin-bottom: 40px;
+        }
+        .test-summary ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .test-summary li {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #e0e0e0;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+        .test-summary a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+        }
+        .test-summary a:hover {
+            text-decoration: underline;
+        }
+        .test-case hr {
+            border: none;
+            border-bottom: 1px solid #e0e0e0;
+            margin: 20px 0;
+        }
+        .duration {
+            font-weight: bold;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>shadowdriverJS Report 100/94%</h1>
+    <div class="report-container">
+        <div class="test-summary">
+            <h2>Test Cases Summary</h2>
+            <ul>
+                {{#each results}}
+                    <li>
+                        <a href="#{{title}}">{{fullTitle}}</a>
+                        <span class="{{status}}">({{status}})</span>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+        
+        <div id="report">
+            {{#each results}}
+                <div class="test-case {{status}}" id="{{title}}">
+                    <h2>{{fullTitle}}</h2>
+                    <p><strong>Status:</strong> <span class="{{status}}">{{status}}</span></p>
+                    <p><strong>Duration:</strong> <span class="duration">{{duration}}ms</span></p>
+                    {{#if error}}
+                        <p><strong>Error:</strong> {{error}}</p>
+                    {{/if}}
+                    <hr />
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</body>
+</html>
