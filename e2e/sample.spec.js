@@ -14,19 +14,20 @@ describe('Sample Test Suite', async function () {
         } else {
             console.info("No window is here, only one");
         }
-        //await browser.close();
+        expect('a').to.include('a')
+        await browser.close();
     });
-    /*  it('Test using css selector',
-         async ()=>{
-             await browser.get("https://www.google.com/");
- 
-             await browser.sleep(3000);
-             await element.all(by.xpath('//*[@title="Search"]')).then(async function(eles){
-                 const len = await eles.length;
-                 console.log("Element count is: ", len)
-             })
-             await element(by.css('[title="Search"]')).sendKeys(shadowdriver.key().ENTER,'Testing With Shadowdriverjs');
-             await browser.sleep(5000);
-             await browser.quit();
-         }) */
+    it('Test using css selector',
+        async () => {
+            await browser.get("https://www.google.com/");
+
+            await browser.sleep(3000);
+            await element.all(by.xpath('//*[@title="Search"]')).then(async function (eles) {
+                const len = await eles.length;
+                console.log("Element count is: ", len)
+            })
+            await element(by.css('[title="Search"]')).sendKeys(shadowdriver.key().ENTER, 'Testing With Shadowdriverjs');
+            await browser.sleep(5000);
+            await browser.quit();
+        })
 });

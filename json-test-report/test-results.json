@@ -2,8 +2,8 @@
   {
     "title": "should perform a sample test case",
     "fullTitle": "Sample Test Suite should perform a sample test case",
-    "duration": 0,
-    "status": "fail",
-    "error": "asdsdsfsdfsdf is not defined"
+    "duration": 10977,
+    "status": "pass",
+    "error": null
   }
 ]

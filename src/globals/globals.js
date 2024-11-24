@@ -7,6 +7,7 @@ const { _frame_work_mocha, _get_spec_file } = require('../frameworks/mocha');
 const { element_strategy } = require('../elementStrategy/elementStrategy');
 const { mergeJSON } = require('../json-merger/json-merger')
 const {convert_json_html} = require("../shadowReporter/html_maker/convert_json_html") 
+const {expect} = require('chai')
 
 
 /**
@@ -43,6 +44,9 @@ function _globals(_main) {
 
     //html maker
     global.generate_HTML = convert_json_html;
+
+    //expectation
+    global.expect = expect;
 }
 
 module.exports = { _globals };

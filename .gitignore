@@ -9,3 +9,4 @@ xunit.xml
 dist
 package
 boot.html
+src/node_modules
