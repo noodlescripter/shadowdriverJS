@@ -22,7 +22,7 @@ export default function MainSection() {
           {/* Image Section */}
           <div className="col-md-6 text-center">
             <img
-              src={'../../My_Movie.gif'}
+              src={'./My_Movie.gif'}
               alt="Testing Illustration"
               className="img-fluid rounded shadow"
             />

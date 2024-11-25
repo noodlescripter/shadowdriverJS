@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css'
 import NavBar from './component/navbar'
 import FooterComponent from './component/footer'
@@ -52,7 +52,7 @@ function App() {
       <Router>
         <Routes>
           <Route
-            path='/'
+            path='/shadowdriverJS'
             element={
               <>
                 <MainSection></MainSection>
@@ -103,28 +103,29 @@ function App() {
 
                     {/* Call-to-Action Button */}
                     <a
-                      href="/api"
-                      className="btn btn-dark btn-lg"
-                      style={{
-                        padding: "12px 30px",
-                        fontSize: "1.2rem",
-                        borderRadius: "8px",
-                        background: "#212529",
-                        color: "#fff",
-                        boxShadow: "0 8px 15px rgba(0, 0, 0, 0.3)",
-                        transition: "all 0.3s ease-in-out",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.target.style.background = "#343a40";
-                        e.target.style.boxShadow = "0 12px 20px rgba(0, 0, 0, 0.5)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.target.style.background = "#212529";
-                        e.target.style.boxShadow = "0 8px 15px rgba(0, 0, 0, 0.3)";
-                      }}
-                    >
-                      Installation & Docs
-                    </a>
+                        href='/shadowdriverJS/api'
+                        className="btn btn-dark btn-lg"
+                        style={{
+                          padding: "12px 30px",
+                          fontSize: "1.2rem",
+                          borderRadius: "8px",
+                          background: "#212529",
+                          color: "#fff",
+                          boxShadow: "0 8px 15px rgba(0, 0, 0, 0.3)",
+                          transition: "all 0.3s ease-in-out",
+                        }}
+                        onMouseEnter={(e) => {
+                          e.target.style.background = "#343a40";
+                          e.target.style.boxShadow = "0 12px 20px rgba(0, 0, 0, 0.5)";
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.background = "#212529";
+                          e.target.style.boxShadow = "0 8px 15px rgba(0, 0, 0, 0.3)";
+                        }}
+                      >
+                        Installation & Docs
+                      </a>
+
                   </div>
                 </div>
               </>
@@ -135,7 +136,7 @@ function App() {
 
       <Router>
         <Routes>
-          <Route path='/api'
+          <Route path='/shadowdriverJS/api'
             element={
               <>
                 <PanelComponent></PanelComponent>
