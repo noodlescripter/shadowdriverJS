@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages
+
+on:
+  workflow_dispatch: # Enables manual trigger for the workflow
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # Use the Node.js version you prefer
+
+      # Step 3: Navigate to the subdirectory
+      - name: Navigate to the project directory
+        working-directory: ./site/shadowdriver-site # Path to your project
+        run: echo "Navigating to site/shadowdriver-site"
+
+      # Step 4: Install dependencies
+      - name: Install dependencies
+        working-directory: ./site/shadowdriver-site # Path to your project
+        run: npm install
+
+      # Step 5: Build the project
+      - name: Build the project
+        working-directory: ./site/shadowdriver-site # Path to your project
+        run: npm run build
+
+      # Step 6: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site/shadowdriver-site/dist # Path to the built files
