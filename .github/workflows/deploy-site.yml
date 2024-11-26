@@ -1,7 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
-  workflow_dispatch: # Enables manual trigger for the workflow
+  workflow_dispatch:  # Enables manual trigger for the workflow
+  push:
+    branches:
+      - feature/2024.v2.1_beta  # Change this to the custom branch you want to deploy from
 
 jobs:
   build-and-deploy:
@@ -16,21 +19,21 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18 # Use the Node.js version you prefer
+          node-version: 18  # Use the Node.js version you prefer
 
       # Step 3: Navigate to the subdirectory
       - name: Navigate to the project directory
-        working-directory: ./site/shadowdriver-site # Path to your project
+        working-directory: ./site/shadowdriver-site  # Path to your project
         run: echo "Navigating to site/shadowdriver-site"
 
       # Step 4: Install dependencies
       - name: Install dependencies
-        working-directory: ./site/shadowdriver-site # Path to your project
+        working-directory: ./site/shadowdriver-site  # Path to your project
         run: npm install
 
       # Step 5: Build the project
       - name: Build the project
-        working-directory: ./site/shadowdriver-site # Path to your project
+        working-directory: ./site/shadowdriver-site  # Path to your project
         run: npm run build
 
       # Step 6: Deploy to GitHub Pages
@@ -38,4 +41,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site/shadowdriver-site/dist # Path to the built files
+          publish_dir: ./site/shadowdriver-site/dist  # Path to the built files
