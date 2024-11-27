@@ -46,7 +46,7 @@ export default function NavBar() {
                       textShadow: "1px 1px 5px rgba(0, 0, 0, 0.5)",
                     }}
                   >
-                    ShadowdriverJS <span className="text-danger ms-2 fw-bold">v2.0.1</span>
+                  {"<....>"} shadowdriverJS <span className="text-danger ms-2 fw-bold">v2.0.1 [BETA]</span>
                   </a>
                 </div>
               </nav>
