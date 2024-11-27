@@ -52,7 +52,7 @@ function App() {
       <Router>
         <Routes>
           <Route
-            path='/shadowdriverJS'
+            path='/'
             element={
               <>
                 <MainSection></MainSection>
@@ -103,7 +103,7 @@ function App() {
 
                     {/* Call-to-Action Button */}
                     <a
-                        href='/shadowdriverJS/api'
+                        href='/api'
                         className="btn btn-dark btn-lg"
                         style={{
                           padding: "12px 30px",
