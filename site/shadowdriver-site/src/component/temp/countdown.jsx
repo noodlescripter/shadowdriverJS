@@ -53,7 +53,7 @@ export default function TemporaryCountdown() {
       >
         <div className="container">
           <a
-            href="/"
+            href="/shadowdriverJS/"
             className="navbar-brand d-flex align-items-center fw-bold text-light"
           >
             <span className="text-danger p-2">{timeLeft.days}</span> Days 

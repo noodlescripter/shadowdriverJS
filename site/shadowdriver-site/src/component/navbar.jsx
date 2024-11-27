@@ -25,7 +25,6 @@ export default function NavBar() {
         !release ? (
           <>
             <TemporaryCountdown />
-
           </>
         ) : (
           <>
@@ -39,7 +38,7 @@ export default function NavBar() {
               >
                 <div className="container">
                   <a
-                    href="/"
+                    href="/shadowdriverJS/"
                     className="navbar-brand d-flex align-items-center text-primary fw-bold"
                     style={{
                       fontSize: "1.5rem",
