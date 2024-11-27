@@ -46,18 +46,18 @@ jobs:
         run: ls
       
       - name: Navigate to the Vite app directory
-        run: cd site/shadowdriverjs-site
+        run: cd site/shadowdriver-site
 
       # Step 4: Install dependencies in the Vite app
       - name: Install dependencies
         run: |
-          cd site/shadowdriverjs-site
+          cd site/shadowdriver-site
           npm install
 
       # Step 5: Build the Vite app
       - name: Build the project
         run: |
-          cd site/shadowdriverjs-site
+          cd site/shadowdriver-site
           npm run build
 
       # Step 6: Configure GitHub Pages
