@@ -69,7 +69,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Path to the built files
-          path: site/shadowdriverjs-site/dist
+          path: site/shadowdriver-site/dist
 
       # Step 8: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
