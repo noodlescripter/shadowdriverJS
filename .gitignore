@@ -2,3 +2,11 @@ node_modules/
 .idea/
 npmcommands
 mochawesome-report/
+report.html
+installer.js
+xunit.xml
+.env
+dist
+package
+boot.html
+src/node_modules

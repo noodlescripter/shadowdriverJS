@@ -22,16 +22,16 @@ async function configExe(confFile, commandArgs) {
     }
     /*lesson learned !!! need to leave a comment!!! and outstanding logs*/
     if (browserCaps) {
-        console.log("browser caps are present");
+        console.log("browserManager caps are present");
         const caps = browserCaps;
         if (typeof caps === 'object') {
             console.log("caps is present and they are objects");
-            console.log('coming from parser! browser name is: ', caps.browserName);
+            console.log('coming from parser! browserManager name is: ', caps.browserName);
             console.log("yes it is an object passed my client")
             try {
                 global.browser = await initializeDriver(browserCaps);
             } catch (browserCapsError) {
-                console.log("Something went wrong is browser caps, please consider checking");
+                console.log("Something went wrong is browserManager caps, please consider checking");
                 throw browserCapsError;
             }
         }

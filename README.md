@@ -20,15 +20,27 @@ npx shadowdriver-init
 You can customize your ShadowdriverJS configuration by creating a shadow.conf.js file in your project directory with the following content:
 ```javascript
 module.exports = {
-    browserName: 'chrome',
+    framework: "mocha",
+    ai_res: true, //make sure to have set in .env e.g. API_KEY=sahjdaksj
+    capabilities: {
+        browserName: 'chrome',
+    },
     mochaTimeout: 90000,
+
     reportName: 'report.html',
     baseURL: 'https://google.com/',
     specs: [
         'e2e/sample.spec.js'
     ],
+    suites:{
+        target1:[
+            //file path goes here
+        ]
+    },
     onPrepare: () => {
         browser.manage().window().maximize();
+    },
+    before:()  =>{
     }
 };
 
@@ -43,6 +55,11 @@ ShadowdriverJS maintains API compatibility with webdriverJS, offering a seamless
 ### 2. **element(...):** Perform a wide range of actions on individual web elements, just like in webdriverJS.
 
 ### 3. **elements(...):** Handle multiple elements with ease, following webdriverJS standards.
+
+### 4. **element.all(...):** Also (protractor style) Handle multiple elements with ease, following webdriverJS standards.
+
+### 5. **element(by.xpath, css, id, name, buttonText, partialText, text):** Available selectors.
+
 
 
 ...and many more! In essence, ShadowdriverJS embraces the entire API from webdriverJS, ensuring you have a comprehensive toolkit at your disposal.
@@ -59,24 +76,32 @@ describe('Sample Test Suite', async function () {
     it('should perform a sample test case', async function () {
         await browser.get(baseURL);
         await browser.sleep(3000);
-        await element(by.xpath('//*[@title="Search"]')).sendKeys("shadowdriver-init");
+        await element(by.xpath('//*[@title="test"]')).sendKeys("shadowdriver-init");
         await browser.sleep(3000);
-        await element(by.xpath('//*[@title="Search"]')).clear();
-        await element(by.xpath('//*[@title="Search"]')).sendKeys("shadowdriverJS");
+        await element(by.xpath('//*[@title="test"]')).clear();
+        await element(by.xpath('//*[@title="test"]')).sendKeys("shadowdriverJS");
         await browser.sleep(3000);
         const windows = await browser.getAllWindowHandles();
-        if (windows.length > 2) {
+        
+        if (windows.length > 2)
             console.info("Many windows found");
-        } else {
+        else 
             console.info("No window is here, only one");
-        }
-        await elements(by.xpath("//*[@class='lol']")).then((eles) =>{
-            if(eles.length < 2) {
+        
+        await elements(by.xpath("//*[@class='test']")).then((eles) =>{
+            if(eles.length < 2)
                 console.info("It works")
-            }
+            
             console.info(eles.length, "yes yes yes ");
             console.info(eles.length, "yes yes yes ");
         })
+        const mElements = await element.all(by.css("checkbox"));
+        for(const sElement of mElements){
+            await sElement.isSelected().then(async function(selected){
+                if(selected)
+                    await sElement.click();
+            })
+        }
         await browser.quit();
     });
 });
@@ -87,7 +112,7 @@ describe('Sample Test Suite', async function () {
 Running tests with ShadowdriverJS is effortless. If you've initialized your project using `shadowdriver-init`, simply execute:
 
 ```bash
-npm run shadow
+npx shadow exec shadow.conf.js --spec file_path/file/file.spec.js
 ```
 
 ## Contributing

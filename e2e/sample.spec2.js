@@ -1,6 +1,6 @@
-describe('Sample Test Suite', async function () {
+describe('Sample Test Suite22222', async function () {
 
-    it('should perform a sample test case', async function () {
+    it('should perform a sample test case222222', async function () {
         await browser.get("https://www.google.com/");
         await browser.sleep(3000);
         await element(by.xpath('//*[@title="Search"]')).sendKeys("Hello");
@@ -14,9 +14,9 @@ describe('Sample Test Suite', async function () {
         } else {
             console.info("No window is here, only one");
         }
-        expect('a').to.include('a')
-        await browser.close();
+        //await browser.close();
     });
+    
     it('Test using css selector',
         async () => {
             await browser.get("https://www.google.com/");
