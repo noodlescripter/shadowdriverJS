@@ -38,7 +38,7 @@ export default function NavBar() {
               >
                 <div className="container">
                   <a
-                    href="/shadowdriverJS/"
+                    href="/"
                     className="navbar-brand d-flex align-items-center text-primary fw-bold"
                     style={{
                       fontSize: "1.5rem",
