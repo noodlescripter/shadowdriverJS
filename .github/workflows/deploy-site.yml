@@ -59,7 +59,8 @@ jobs:
         run: |
           cd site/shadowdriver-site
           npm run build
-
+      - name: make 404.html file
+        run: cp site/shadowdriver-site/dist/index.html site/shadowdriver-site/dist/404.html
       # Step 6: Configure GitHub Pages
       - name: Setup Pages
         uses: actions/configure-pages@v4
