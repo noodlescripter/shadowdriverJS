@@ -41,6 +41,9 @@ jobs:
       # Step 3: Navigate to the subdirectory where the Vite app is located
       - name: print dir
         run: pwd
+
+      - name: showfiles
+        run: ls
       
       - name: Navigate to the Vite app directory
         run: cd site/shadowdriverjs-site
