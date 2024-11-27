@@ -7,14 +7,21 @@ import MainSection from './component/other/mainSection'
 import RowComponent from './component/other/row'
 import ColumnComponent from './component/other/column'
 import PanelComponent from './component/other/api/panels';
+import NoMobileSupportedComponent from './component/mobile/not-supported/mobile_not_supported';
 
 function App() {
+  const [isMobile, setIsMobile] = useState(false)
   useEffect(() => {
     document.body.classList.add('bg-dark', 'text-light');
     return () => {
       document.body.classList.remove('bg-dark', 'text-light');
     };
   }, []);
+  useEffect(()=>{
+    if(window.innerWidth < 768){
+      setIsMobile(true)
+    }
+  }, [])
 
   const colCompInfo = [
     {
@@ -46,9 +53,15 @@ function App() {
     },
   ]
 
+
   return (
     <div>
       <NavBar></NavBar>
+      {isMobile ? (
+        <>
+          <NoMobileSupportedComponent></NoMobileSupportedComponent>
+        </>
+      ): null}
       <Router>
         <Routes>
           <Route
