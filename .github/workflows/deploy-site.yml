@@ -39,6 +39,9 @@ jobs:
           node-version: 18 # Use the Node.js version you prefer
 
       # Step 3: Navigate to the subdirectory where the Vite app is located
+      - name: print dir
+        run: pwd
+      
       - name: Navigate to the Vite app directory
         run: cd site/shadowdriverjs-site
 
