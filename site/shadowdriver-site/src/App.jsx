@@ -136,7 +136,7 @@ function App() {
 
       <Router>
         <Routes>
-          <Route path='/shadowdriverJS/api'
+          <Route path='/api'
             element={
               <>
                 <PanelComponent></PanelComponent>
