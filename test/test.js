@@ -1,5 +1,5 @@
 const {expect} = require('chai');
-const by = require('../lib/By'); // Replace with the actual path to your module
+const by = require('../src/selectorStrategy/selectorBy'); // Replace with the actual path to your module
 
 describe('Test Library LIB', () => {
     it('should return a valid XPath locator', () => {

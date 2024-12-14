@@ -2,7 +2,14 @@
   {
     "title": "should perform a sample test case",
     "fullTitle": "Sample Test Suite should perform a sample test case",
-    "duration": 10977,
+    "duration": 9650,
+    "status": "pass",
+    "error": null
+  },
+  {
+    "title": "Test using css selector and keys",
+    "fullTitle": "Sample Test Suite Test using css selector and keys",
+    "duration": 18363,
     "status": "pass",
     "error": null
   }

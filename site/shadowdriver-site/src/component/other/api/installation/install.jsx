@@ -1,12 +1,19 @@
 export default function InstallShaowdriverJS() {
   return (
     <div className="container py-5">
-      <div id="installation" className="mb-4 p-4 bg-dark text-light rounded shadow-sm">
+      <div id="installation" className="">
         {/* Title Section */}
-        <h2 className="mb-4 text-success fw-semibold display-6">
+        <h2 className="mb-4 text-primary fw-semibold display-6">
           ShadowdriverJS Installation
         </h2>
-
+        <hr
+            style={{
+              height: "5px", // Thickness of the line
+              backgroundColor: "white", // Line color
+              border: "none", // Removes default border styling
+              margin: "20px 0", // Optional spacing
+            }}
+          />
         {/* Prerequisites Section */}
         <div className="mb-4">
           <h4 className="text-primary fw-bold mb-3">Prerequisites</h4>
