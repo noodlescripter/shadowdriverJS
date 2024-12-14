@@ -6,7 +6,7 @@ import LocatorsAPI from "./locators/locators";
 import ElementAPI from "./element/element";
 import MochaFramework from "./framework/mocha";
 import ShadowReporter from "./reporters/shadow-reporters";
-import ShadowdriverJSLogs from "./logs/shadowdriverjs_logs";
+import ShadowdriverJSLogs from "./shadowdriver-logs/shadowdriverjs_logs";
 
 export default function PanelComponent({ children }) {
   const [selectItem, setSelectedItem] = useState("Installation");
