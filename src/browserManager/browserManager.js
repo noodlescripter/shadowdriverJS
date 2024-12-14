@@ -1,6 +1,8 @@
-// Import the necessary modules for fetching browser capabilities and building the WebDriver instance.
-const {_caps} = require('./getCaps.js');
-const { Builder } = require('selenium-webdriver');
+const { _caps } = require("./getCaps.js")
+const { Builder } = require("selenium-webdriver")
+const { Options, ServiceBuilder } = require("selenium-webdriver/chrome")
+const fs = require("fs")
+const path = require("path")
 
 /**
  * Function to manage the initialization of the browser instance.
@@ -10,56 +12,95 @@ const { Builder } = require('selenium-webdriver');
  * @throws {Error} - Throws an error if the browser could not be initialized.
  */
 async function _manager(_name) {
-    // Variable to store the initialized WebDriver instance, set to null initially.
-    let _local_browser_init = null;
+  let _local_browser_init = null
 
-    // If a configuration file name is not provided, default to using 'shadow.conf.js'.
-    // Fetch the browser configuration (capabilities) from the provided configuration file.
-    const _main = _caps(_name);
+  const _main = _caps(_name)
 
-    // Ensure that the configuration data exists and is of type 'object'.
-    if (_main && typeof _main === 'object') {
+  if (_main && typeof _main === "object") {
+    const _browser = _main.browserName
+    const browser_log = _main.browser_log ? _main.browser_log.toUpperCase() : "severe".toUpperCase()
+    const driver_log = _main.driver_log ? _main.driver_log.toUpperCase() : "severe".toLocaleUpperCase()
+    console.log("Attempting to launch:", `${_browser} browser.`)
 
-        // Extract the browser name (e.g., 'chrome', 'firefox') from the configuration.
-        const _browser = _main.browserName;
-        console.log("Attempting to launch:", `${_browser} browser.`);
-
-        // Check if the specified browser is Chrome, as this is the only supported browser in this implementation.
-        if (_browser === "chrome") {
-
-            // Check if Chrome-specific options (like headless mode, window size, etc.) are provided in the configuration.
-            if (_main['goog:chromeOptions']) {
-                console.log('Chrome options detected.');
-
-                // Initialize the WebDriver instance with the Chrome capabilities.
-                _local_browser_init = new Builder().withCapabilities(_main).build();
-                
-            } else {
-                // If no Chrome options are found, log a message and proceed without them.
-                console.log('No Chrome options provided.');
-            }
-
-            // Redundant check to ensure Chrome options are handled, with a fallback to the default settings.
-            if (!_main['goog:chromeOptions']) {
-                console.log('No Chrome options detected. Using the ShadowDriverJS default settings.');
-                // Initialize the WebDriver with default options if no Chrome options are present.
-                _local_browser_init = new Builder().withCapabilities(_main).build();
-            }
-        } else {
-            // Log an error if the browser is not Chrome (as other browsers are not supported in this code).
-            console.log('Unsupported browser:', _browser);
-            console.log('Please raise a support ticket to handle this issue!');
+    if (_browser === "chrome") {
+      if (_main["goog:chromeOptions"]) {
+        console.log("Chrome options detected.")
+        const customDriverPath = _main.driverPath
+        console.log(customDriverPath)
+        if (!fs.existsSync(customDriverPath)) {
+          throw new Error("Broken")
         }
-    }
+        let chromeOptions = new Options()
+        chromeOptions.setChromeBinaryPath(_main.browserPath)
+        // Add any additional Chrome options
+        chromeOptions.addArguments(...(_main["goog:chromeOptions"].args || []))
+        chromeOptions.setLoggingPrefs({
+          driver: driver_log,
+          browser: browser_log
+        });
+        
+        // Initialize the browser with custom Chrome options and driver path
+        _local_browser_init = new Builder()
+          .forBrowser("chrome")
+          .setChromeOptions(chromeOptions)
+          .setChromeService(
+            new ServiceBuilder(customDriverPath)
+              .loggingTo("./chromedriver.log")
+          )
+          .build()
+        let console_log = function () {
+          const logFilePath = path.resolve("./chromedriver.log")
 
-    // If the WebDriver was successfully initialized, return the instance for further use.
-    if (_local_browser_init) {
-        return _local_browser_init;
+          // Check if the log file exists
+          if (!fs.existsSync(logFilePath)) {
+            console.error(`Log file not found at ${logFilePath}`)
+            process.exit(1)
+          }
+ 
+          // Open the log file for reading and streaming its updates to the console
+          const stream = fs.createReadStream(logFilePath, {
+            encoding: "utf-8",
+            flags: "a+",
+          })
+          stream.on("data", (chunk) => {
+            console.log(chunk)
+          })
+          stream.on("error", (err) => {
+            console.error(`Error reading log file: ${err.message}`)
+          })
+          stream.on("end", () => {
+            console.log("End of log file.")
+          })
+        }
+        console_log()
+      } else {
+        console.log("No Chrome options provided.")
+      }
+      if (!_main["goog:chromeOptions"]) {
+        console.log(
+          "No Chrome options detected. Using the ShadowDriverJS default settings."
+        )
+        // Initialize the WebDriver with default options if no Chrome options are present.
+        // _local_browser_init = new Builder().withCapabilities(_main).build()
+      }
+    } else {
+      console.log("Unsupported browser:", _browser)
+      console.log("Please raise a support ticket to handle this issue!")
     }
-
-    // If the browser initialization fails, throw an error indicating failure.
-    throw new Error("Failed to initialize the browser.");
+  }
+  if (_local_browser_init) {
+    console.log("it did")
+    // Set timeouts for the WebDriver instance
+    await _local_browser_init.manage().setTimeouts({
+      implicit: 10000, // 10 seconds for implicit waits
+      pageLoad: 20000, // 20 seconds for page loads
+      script: 30000, // 30 seconds for script execution
+    })
+    return _local_browser_init
+  }
+  throw new Error("Failed to initialize the browser.")
 }
 
-// Export the _manager function so it can be used in other modules within the application.
-module.exports = { _manager };
+module.exports = { _manager }
+
+//node src/shadowRunner/runner.js exec shadow.conf.js --spec e2e/sample.spec.js

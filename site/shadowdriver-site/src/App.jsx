@@ -111,7 +111,7 @@ function App() {
                         margin: "0 auto",
                       }}
                     >
-                      Join thousands of developers using ShadowdriverJS to supercharge their testing workflows.
+                      Join thousands of Developers & QA using ShadowdriverJS to supercharge their testing workflows.
                     </p>
 
                     {/* Call-to-Action Button */}

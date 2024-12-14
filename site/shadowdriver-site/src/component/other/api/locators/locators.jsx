@@ -18,6 +18,7 @@ export default function LocatorsAPI() {
           <div className="col-md-3 text-light">
             <div className="p-3 bg-secondary rounded shadow">
               <h4 className="text-warning fw-bold mb-3">Why Use Locators?</h4>
+              
               <p className="fs-6">
                 Locators are the foundation of automated testing. They allow you to identify elements
                 on a web page for interaction, such as clicking buttons, filling forms, or verifying content.
@@ -33,7 +34,15 @@ export default function LocatorsAPI() {
 
           {/* Main Content */}
           <div className="col-md-6">
-            <h2 className="text-success fw-bold text-center mb-4 display-6">Locators</h2>
+            <h2 className="text-primary fw-bold text-center mb-4 display-6">Locators</h2>
+            <hr
+            style={{
+              height: "5px", // Thickness of the line
+              backgroundColor: "white", // Line color
+              border: "none", // Removes default border styling
+              margin: "20px 0", // Optional spacing
+            }}
+          />
             <p className="text-white text-center fs-5 mb-5">
               ShadowdriverJS provides a variety of locators to help you identify and interact with elements in the DOM effectively.
             </p>

@@ -13,7 +13,7 @@ export default function MainSection() {
             </p>
             <a
               href="#get-started"
-              className="btn btn-success btn-lg shadow-lg"
+              className="btn btn-primary btn-lg shadow-lg rounded-5"
             >
               Get Started
             </a>

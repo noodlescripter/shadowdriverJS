@@ -3,12 +3,12 @@ const path = require('path');
 const vm = require('vm');
 const Mocha = require('mocha');
 const glob = require('glob');
-const {initializeDriver} = require('../lib/Driver');
-const shadowdriver = require('../lib/shadowdriver');
-const by = require('../lib/By');
+const {initializeDriver} = require('../lib.dep/Driver');
+const shadowdriver = require('../lib.dep/shadowdriver');
+const by = require('../lib.dep/By');
 const {capabilities} = require("../shadow.conf");
 
-const {fetchOpenAIResponse} = require('../lib/ai/open-ai/ai-engine');
+const {fetchOpenAIResponse} = require('../lib.dep/ai/open-ai/ai-engine');
 
 async function configExe(confFile, commandArgs) {
     // checking if the caps are present!!
@@ -66,7 +66,7 @@ async function configExe(confFile, commandArgs) {
     }
 
 
-    global.by = await by;
+    global.by =  by;
     global.shadowdriver = shadowdriver;
 
     if (typeof confFile.onPrepare === 'function') {

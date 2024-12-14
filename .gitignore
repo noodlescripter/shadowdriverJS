@@ -10,3 +10,5 @@ dist
 package
 boot.html
 src/node_modules
+browser
+driver

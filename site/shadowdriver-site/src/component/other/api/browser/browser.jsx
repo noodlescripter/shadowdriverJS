@@ -21,7 +21,15 @@ export default function BrowserAPI() {
 
           {/* Main Content */}
           <div className="col-md-6">
-            <h2 className="text-success fw-bold text-center mb-4 display-6">Browser Methods</h2>
+            <h2 className="text-primary fw-bold text-center mb-4 display-6">Browser Methods</h2>
+            <hr
+            style={{
+              height: "5px", // Thickness of the line
+              backgroundColor: "white", // Line color
+              border: "none", // Removes default border styling
+              margin: "20px 0", // Optional spacing
+            }}
+          />
             <p className="text-white text-center fs-5 mb-5">
               ShadowdriverJS provides a comprehensive set of browser methods to help you seamlessly interact with your web application.
             </p>
