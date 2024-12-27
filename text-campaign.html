@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>shadowdriverJS - Learn for Free</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@600&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap 4 CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <style>
+    /* Typography */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f0f4f8;
+      margin-top: 70px;
+      /* To prevent content from being hidden behind fixed navbar */
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      color: #fff !important;
+      font-size: 1.5rem;
+    }
+
+    /* Remove navbar toggler and collapsible functionality */
+    .navbar-nav {
+      display: flex !important;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      transition: color 0.3s ease;
+      margin-left: 20px;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      color: #FFD700 !important;
+      /* Gold color on hover */
+    }
+
+    /* Add underline on hover */
+    .nav-link::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #FFD700;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Jumbotron Styling */
+    .jumbotron {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('https://images.unsplash.com/photo-1584701644216-8d8fba5fda16?fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+      border-bottom-left-radius: 50% 10%;
+      border-bottom-right-radius: 50% 10%;
+      overflow: hidden;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .jumbotron h1 {
+      font-size: 3rem;
+      animation: slideInDown 1s ease-out;
+    }
+
+    .jumbotron p {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s forwards;
+    }
+
+    .jumbotron p:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    .jumbotron p:nth-child(4) {
+      animation-delay: 1.5s;
+    }
+
+    /* Card Styling */
+    .card {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      margin-top: -80px;
+      /* Increased overlap */
+      z-index: 1;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeInUp 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #000DFF;
+    }
+
+    .list-group-item {
+      background-color: transparent;
+      border: none;
+      padding-left: 0;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .list-group-item:hover {
+      background-color: #e0f7fa;
+      border-radius: 5px;
+      transform: translateX(10px);
+    }
+
+    .list-group-item i {
+      color: #6B73FF;
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    /* Sign-Up CTA Styling */
+    .signup-cta {
+      background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+      color: #fff;
+      padding: 60px 0;
+      text-align: center;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .signup-cta h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.75rem;
+      margin-bottom: 20px;
+      animation: slideInUp 1s ease-out forwards;
+      opacity: 0;
+      animation-delay: 0.5s;
+    }
+
+    .signup-cta p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-out forwards;
+      opacity: 0;
+      animation-delay: 1s;
+    }
+
+    .signup-cta a.btn {
+      font-size: 1rem;
+      padding: 12px 30px;
+      border-radius: 50px;
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+      background-color: #fff;
+      color: #ff7e5f;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .signup-cta a.btn:hover {
+      background-color: #ff7e5f;
+      color: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .signup-cta a.btn i {
+      margin-right: 8px;
+      font-size: 1.2rem;
+    }
+
+    /* Copy Button Styling */
+    .copy-btn {
+      margin-left: 10px;
+      padding: 5px 10px;
+      font-size: 0.9rem;
+      border-radius: 5px;
+      border: none;
+      background-color: #6B73FF;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .copy-btn:hover {
+      background-color: #5551f8;
+      transform: scale(1.1);
+    }
+
+    /* Footer Styling */
+    .footer {
+      margin-top: 40px;
+      /* Adjusted to accommodate the new CTA section */
+      padding: 20px 0;
+      background-color: #fff;
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+      font-size: 0.9em;
+      color: #777;
+      text-align: center;
+      border-top-left-radius: 50% 10%;
+      border-top-right-radius: 50% 10%;
+    }
+
+    .footer a {
+      color: #007BFF;
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .footer a:hover {
+      color: #FFD700;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .jumbotron {
+        padding: 80px 0;
+      }
+
+      .jumbotron h1 {
+        font-size: 2.5rem;
+      }
+
+      .card h2 {
+        font-size: 1.75rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .jumbotron {
+        padding: 60px 0;
+      }
+
+      .jumbotron h1 {
+        font-size: 2rem;
+      }
+
+      .jumbotron p.lead,
+      .jumbotron p.font-weight-bold {
+        font-size: 1rem;
+      }
+
+      .card h2 {
+        font-size: 1.5rem;
+      }
+
+      .signup-cta h3 {
+        font-size: 1.5rem;
+      }
+
+      .signup-cta p {
+        font-size: 1rem;
+      }
+
+      .copy-btn {
+        padding: 5px 8px;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .jumbotron {
+        padding: 40px 0;
+      }
+
+      .jumbotron h1 {
+        font-size: 1.75rem;
+      }
+
+      .jumbotron p.lead,
+      .jumbotron p.font-weight-bold {
+        font-size: 0.9rem;
+      }
+
+      .signup-cta h3 {
+        font-size: 1.25rem;
+      }
+
+      .signup-cta p {
+        font-size: 0.9rem;
+      }
+
+      .copy-btn {
+        padding: 5px 8px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand">
+    <div class="container">
+      <a class="navbar-brand" href="#">shadowdriverJS Coding Resources</a>
+      <!-- Removed Navbar Toggler and collapsible links -->
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Unlock Your Coding Potential</h1>
+      <p class="lead">Join thousands of learners and take your coding skills to the next level—completely for free!</p>
+      <p class="font-weight-bold">Access comprehensive resources, interactive tutorials, and expert guidance.</p>
+      <p class="font-weight-bold">Embark on your coding journey with shadowdriverJS today!</p>
+    </div>
+  </header>
+
+  <!-- What You'll Learn Section -->
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-10 col-lg-8 mx-auto">
+        <div class="card p-4">
+          <h2 class="text-center mb-4">What You'll Learn</h2>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="fab fa-js"></i> <strong>JavaScript</strong></li>
+            <li class="list-group-item"><i class="fab fa-linux"></i> <strong>Linux</strong></li>
+            <li class="list-group-item"><i class="fas fa-terminal"></i> <strong>Windows Subsystem for Linux
+                (WSL)</strong></li>
+            <li class="list-group-item"><i class="fab fa-docker"></i> <strong>Docker</strong></li>
+            <li class="list-group-item"><i class="fas fa-layer-group"></i> <strong>Docker-Compose</strong></li>
+            <li class="list-group-item"><i class="fab fa-linux"></i> <strong>OG Linux (Operating System Linux)</strong>
+            </li>
+            <li class="list-group-item"><i class="fab fa-windows"></i> <strong>Windows Server Management</strong></li>
+            <li class="list-group-item"><i class="fab fa-react"></i> <strong>Intro to React with Vite</strong></li>
+            <li class="list-group-item"><i class="fab fa-node-js"></i> <strong>Node.js</strong></li>
+            <li class="list-group-item"><i class="fab fa-npm"></i> <strong>NPM</strong></li>
+            <li class="list-group-item"><i class="fas fa-cogs"></i> <strong>NPM Custom Package</strong></li>
+            <li class="list-group-item"><i class="fas fa-bug"></i> <strong>Testing Applications with
+                ShadowDriverJS</strong></li>
+            <li class="list-group-item"><i class="fas fa-cogs"></i> <strong>Includes Selenium-Webdriver,
+                Selenium-Server, all Browsers and Drivers, Implementing in Docker</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign-Up CTA Section -->
+  <section class="signup-cta">
+    <div class="container">
+      <h3>Ready to Elevate Your Coding Skills?</h3>
+      <p>Choose your preferred way to get in touch!</p>
+
+      <div class="row justify-content-center">
+        <!-- Text Message Option -->
+        <div class="col-md-6 text-center contact-option">
+          <h4 class="mb-3">Send a Text Message</h4>
+          <div class="contact-info">
+            <span id="phone-number">+1 (917) 336-9893</span>
+            <button class="copy-btn" data-copy-target="phone-number" aria-label="Copy phone number">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+          <a href="tel:+19173369893" class="btn btn-light mt-3">
+            <i class="fas fa-mobile-alt"></i> Call or Text Now
+          </a>
+        </div>
+
+        <!-- Email Option -->
+        <div class="col-md-6 text-center contact-option">
+          <h4 class="mb-3">Send an Email</h4>
+          <div class="contact-info">
+            <span id="email-address">hamim.alam.personal@gmail.com</span>
+            <button class="copy-btn" data-copy-target="email-address" aria-label="Copy email address">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+          <a href="mailto:hamim.alam.personal@gmail.com" class="btn btn-light mt-3">
+            <i class="fas fa-envelope"></i> Send Email Now
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Toast Notification -->
+    <div id="custom-toast" class="custom-toast">
+      <span id="toast-message"></span>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 shadowdriverJS Coding Resources. All rights reserved.</p>
+      <!-- Optional: Add social media links -->
+      <p>
+        <a href="#" class="text-muted mr-2"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-muted mr-2"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-muted mr-2"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="text-muted"><i class="fab fa-github"></i></a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and dependencies (Bootstrap 4 requires jQuery and Popper.js) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdY6ol5Qt064f19Vbyw7+d7WNctISIm5dEkb3uMAVCqjRyboolYv2u1rvfeds" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXlOHj3R6DxHqwp+Z4ta8k1pONlm/ttViSefRC5/KZjPbMRP8rA/nqBtYiV" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTjfH1NKnvPuAZcAYQSVYLOGsFS4hAL68raN5ebka6JRrDivA8"
+    crossorigin="anonymous"></script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Toast functionality
+      function showToast(message, duration = 2000) {
+        const toast = document.getElementById('custom-toast');
+        const toastMessage = document.getElementById('toast-message');
+        toastMessage.textContent = message;
+
+        toast.style.display = 'block';
+        setTimeout(() => {
+          toast.style.display = 'none';
+        }, duration);
+      }
+
+      // Copy to clipboard function
+      async function copyToClipboard(text) {
+        try {
+          await navigator.clipboard.writeText(text);
+          showToast('Copied to clipboard!');
+        } catch (err) {
+          // Fallback for older browsers
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          textarea.style.position = 'fixed';
+          textarea.style.left = '-9999px';
+          document.body.appendChild(textarea);
+          textarea.select();
+
+          try {
+            document.execCommand('copy');
+            showToast('Copied to clipboard!');
+          } catch (err) {
+            showToast('Failed to copy!');
+          } finally {
+            document.body.removeChild(textarea);
+          }
+        }
+      }
+
+      // Add click handlers to copy buttons
+      document.querySelectorAll('.copy-btn').forEach(button => {
+        button.addEventListener('click', function () {
+          const targetId = this.getAttribute('data-copy-target');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            const text = targetElement.innerText.trim();
+            copyToClipboard(text);
+          } else {
+            showToast('Error: Could not find text to copy');
+          }
+        });
+      });
+
+      // Handle phone links for desktop
+      document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+          if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
+            e.preventDefault();
+            const phoneNumber = this.href.replace('tel:', '');
+            copyToClipboard(phoneNumber);
+            showToast('Phone number copied! Use your phone to dial.');
+          }
+        });
+      });
+
+      // Handle email links
+      document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+          const email = this.href.replace('mailto:', '');
+          showToast(`Opening email client for: ${email}`);
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

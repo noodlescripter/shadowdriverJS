@@ -7,8 +7,10 @@ installer.js
 xunit.xml
 .env
 dist
-package
 boot.html
 src/node_modules
 browser
 driver
+package/
+.chromedriver.log
+json-test-report/

@@ -3,6 +3,11 @@ module.exports = {
   // Specifies the testing framework to use. In this case, it's Mocha.
   framework: "mocha",
 
+  //suites configuration
+  suites:{
+    dummyTest: ["e2e/sample.spec.js", "e2e/sample.spec2.js"],
+  },
+
   // This line seems to be a custom option, likely specific to your setup.
   // It might be used to enable some AI-related features in your tests.
   //ai_res: false,
@@ -12,8 +17,8 @@ module.exports = {
     // Specifies the browser to use for testing. Here, it's Chrome.
     browserName: "chrome",
     //logs
-    browser_log: "severe",
-    driver_log: "severe",
+    browser_log: "OFF",
+    driver_log: "OFF",
     //chromeversion
     version: "131.0.6778.85",
     // Provides Chrome-specific options.
@@ -29,8 +34,6 @@ module.exports = {
         "--disable-gpu",
         // Starts the browser maximized to ensure the entire web page is visible.
         "--start-maximized",
-        "--disable-software-rasterizer",
-        "--disable-site-isolation-trials",
       ],
     },
   },
@@ -75,8 +78,7 @@ module.exports = {
   after: () => {
     // Closes the browser window.
     browser.quit()
-  },
-  generate_report: () => {
+    //generate html report
     generate_HTML("./")
   },
 }

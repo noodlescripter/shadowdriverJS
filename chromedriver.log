@@ -1,24 +1,24 @@
-[1734152986.030][INFO]: Starting ChromeDriver 131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}) on port 60477
-[1734152986.030][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-[1734152986.031][INFO]: ChromeDriver was started successfully on port 60477
-[1734152986.047][INFO]: [077664ddfb5e9609005bbb91f3dda817] COMMAND InitSession {
+[1734938860.427][INFO]: Starting ChromeDriver 131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}) on port 55311
+[1734938860.427][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1734938860.428][INFO]: ChromeDriver was started successfully on port 55311
+[1734938860.435][INFO]: [5bd95174e770e8506685095903ade291] COMMAND InitSession {
    "capabilities": {
       "alwaysMatch": {
          "browserName": "chrome",
          "goog:chromeOptions": {
-            "args": [ "--disable-infobars", "--disable-gpu", "--start-maximized", "--disable-software-rasterizer", "--disable-site-isolation-trials" ],
+            "args": [ "--disable-infobars", "--disable-gpu", "--start-maximized" ],
             "binary": "/Users/hamim/Workspace/shadowdriver_workspace/shadowdriverJS/browser/browserBinary/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"
          },
          "goog:loggingPrefs": {
-            "browser": "SEVERE",
-            "driver": "SEVERE"
+            "browser": "OFF",
+            "driver": "OFF"
          }
       },
       "firstMatch": [ {
       } ]
    }
 }
-[1734152986.048][INFO]: Populating Preferences file: {
+[1734938860.438][INFO]: Populating Preferences file: {
    "alternate_error_pages": {
       "enabled": false
    },
@@ -71,7 +71,7 @@
       "enabled": false
    }
 }
-[1734152986.049][INFO]: Populating Local State file: {
+[1734938860.439][INFO]: Populating Local State file: {
    "background_mode": {
       "enabled": false
    },
@@ -81,310 +81,23 @@
       }
    }
 }
-[1734152986.049][INFO]: ChromeDriver supports communication with Chrome via pipes. This is more reliable and more secure.
-[1734152986.049][INFO]: Use the --remote-debugging-pipe Chrome switch instead of the default --remote-debugging-port to enable this communication mode.
-[1734152986.049][INFO]: Launching chrome: /Users/hamim/Workspace/shadowdriver_workspace/shadowdriverJS/browser/browserBinary/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --allow-pre-commit-input --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-gpu --disable-hang-monitor --disable-infobars --disable-popup-blocking --disable-prompt-on-repost --disable-site-isolation-trials --disable-software-rasterizer --disable-sync --enable-automation --enable-logging --log-level=0 --no-first-run --no-service-autorun --password-store=basic --remote-debugging-port=0 --start-maximized --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/0v/r8br5sps4nj5rhggjg4f3pdc0000gn/T/.org.chromium.Chromium.QbDeKE data:,
-[1734152986.476][INFO]: resolved localhost to ["::1","127.0.0.1"]
-[1734152986.496][INFO]: [077664ddfb5e9609005bbb91f3dda817] RESPONSE InitSession {
-   "capabilities": {
-      "acceptInsecureCerts": false,
-      "browserName": "chrome",
-      "browserVersion": "131.0.6778.85",
-      "chrome": {
-         "chromedriverVersion": "131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285})",
-         "userDataDir": "/var/folders/0v/r8br5sps4nj5rhggjg4f3pdc0000gn/T/.org.chromium.Chromium.QbDeKE"
-      },
-      "fedcm:accounts": true,
-      "goog:chromeOptions": {
-         "debuggerAddress": "localhost:60485"
-      },
-      "networkConnectionEnabled": false,
-      "pageLoadStrategy": "normal",
-      "platformName": "mac",
-      "proxy": {
-      },
-      "setWindowRect": true,
-      "strictFileInteractability": false,
-      "timeouts": {
-         "implicit": 0,
-         "pageLoad": 300000,
-         "script": 30000
-      },
-      "unhandledPromptBehavior": "dismiss and notify",
-      "webauthn:extension:credBlob": true,
-      "webauthn:extension:largeBlob": true,
-      "webauthn:extension:minPinLength": true,
-      "webauthn:extension:prf": true,
-      "webauthn:virtualAuthenticators": true
-   },
-   "sessionId": "077664ddfb5e9609005bbb91f3dda817"
-}
-[1734152986.498][INFO]: [077664ddfb5e9609005bbb91f3dda817] COMMAND SetTimeouts {
-   "implicit": 10000,
-   "pageLoad": 20000,
-   "script": 30000
-}
-[1734152986.498][INFO]: [077664ddfb5e9609005bbb91f3dda817] RESPONSE SetTimeouts
-[1734152986.502][INFO]: [077664ddfb5e9609005bbb91f3dda817] COMMAND Navigate {
-   "url": "https://www.google.com/"
-}
-[1734152986.503][INFO]: Waiting for pending navigations...
-[1734152986.515][INFO]: Done waiting for pending navigations. Status: ok
-[1734152986.632][INFO]: Waiting for pending navigations...
-[1734152986.978][INFO]: Done waiting for pending navigations. Status: ok
-[1734152986.978][INFO]: [077664ddfb5e9609005bbb91f3dda817] RESPONSE Navigate
-[1734152989.982][INFO]: [077664ddfb5e9609005bbb91f3dda817] COMMAND FindElement {
-   "using": "xpath",
-   "value": "//*[@title=\"Search\"]"
-}
-[1734152989.982][INFO]: Waiting for pending navigations...
-[1734152989.983][INFO]: Done waiting for pending navigations. Status: ok
-[1734152989.991][INFO]: Waiting for pending navigations...
-[1734152989.991][INFO]: Done waiting for pending navigations. Status: ok
-[1734152989.991][INFO]: [077664ddfb5e9609005bbb91f3dda817] RESPONSE FindElement {
-   "element-6066-11e4-a52e-4f735466cecf": "f.C6849247E9EEF91C2ECAF25BB7D70809.d.A66622F9C658A355A8F69C68DF3D640E.e.2"
-}
-[1734152989.992][INFO]: [077664ddfb5e9609005bbb91f3dda817] COMMAND TypeElement {
-   "id": "f.C6849247E9EEF91C2ECAF25BB7D70809.d.A66622F9C658A355A8F69C68DF3D640E.e.2",
-   "text": "Hello",
-   "value": [ "H", "e", "l", "l", "o" ]
-}
-[1734152989.992][INFO]: Waiting for pending navigations...
-[1734152989.993][INFO]: Done waiting for pending navigations. Status: ok
-[1734152990.081][INFO]: Waiting for pending navigations...
-[1734152990.081][INFO]: Done waiting for pending navigations. Status: ok
-[1734152990.081][INFO]: [077664ddfb5e9609005bbb91f3dda817] RESPONSE TypeElement
-[1734152993.086][INFO]: [077664ddfb5e9609005bbb91f3dda817] COMMAND FindElement {
-   "using": "xpath",
-   "value": "//*[@title=\"Search\"]"
-}
-[1734152993.086][INFO]: Waiting for pending navigations...
-[1734152993.087][INFO]: Done waiting for pending navigations. Status: ok
-[1734152993.092][INFO]: Waiting for pending navigations...
-[1734152993.093][INFO]: Done waiting for pending navigations. Status: ok
-[1734152993.093][INFO]: [077664ddfb5e9609005bbb91f3dda817] RESPONSE FindElement {
-   "element-6066-11e4-a52e-4f735466cecf": "f.C6849247E9EEF91C2ECAF25BB7D70809.d.A66622F9C658A355A8F69C68DF3D640E.e.2"
-}
-[1734152993.094][INFO]: [077664ddfb5e9609005bbb91f3dda817] COMMAND ClearElement {
-   "id": "f.C6849247E9EEF91C2ECAF25BB7D70809.d.A66622F9C658A355A8F69C68DF3D640E.e.2"
-}
-[1734152993.094][INFO]: Waiting for pending navigations...
-[1734152993.094][INFO]: Done waiting for pending navigations. Status: ok
-[1734152993.102][INFO]: 
-	=== NOTE: ===
-	The Clear command in ChromeDriver 2.43 and above
-	has been updated to conform to the current standard,
-	including raising blur event after clearing.
-
-[1734152993.110][INFO]: Waiting for pending navigations...
-[1734152993.110][INFO]: Done waiting for pending navigations. Status: ok
-[1734152993.110][INFO]: [077664ddfb5e9609005bbb91f3dda817] RESPONSE ClearElement
-[1734152993.112][INFO]: [077664ddfb5e9609005bbb91f3dda817] COMMAND FindElement {
-   "using": "xpath",
-   "value": "//*[@title=\"Search\"]"
-}
-[1734152993.112][INFO]: Waiting for pending navigations...
-[1734152993.112][INFO]: Done waiting for pending navigations. Status: ok
-[1734152993.115][INFO]: Waiting for pending navigations...
-[1734152993.115][INFO]: Done waiting for pending navigations. Status: ok
-[1734152993.115][INFO]: [077664ddfb5e9609005bbb91f3dda817] RESPONSE FindElement {
-   "element-6066-11e4-a52e-4f735466cecf": "f.C6849247E9EEF91C2ECAF25BB7D70809.d.A66622F9C658A355A8F69C68DF3D640E.e.2"
-}
-[1734152993.116][INFO]: [077664ddfb5e9609005bbb91f3dda817] COMMAND TypeElement {
-   "id": "f.C6849247E9EEF91C2ECAF25BB7D70809.d.A66622F9C658A355A8F69C68DF3D640E.e.2",
-   "text": "tor mare chudi",
-   "value": [ "t", "o", "r", " ", "m", "a", "r", "e", " ", "c", "h", "u", "d", "i" ]
-}
-[1734152993.116][INFO]: Waiting for pending navigations...
-[1734152993.116][INFO]: Done waiting for pending navigations. Status: ok
-[1734152993.144][INFO]: Waiting for pending navigations...
-[1734152993.145][INFO]: Done waiting for pending navigations. Status: ok
-[1734152993.145][INFO]: [077664ddfb5e9609005bbb91f3dda817] RESPONSE TypeElement
-[1734152996.149][INFO]: [077664ddfb5e9609005bbb91f3dda817] COMMAND GetWindows {
-}
-[1734152996.150][INFO]: [077664ddfb5e9609005bbb91f3dda817] RESPONSE GetWindows [ "C6849247E9EEF91C2ECAF25BB7D70809" ]
-[1734152996.153][INFO]: [077664ddfb5e9609005bbb91f3dda817] COMMAND Navigate {
-   "url": "https://www.google.com/"
-}
-[1734152996.153][INFO]: Waiting for pending navigations...
-[1734152996.154][INFO]: Done waiting for pending navigations. Status: ok
-[1734152996.241][INFO]: Waiting for pending navigations...
-[1734152996.415][INFO]: Done waiting for pending navigations. Status: ok
-[1734152996.415][INFO]: [077664ddfb5e9609005bbb91f3dda817] RESPONSE Navigate
-[1734152999.418][INFO]: [077664ddfb5e9609005bbb91f3dda817] COMMAND FindElements {
-   "using": "xpath",
-   "value": "//*[@title=\"Sear\"]"
-}
-[1734152999.418][INFO]: Waiting for pending navigations...
-[1734152999.418][INFO]: Done waiting for pending navigations. Status: ok
-[1734153009.468][INFO]: Waiting for pending navigations...
-[1734153009.469][INFO]: Done waiting for pending navigations. Status: ok
-[1734153009.469][INFO]: [077664ddfb5e9609005bbb91f3dda817] RESPONSE FindElements [  ]
-[1734153009.472][INFO]: [077664ddfb5e9609005bbb91f3dda817] COMMAND PerformActions {
-   "actions": [ {
-      "actions": [ {
-         "type": "keyDown",
-         "value": ""
-      }, {
-         "type": "keyDown",
-         "value": "s"
-      }, {
-         "type": "keyUp",
-         "value": "s"
-      }, {
-         "type": "keyDown",
-         "value": "h"
-      }, {
-         "type": "keyUp",
-         "value": "h"
-      }, {
-         "type": "keyDown",
-         "value": "o"
-      }, {
-         "type": "keyUp",
-         "value": "o"
-      }, {
-         "type": "keyDown",
-         "value": "w"
-      }, {
-         "type": "keyUp",
-         "value": "w"
-      }, {
-         "type": "keyDown",
-         "value": " "
-      }, {
-         "type": "keyUp",
-         "value": " "
-      }, {
-         "type": "keyDown",
-         "value": "m"
-      }, {
-         "type": "keyUp",
-         "value": "m"
-      }, {
-         "type": "keyDown",
-         "value": "e"
-      }, {
-         "type": "keyUp",
-         "value": "e"
-      }, {
-         "type": "keyDown",
-         "value": " "
-      }, {
-         "type": "keyUp",
-         "value": " "
-      }, {
-         "type": "keyDown",
-         "value": "k"
-      }, {
-         "type": "keyUp",
-         "value": "k"
-      }, {
-         "type": "keyDown",
-         "value": "i"
-      }, {
-         "type": "keyUp",
-         "value": "i"
-      }, {
-         "type": "keyDown",
-         "value": "t"
-      }, {
-         "type": "keyUp",
-         "value": "t"
-      }, {
-         "type": "keyDown",
-         "value": "t"
-      }, {
-         "type": "keyUp",
-         "value": "t"
-      }, {
-         "type": "keyDown",
-         "value": "e"
-      }, {
-         "type": "keyUp",
-         "value": "e"
-      }, {
-         "type": "keyDown",
-         "value": "n"
-      }, {
-         "type": "keyUp",
-         "value": "n"
-      }, {
-         "type": "keyDown",
-         "value": " "
-      }, {
-         "type": "keyUp",
-         "value": " "
-      }, {
-         "type": "keyDown",
-         "value": "p"
-      }, {
-         "type": "keyUp",
-         "value": "p"
-      }, {
-         "type": "keyDown",
-         "value": "i"
-      }, {
-         "type": "keyUp",
-         "value": "i"
-      }, {
-         "type": "keyDown",
-         "value": "c"
-      }, {
-         "type": "keyUp",
-         "value": "c"
-      }, {
-         "type": "keyUp",
-         "value": ""
-      }, {
-         "type": "keyDown",
-         "value": "t"
-      }, {
-         "type": "keyUp",
-         "value": "t"
-      }, {
-         "type": "keyDown",
-         "value": "u"
-      }, {
-         "type": "keyUp",
-         "value": "u"
-      }, {
-         "type": "keyDown",
-         "value": "r"
-      }, {
-         "type": "keyUp",
-         "value": "r"
-      }, {
-         "type": "keyDown",
-         "value": "e"
-      }, {
-         "type": "keyUp",
-         "value": "e"
-      } ],
-      "id": "default keyboard",
-      "type": "key"
-   } ]
-}
-[1734153009.472][INFO]: Waiting for pending navigations...
-[1734153009.473][INFO]: Done waiting for pending navigations. Status: ok
-[1734153009.508][INFO]: Waiting for pending navigations...
-[1734153009.508][INFO]: Done waiting for pending navigations. Status: ok
-[1734153009.508][INFO]: [077664ddfb5e9609005bbb91f3dda817] RESPONSE PerformActions
-[1734153009.509][INFO]: [077664ddfb5e9609005bbb91f3dda817] COMMAND PerformActions {
-   "actions": [ {
-      "actions": [ {
-         "type": "keyDown",
-         "value": ""
-      } ],
-      "id": "default keyboard",
-      "type": "key"
-   } ]
-}
-[1734153009.509][INFO]: Waiting for pending navigations...
-[1734153009.510][INFO]: Done waiting for pending navigations. Status: ok
-[1734153009.513][INFO]: Waiting for pending navigations...
-[1734153009.513][INFO]: Done waiting for pending navigations. Status: ok
-[1734153009.513][INFO]: [077664ddfb5e9609005bbb91f3dda817] RESPONSE PerformActions
-[1734153014.539][INFO]: [077664ddfb5e9609005bbb91f3dda817] COMMAND Quit {
-}
-[1734153014.594][INFO]: [077664ddfb5e9609005bbb91f3dda817] RESPONSE Quit
+[1734938860.439][INFO]: ChromeDriver supports communication with Chrome via pipes. This is more reliable and more secure.
+[1734938860.439][INFO]: Use the --remote-debugging-pipe Chrome switch instead of the default --remote-debugging-port to enable this communication mode.
+[1734938860.439][INFO]: Launching chrome: /Users/hamim/Workspace/shadowdriver_workspace/shadowdriverJS/browser/browserBinary/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --allow-pre-commit-input --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-gpu --disable-hang-monitor --disable-infobars --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-logging --log-level=0 --no-first-run --no-service-autorun --password-store=basic --remote-debugging-port=0 --start-maximized --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/0v/r8br5sps4nj5rhggjg4f3pdc0000gn/T/.org.chromium.Chromium.1wG6cN data:,
+[1734938860.844][INFO]: resolved localhost to ["::1","127.0.0.1"]
+[1734938860.867][INFO]: Waiting for pending navigations...
+[1734938860.869][INFO]: Done waiting for pending navigations. Status: ok
+[1734938860.977][INFO]: Waiting for pending navigations...
+[1734938861.347][INFO]: Done waiting for pending navigations. Status: ok
+[1734938864.350][INFO]: Waiting for pending navigations...
+[1734938864.351][INFO]: Done waiting for pending navigations. Status: ok
+[1734938864.357][INFO]: Waiting for pending navigations...
+[1734938864.358][INFO]: Done waiting for pending navigations. Status: ok
+[1734938864.359][INFO]: Waiting for pending navigations...
+[1734938864.359][INFO]: Done waiting for pending navigations. Status: ok
+[1734938864.447][INFO]: Waiting for pending navigations...
+[1734938864.627][INFO]: Done waiting for pending navigations. Status: ok
+[1734938867.630][INFO]: Waiting for pending navigations...
+[1734938867.631][INFO]: Done waiting for pending navigations. Status: ok
+[1734938877.649][INFO]: Waiting for pending navigations...
+[1734938877.650][INFO]: Done waiting for pending navigations. Status: ok

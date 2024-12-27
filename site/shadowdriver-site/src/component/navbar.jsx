@@ -1,23 +1,40 @@
-import { useEffect, useState } from "react";
-import TemporaryCountdown from "./temp/countdown";
+import { useEffect, useState } from "react"
+import TemporaryCountdown from "./temp/countdown"
 
 export default function NavBar() {
-  const [release, setRelease] = useState(false)
+  const default_shadowdriver_version = "v1"
+  const shadowdriverVersion = ["v1"];
+  const [release, setRelease] = useState(false);
+  const [version, setVersion] = useState(localStorage.getItem('apiVersion').replace("/", ""));
+
   function handleRelease() {
     const today = new Date();
     const month = today.getMonth();
     const date = today.getDate();
     const year = today.getFullYear();
-    const fulldate = `${month}/${date}/${year}`
-    if (fulldate === '12/10/2024') {
-      setRelease(true)
+    const fulldate = `${month}/${date}/${year}`;
+
+    if (fulldate === "12/10/2024") {
+      setRelease(true);
     }
-    setRelease(true)
+    setRelease(true);
   }
 
   useEffect(() => {
+    sessionStorage.setItem("apiVersion", localStorage.getItem('apiVersion'));
+  }, []);
+
+  function handleVersion(event) {
+    const version_local = event.target.getAttribute("data-version");
+    setVersion(version_local);
+    localStorage.setItem("apiVersion", `/${version_local}`);
+  }
+  
+  useEffect(() => {
     handleRelease();
-  }, [])
+    setVersion(default_shadowdriver_version)
+    localStorage.setItem("apiVersion", `/${default_shadowdriver_version}`);
+  }, []);
 
   return (
     <>
@@ -33,7 +50,7 @@ export default function NavBar() {
         >
           <div className="container">
             {/* Left-aligned Brand */}
-            <a
+            <p
               href="/"
               className="navbar-brand d-flex align-items-center text-primary fw-bold"
               style={{
@@ -46,13 +63,46 @@ export default function NavBar() {
                 className="fa-solid fa-robot text-warning"
                 style={{ fontSize: "2.0rem" }}
               ></i>
-              &nbsp; shadowdriverJS
-              <span className="text-danger ms-2 fw-bold">v2.0.1 [BETA]</span>
-            </a>
-
+              &nbsp; <a href="/" style={{
+                textDecoration: "none",
+              }}>shadowdriverJS</a>
+              <div className="dropdown">
+                <button
+                  className="btn btn-secondary dropdown-toggle bg-transparent bg-black"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  style={{
+                    border: "none",
+                  }}
+                >
+                  <strong className="text-danger h5">{version}</strong>
+                </button>
+                <ul className="dropdown-menu">
+                  {shadowdriverVersion.map((item, index) => (
+                    <li
+                      key={index}
+                      className="dropdown-item"
+                      data-version={item}
+                      onClick={handleVersion}
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {/* Add the API Nav Item */}
+              <a
+                href={version + "/api"}
+                className="nav-link text-warning ms-3"
+                style={{ fontSize: "1.1rem" }}
+              >
+                API Docs
+              </a>
+            </p>
             {/* Right-aligned GitHub Icon */}
             <a
-              href="https://github.com/noodlescripter/shadowdriverJS/" // Replace with your GitHub repo link
+              href="https://github.com/noodlescripter/shadowdriverJS/"
               target="_blank"
               rel="noopener noreferrer"
               className="ms-auto text-white nav-link link-underline-opacity-0"
