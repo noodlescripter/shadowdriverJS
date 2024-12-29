@@ -1,5 +1,3 @@
-name: shadowdriverjs-publish
-
 on:
   workflow_dispatch:
   push:
@@ -12,31 +10,7 @@ permissions:
   id-token: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm ci
-      - run: npm run build
-      - name: Prepare package
-        run: |
-          mkdir -p package/shadowReporter
-          cp package.json package/
-          cp README.md package/
-          cp src/shadowReporter/template.html package/shadowReporter/
-      - name: Verify package contents
-        run: ls -la package/
-      - name: Upload package artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: package-artifact
-          path: package/
-
-  publish-npm:
-    needs: build
+  build-and-publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -44,19 +18,23 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - name: Download package artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: package-artifact
-          path: package
-      - name: Install dependencies
-        run: npm ci
-      - name: Setup npm auth
+      
+      # Install dependencies and build
+      - run: npm ci
+      - run: npm run build
+      
+      # Prepare package
+      - name: Prepare package
         run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          mkdir -p package/shadowReporter
+          cp package.json package/
+          cp README.md package/
+          cp src/shadowReporter/template.html package/shadowReporter/
+      
+      # Verify and publish
+      - name: Verify package contents
+        run: ls -la package/
       - name: Publish package
         run: cd package && npm publish
         env:
-          NODE_AUTH_TOKEN: "0eb3d4948a656fd79b2aceb24bb8a6bd61ed72ad16a5bcde35148d5c012efdc6"
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
