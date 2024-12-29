@@ -1,16 +1,30 @@
-[
-  {
-    "title": "should perform a sample test case",
-    "fullTitle": "Sample Test Suite should perform a sample test case",
-    "duration": 9650,
-    "status": "pass",
-    "error": null
+{
+  "timestamp": "2024-12-29T03:21:29.436Z",
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "duration": 29500
   },
-  {
-    "title": "Test using css selector and keys",
-    "fullTitle": "Sample Test Suite Test using css selector and keys",
-    "duration": 18363,
-    "status": "pass",
-    "error": null
-  }
-]
+  "results": [
+    {
+      "title": "should perform a sample test case",
+      "suite": "Sample Test Suite",
+      "fullTitle": "Sample Test Suite should perform a sample test case",
+      "duration": 10859,
+      "status": "pass",
+      "timestamp": "2024-12-29T03:21:10.793Z",
+      "error": null
+    },
+    {
+      "title": "Test using css selector and keys",
+      "suite": "Sample Test Suite",
+      "fullTitle": "Sample Test Suite Test using css selector and keys",
+      "duration": 18641,
+      "status": "pass",
+      "timestamp": "2024-12-29T03:21:29.434Z",
+      "error": null
+    }
+  ]
+}

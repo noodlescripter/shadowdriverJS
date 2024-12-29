@@ -70,3 +70,5 @@ rl.question('Enter the project name: ', (projectName) => {
         }
     });
 });
+
+//sudo docker run -it -e NGROK_AUTHTOKEN=2CbJfciYTNS7IhvxL1hwfHqLcAN_5mUNYiNzSkr6c2egennQL ngrok/ngrok http host.docker.internal:9090 --url=chatwith.ngrok.dev

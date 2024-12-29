@@ -1,4 +1,9 @@
+import { useState, useEffect } from "react";
 export default function MainSection() {
+  const [api, getApiVersion] = useState(null);
+  useEffect(() => {
+    getApiVersion(localStorage.getItem("apiVersion"));
+  }, []);
   return (
     <section className="bg-gradient text-center py-5" style={{ background: "linear-gradient(to right, #1e3c72, #2a5298)", color: "#fff" }}>
       <div className="container">
@@ -13,16 +18,17 @@ export default function MainSection() {
             </p>
             <a
               href="#get-started"
-              className="btn btn-primary btn-lg shadow-lg rounded-5"
-            >
-              Get Started
+              className={window.innerWidth < 992 ? "btn btn-primary btn-lg shadow-lg rounded-5 mb-4": "btn btn-primary btn-lg shadow-lg rounded-5"}
+            > 
+            Get Started
             </a>
+            
           </div>
 
           {/* Image Section */}
           <div className="col-md-6 text-center">
             <img
-              src={'./My_Movie.gif'}
+              src={'./12sec.gif'}
               alt="Testing Illustration"
               className="img-fluid rounded shadow"
             />
@@ -47,7 +53,7 @@ export default function MainSection() {
             </div>
             <p className="lead text-light mx-auto" style={{ maxWidth: "700px" }}>
               This command will create a new project folder, generate configuration files, and install all necessary dependencies.
-              <a href="/api" className="text-warning fw-bold text-decoration-none ms-1">documentation</a>.
+              <a href={api+"/api"} className="text-warning fw-bold text-decoration-none ms-1">documentation</a>.
             </p>
           </div>
         </div>
@@ -66,7 +72,7 @@ export default function MainSection() {
             </div>
             <p className="lead text-light mx-auto" style={{ maxWidth: "700px" }}>
               This command will start the test runner and execute the configured test scripts. For more detailed instructions, visit our
-              <a href="/api" className="text-warning fw-bold text-decoration-none ms-1">documentation</a>.
+              <a href={api+"/api"} className="text-warning fw-bold text-decoration-none ms-1">documentation</a>.
             </p>
           </div>
         </div>

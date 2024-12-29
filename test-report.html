@@ -93,27 +93,30 @@
         <div class="test-summary">
             <h2>Test Cases Summary</h2>
             <ul>
-                {{#each results}}
                     <li>
-                        <a href="#{{title}}">{{fullTitle}}</a>
-                        <span class="{{status}}">({{status}})</span>
+                        <a href="#should perform a sample test case">Sample Test Suite should perform a sample test case</a>
+                        <span class="pass">(pass)</span>
                     </li>
-                {{/each}}
+                    <li>
+                        <a href="#Test using css selector and keys">Sample Test Suite Test using css selector and keys</a>
+                        <span class="pass">(pass)</span>
+                    </li>
             </ul>
         </div>
         
         <div id="report">
-            {{#each results}}
-                <div class="test-case {{status}}" id="{{title}}">
-                    <h2>{{fullTitle}}</h2>
-                    <p><strong>Status:</strong> <span class="{{status}}">{{status}}</span></p>
-                    <p><strong>Duration:</strong> <span class="duration">{{duration}}ms</span></p>
-                    {{#if error}}
-                        <p><strong>Error:</strong> {{error}}</p>
-                    {{/if}}
+                <div class="test-case pass" id="should perform a sample test case">
+                    <h2>Sample Test Suite should perform a sample test case</h2>
+                    <p><strong>Status:</strong> <span class="pass">pass</span></p>
+                    <p><strong>Duration:</strong> <span class="duration">10859ms</span></p>
                     <hr />
                 </div>
-            {{/each}}
+                <div class="test-case pass" id="Test using css selector and keys">
+                    <h2>Sample Test Suite Test using css selector and keys</h2>
+                    <p><strong>Status:</strong> <span class="pass">pass</span></p>
+                    <p><strong>Duration:</strong> <span class="duration">18641ms</span></p>
+                    <hr />
+                </div>
         </div>
     </div>
 </body>
@@ -341,19 +344,19 @@
         <h1>ShadowdriverJS Test Report</h1>
         <div class="stats-container">
             <div class="stat-box">
-                <div class="number">{{totalTests}}</div>
+                <div class="number">2</div>
                 <div>Total Tests</div>
             </div>
             <div class="stat-box">
-                <div class="number" style="color: var(--color-pass)">{{passedTests}}</div>
+                <div class="number" style="color: var(--color-pass)">2</div>
                 <div>Passed</div>
             </div>
             <div class="stat-box">
-                <div class="number" style="color: var(--color-fail)">{{failedTests}}</div>
+                <div class="number" style="color: var(--color-fail)">0</div>
                 <div>Failed</div>
             </div>
             <div class="stat-box">
-                <div class="number" style="color: var(--color-skip)">{{skippedTests}}</div>
+                <div class="number" style="color: var(--color-skip)">0</div>
                 <div>Skipped</div>
             </div>
         </div>
@@ -365,43 +368,49 @@
                 <div class="test-summary">
                     <h2>Test Cases</h2>
                     <ul class="test-list">
-                        {{#each results}}
-                        <li class="{{status}}">
-                            <a href="#{{title}}">
+                        <li class="pass">
+                            <a href="#should perform a sample test case">
                                 <span class="status-indicator"></span>
-                                {{fullTitle}}
+                                Sample Test Suite should perform a sample test case
                             </a>
                         </li>
-                        {{/each}}
+                        <li class="pass">
+                            <a href="#Test using css selector and keys">
+                                <span class="status-indicator"></span>
+                                Sample Test Suite Test using css selector and keys
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </aside>
 
             <main class="main-content">
-                {{#each results}}
-                <div class="test-case {{status}}" id="{{title}}">
+                <div class="test-case pass" id="should perform a sample test case">
                     <div class="test-case-header">
-                        <h2>{{fullTitle}}</h2>
+                        <h2>Sample Test Suite should perform a sample test case</h2>
                     </div>
                     <div class="test-case-content">
                         <p>
                             <strong>Status:</strong> 
-                            <span class="{{status}}">{{status}}</span>
-                            <span class="duration-badge">{{duration}}ms</span>
+                            <span class="pass">pass</span>
+                            <span class="duration-badge">10859ms</span>
                         </p>
                         
-                        {{#if error}}
-                        <div class="error-details">
-                            <h3>Error Details</h3>
-                            <p>{{error}}</p>
-                            {{#if error.stack}}
-                            <pre><code>{{error.stack}}</code></pre>
-                            {{/if}}
-                        </div>
-                        {{/if}}
                     </div>
                 </div>
-                {{/each}}
+                <div class="test-case pass" id="Test using css selector and keys">
+                    <div class="test-case-header">
+                        <h2>Sample Test Suite Test using css selector and keys</h2>
+                    </div>
+                    <div class="test-case-content">
+                        <p>
+                            <strong>Status:</strong> 
+                            <span class="pass">pass</span>
+                            <span class="duration-badge">18641ms</span>
+                        </p>
+                        
+                    </div>
+                </div>
             </main>
         </div>
     </div>

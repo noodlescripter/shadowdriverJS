@@ -48,7 +48,7 @@ async function runTests() {
 
                 // Correctly access the 'dummyTest' array instead of 'arg_three'
                 const arrayOfFile = suiteArray.suites.dummyTest;
-
+                
                 if (arrayOfFile) {
                     console.log("Yes, found the suite files:", arrayOfFile);
 

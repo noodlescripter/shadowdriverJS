@@ -108,7 +108,7 @@ async function download_browser() {
       await download_action(urls.chrome_windows, browser_dir)
       await download_action(urls.chromedriver_windows, chromedriver_dir)
       chromeurl = urls.chrome_windows
-      driverurl = urls.chrome_windows
+      driverurl = urls.chromedriver_windows
     } else if (platform === "linux") {
       await download_action(urls.chrome_linux, browser_dir)
       await download_action(urls.chromedriver_linux, chromedriver_dir)
