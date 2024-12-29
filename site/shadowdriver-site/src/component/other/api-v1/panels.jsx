@@ -128,6 +128,7 @@ import ElementAPI from "./element/element"
 import MochaFramework from "./framework/mocha"
 import ShadowReporter from "./reporters/shadow-reporters"
 import ShadowdriverJSLogs from "./shadowdriver-logs/shadowdriverjs_logs"
+import ShadowdriverTestDebug from "./test-debug/test_debug"
 
 export default function Documentation() {
   const [selectedItem, setSelectedItem] = useState("Installation")
@@ -171,7 +172,7 @@ export default function Documentation() {
       case "Logging Options":
         return <ShadowdriverJSLogs />
       case "Debug Test":
-        return <ShadowdriverJSLogs />
+        return <ShadowdriverTestDebug />
       default:
         return <InstallShaowdriverJS />
     }

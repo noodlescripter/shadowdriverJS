@@ -9,7 +9,7 @@ xunit.xml
 dist
 boot.html
 src/node_modules
-browser
+*browser
 driver
 package/
 .chromedriver.log
