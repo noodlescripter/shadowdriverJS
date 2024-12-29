@@ -1,11 +1,18 @@
-import { useEffect, useState } from "react"
-import TemporaryCountdown from "./temp/countdown"
+import { useEffect, useState } from "react";
+import TemporaryCountdown from "./temp/countdown";
+import { EllipsisVertical, Bot } from "lucide-react";
+
 
 export default function NavBar() {
-  const default_shadowdriver_version = "v1"
+  const default_shadowdriver_version = "v1";
   const shadowdriverVersion = ["v1"];
   const [release, setRelease] = useState(false);
-  const [version, setVersion] = useState(localStorage.getItem('apiVersion').replace("/", ""));
+  const [version, setVersion] = useState(
+    ((key) => {
+      key ? key.replace("/", "") : "";
+    })(localStorage.getItem("apiVersion"))
+  );
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
   function handleRelease() {
     const today = new Date();
@@ -21,7 +28,7 @@ export default function NavBar() {
   }
 
   useEffect(() => {
-    sessionStorage.setItem("apiVersion", localStorage.getItem('apiVersion'));
+    sessionStorage.setItem("apiVersion", localStorage.getItem("apiVersion"));
   }, []);
 
   function handleVersion(event) {
@@ -29,12 +36,14 @@ export default function NavBar() {
     setVersion(version_local);
     localStorage.setItem("apiVersion", `/${version_local}`);
   }
-  
+
   useEffect(() => {
     handleRelease();
-    setVersion(default_shadowdriver_version)
+    setVersion(default_shadowdriver_version);
     localStorage.setItem("apiVersion", `/${default_shadowdriver_version}`);
   }, []);
+
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
   return (
     <>
@@ -42,74 +51,125 @@ export default function NavBar() {
         <TemporaryCountdown />
       ) : (
         <nav
-          className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow"
+          className="navbar navbar-expand-lg navbar-dark sticky-top"
           style={{
             background: "linear-gradient(90deg, #1c1f24, #343a40)",
-            padding: "10px 20px",
+            boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
           }}
         >
           <div className="container">
-            {/* Left-aligned Brand */}
-            <p
-              href="/"
-              className="navbar-brand d-flex align-items-center text-primary fw-bold"
-              style={{
-                fontSize: "1.5rem",
-                letterSpacing: "0.5px",
-                textShadow: "1px 1px 5px rgba(0, 0, 0, 0.5)",
+            {/* Brand and Logo Section */}
+            <div className="d-flex align-items-center">
+              {/* <i
+                className="fa-solid fa-robot text-warning me-2"
+                style={{ fontSize: "2rem" }}
+              ></i> */}
+              <Bot size={40} color="#f6fa00" strokeWidth={3} absoluteStrokeWidth />
+              <p>&nbsp;</p>
+              <a
+                href="/"
+                className="navbar-brand mb-0 text-primary fw-bold"
+                style={{
+                  fontSize: "1.3rem",
+                  letterSpacing: "1.9px",
+                  textShadow: "1px 1px 3px rgba(0,0,0,0.3)",
+                  textDecoration: "none",
+                }}
+              >
+                shadowdriverJS
+              </a>
+            </div>
+
+            {/* Ellipsis Menu Button */}
+            <button
+              className="navbar-toggler border-0 p-0"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarContent"
+              aria-controls="navbarContent"
+              aria-expanded={!isNavCollapsed}
+              aria-label="Toggle navigation"
+              onClick={handleNavCollapse}
+              style={{ 
+                boxShadow: "none",
+                background: "transparent" 
               }}
             >
-              <i
-                className="fa-solid fa-robot text-warning"
-                style={{ fontSize: "2.0rem" }}
-              ></i>
-              &nbsp; <a href="/" style={{
-                textDecoration: "none",
-              }}>shadowdriverJS</a>
-              <div className="dropdown">
-                <button
-                  className="btn btn-secondary dropdown-toggle bg-transparent bg-black"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  style={{
-                    border: "none",
-                  }}
-                >
-                  <strong className="text-danger h5">{version}</strong>
-                </button>
-                <ul className="dropdown-menu">
-                  {shadowdriverVersion.map((item, index) => (
-                    <li
-                      key={index}
-                      className="dropdown-item"
-                      data-version={item}
-                      onClick={handleVersion}
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              {/* Add the API Nav Item */}
-              <a
-                href={version + "/api"}
-                className="nav-link text-warning ms-3"
-                style={{ fontSize: "1.1rem" }}
-              >
-                API Docs
-              </a>
-            </p>
-            {/* Right-aligned GitHub Icon */}
-            <a
-              href="https://github.com/noodlescripter/shadowdriverJS/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ms-auto text-white nav-link link-underline-opacity-0"
-              style={{ fontSize: "2.0rem" }}
+              <EllipsisVertical 
+                className="text-white" 
+                size={24}
+                style={{
+                  transition: "opacity 0.2s ease-in-out"
+                }}
+                onMouseOver={(e) => e.currentTarget.style.opacity = "0.8"}
+                onMouseOut={(e) => e.currentTarget.style.opacity = "1"}
+              />
+            </button>
+
+            {/* Collapsible Content */}
+            <div
+              className={`${isNavCollapsed ? "collapse" : ""} navbar-collapse`}
+              id="navbarContent"
             >
-              <i className="fab fa-github"></i>
-            </a>
+              <ul className="navbar-nav ms-auto align-items-center gap-3">
+                {/* Version Dropdown */}
+                <li className="nav-item dropdown">
+                  <button
+                    className="btn btn-link nav-link dropdown-toggle p-0"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style={{ textDecoration: "none" }}
+                  >
+                    <strong className="text-danger">
+                      {version}
+                    </strong>
+                  </button>
+                  <ul className="dropdown-menu dropdown-menu-end">
+                    {shadowdriverVersion.map((item, index) => (
+                      <li key={index}>
+                        <button
+                          className="dropdown-item"
+                          data-version={item}
+                          onClick={handleVersion}
+                        >
+                          {item}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+
+                {/* API Docs Link */}
+                <li className="nav-item">
+                  <a
+                    href={version + "/api"}
+                    className="nav-link text-warning"
+                    style={{ fontSize: "1.0rem" }}
+                  >
+                    API
+                  </a>
+                </li>
+
+                {/* GitHub Link */}
+                <li className="nav-item">
+                  <a
+                    href="https://github.com/noodlescripter/shadowdriverJS/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="nav-link text-white transition-all"
+                    style={{ 
+                      fontSize: "1.8rem",
+                      transition: "opacity 0.2s ease-in-out"
+                    }}
+                    onMouseOver={(e) => e.currentTarget.style.opacity = "0.8"}
+                    onMouseOut={(e) => e.currentTarget.style.opacity = "1"}
+                  >
+                    <i className="fab fa-github"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </nav>
       )}

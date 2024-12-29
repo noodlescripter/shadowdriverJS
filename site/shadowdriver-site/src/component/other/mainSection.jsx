@@ -18,10 +18,11 @@ export default function MainSection() {
             </p>
             <a
               href="#get-started"
-              className="btn btn-primary btn-lg shadow-lg rounded-5"
-            >
-              Get Started
+              className={window.innerWidth < 992 ? "btn btn-primary btn-lg shadow-lg rounded-5 mb-4": "btn btn-primary btn-lg shadow-lg rounded-5"}
+            > 
+            Get Started
             </a>
+            
           </div>
 
           {/* Image Section */}

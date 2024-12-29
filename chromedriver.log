@@ -1,13 +1,13 @@
-[1734938860.427][INFO]: Starting ChromeDriver 131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}) on port 55311
-[1734938860.427][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-[1734938860.428][INFO]: ChromeDriver was started successfully on port 55311
-[1734938860.435][INFO]: [5bd95174e770e8506685095903ade291] COMMAND InitSession {
+[1735442808.970][INFO]: Starting ChromeDriver 131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}) on port 58431
+[1735442808.970][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1735442809.002][INFO]: ChromeDriver was started successfully on port 58431
+[1735442809.021][INFO]: [8bab9dea894d3397b9123a183264ae6f] COMMAND InitSession {
    "capabilities": {
       "alwaysMatch": {
          "browserName": "chrome",
          "goog:chromeOptions": {
             "args": [ "--disable-infobars", "--disable-gpu", "--start-maximized" ],
-            "binary": "/Users/hamim/Workspace/shadowdriver_workspace/shadowdriverJS/browser/browserBinary/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"
+            "binary": "/home/hamimalam/workspace/shadowdriver-workspace/shadowdriverJS/browser/browserBinary/chrome"
          },
          "goog:loggingPrefs": {
             "browser": "OFF",
@@ -18,7 +18,7 @@
       } ]
    }
 }
-[1734938860.438][INFO]: Populating Preferences file: {
+[1735442809.021][INFO]: Populating Preferences file: {
    "alternate_error_pages": {
       "enabled": false
    },
@@ -71,7 +71,7 @@
       "enabled": false
    }
 }
-[1734938860.439][INFO]: Populating Local State file: {
+[1735442809.021][INFO]: Populating Local State file: {
    "background_mode": {
       "enabled": false
    },
@@ -81,23 +81,11 @@
       }
    }
 }
-[1734938860.439][INFO]: ChromeDriver supports communication with Chrome via pipes. This is more reliable and more secure.
-[1734938860.439][INFO]: Use the --remote-debugging-pipe Chrome switch instead of the default --remote-debugging-port to enable this communication mode.
-[1734938860.439][INFO]: Launching chrome: /Users/hamim/Workspace/shadowdriver_workspace/shadowdriverJS/browser/browserBinary/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing --allow-pre-commit-input --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-gpu --disable-hang-monitor --disable-infobars --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-logging --log-level=0 --no-first-run --no-service-autorun --password-store=basic --remote-debugging-port=0 --start-maximized --test-type=webdriver --use-mock-keychain --user-data-dir=/var/folders/0v/r8br5sps4nj5rhggjg4f3pdc0000gn/T/.org.chromium.Chromium.1wG6cN data:,
-[1734938860.844][INFO]: resolved localhost to ["::1","127.0.0.1"]
-[1734938860.867][INFO]: Waiting for pending navigations...
-[1734938860.869][INFO]: Done waiting for pending navigations. Status: ok
-[1734938860.977][INFO]: Waiting for pending navigations...
-[1734938861.347][INFO]: Done waiting for pending navigations. Status: ok
-[1734938864.350][INFO]: Waiting for pending navigations...
-[1734938864.351][INFO]: Done waiting for pending navigations. Status: ok
-[1734938864.357][INFO]: Waiting for pending navigations...
-[1734938864.358][INFO]: Done waiting for pending navigations. Status: ok
-[1734938864.359][INFO]: Waiting for pending navigations...
-[1734938864.359][INFO]: Done waiting for pending navigations. Status: ok
-[1734938864.447][INFO]: Waiting for pending navigations...
-[1734938864.627][INFO]: Done waiting for pending navigations. Status: ok
-[1734938867.630][INFO]: Waiting for pending navigations...
-[1734938867.631][INFO]: Done waiting for pending navigations. Status: ok
-[1734938877.649][INFO]: Waiting for pending navigations...
-[1734938877.650][INFO]: Done waiting for pending navigations. Status: ok
+[1735442809.021][INFO]: ChromeDriver supports communication with Chrome via pipes. This is more reliable and more secure.
+[1735442809.021][INFO]: Use the --remote-debugging-pipe Chrome switch instead of the default --remote-debugging-port to enable this communication mode.
+[1735442809.021][INFO]: Launching chrome: /home/hamimalam/workspace/shadowdriver-workspace/shadowdriverJS/browser/browserBinary/chrome --allow-pre-commit-input --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-gpu --disable-hang-monitor --disable-infobars --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-logging --log-level=0 --no-first-run --no-service-autorun --password-store=basic --remote-debugging-port=0 --start-maximized --test-type=webdriver --use-mock-keychain --user-data-dir=/tmp/.org.chromium.Chromium.Jzc1Az data:,
+[1735442809.310][INFO]: resolved localhost to ["127.0.0.1"]
+[1735442809.362][INFO]: Waiting for pending navigations...
+[1735442809.369][INFO]: Done waiting for pending navigations. Status: ok
+[1735442810.314][INFO]: Waiting for pending navigations...
+[1735442810.916][INFO]: Done waiting for pending navigations. Status: ok

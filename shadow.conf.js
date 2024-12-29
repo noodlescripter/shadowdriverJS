@@ -22,7 +22,8 @@ module.exports = {
     //chromeversion
     version: "131.0.6778.85",
     // Provides Chrome-specific options.
-    browserPath: path.resolve("browser/browserBinary/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"),
+    //browserPath: path.resolve("browser/browserBinary/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"),
+    browserPath: path.resolve("browser/browserBinary/chrome"),
     driverPath: path.resolve("driver/browserDriver/chromedriver"),
     "goog:chromeOptions": {
       //binary

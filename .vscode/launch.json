@@ -4,13 +4,9 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program with Arguments",
-      "program": "${workspaceFolder}/src/shadowRunner/runner.js", // Path to your Node.js file
-      "args": [
-        "shadow.conf.js",
-        "--suite",
-        "dummyTest"
-      ],
+      "name": "shadow-runner",
+      "program": "${workspaceFolder}/src/shadowRunner/runner.js",
+      "args": ["exec", "shadow.conf.js", "--spec", "${file}"],
       "skipFiles": ["<node_internals>/**"],
       "env": {
         "NODE_ENV": "development"

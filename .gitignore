@@ -14,3 +14,4 @@ driver
 package/
 .chromedriver.log
 json-test-report/
+chromedriver.log
