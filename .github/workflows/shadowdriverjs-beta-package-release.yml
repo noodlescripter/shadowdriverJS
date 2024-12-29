@@ -59,4 +59,4 @@ jobs:
       - name: Publish package
         run: cd package && npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: "0eb3d4948a656fd79b2aceb24bb8a6bd61ed72ad16a5bcde35148d5c012efdc6"
