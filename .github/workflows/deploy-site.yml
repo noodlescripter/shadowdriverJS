@@ -1,0 +1,78 @@
+name: Deploy static content to Pages
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+  push:
+    branches:
+      - develop  # Trigger when pushing to the main branch
+
+# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  # Single deploy job since we're just deploying
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18 # Use the Node.js version you prefer
+
+      # Step 3: Navigate to the subdirectory where the Vite app is located
+      - name: print dir
+        run: pwd
+
+      - name: showfiles
+        run: ls
+      
+      - name: Navigate to the Vite app directory
+        run: cd site/shadowdriver-site
+
+      # Step 4: Install dependencies in the Vite app
+      - name: Install dependencies
+        run: |
+          cd site/shadowdriver-site
+          npm install
+
+      # Step 5: Build the Vite app
+      - name: Build the project
+        run: |
+          cd site/shadowdriver-site
+          npm run build
+      - name: make 404.html file
+        run: cp site/shadowdriver-site/dist/index.html site/shadowdriver-site/dist/404.html
+      # Step 6: Configure GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # Step 7: Upload the build artifact
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Path to the built files
+          path: site/shadowdriver-site/dist
+
+      # Step 8: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

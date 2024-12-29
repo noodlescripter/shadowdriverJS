@@ -1,0 +1,103 @@
+[1735460186.937][INFO]: Starting ChromeDriver 131.0.6778.85 (3d81e41b6f3ac8bcae63b32e8145c9eb0cd60a2d-refs/branch-heads/6778@{#2285}) on port 57963
+[1735460186.937][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1735460186.977][INFO]: ChromeDriver was started successfully on port 57963
+[1735460186.983][INFO]: [ce2a49a70d1b9bbee5af6611b6702d97] COMMAND InitSession {
+   "capabilities": {
+      "alwaysMatch": {
+         "browserName": "chrome",
+         "goog:chromeOptions": {
+            "args": [ "--disable-infobars", "--disable-gpu", "--start-maximized" ],
+            "binary": "/home/hamimalam/workspace/shadowdriver-workspace/shadowdriverJS/browser/browserBinary/chrome"
+         },
+         "goog:loggingPrefs": {
+            "browser": "OFF",
+            "driver": "OFF"
+         }
+      },
+      "firstMatch": [ {
+      } ]
+   }
+}
+[1735460186.983][INFO]: Populating Preferences file: {
+   "alternate_error_pages": {
+      "enabled": false
+   },
+   "autofill": {
+      "enabled": false
+   },
+   "browser": {
+      "check_default_browser": false
+   },
+   "distribution": {
+      "import_bookmarks": false,
+      "import_history": false,
+      "import_search_engine": false,
+      "make_chrome_default_for_user": false,
+      "skip_first_run_ui": true
+   },
+   "dns_prefetching": {
+      "enabled": false
+   },
+   "profile": {
+      "content_settings": {
+         "pattern_pairs": {
+            "https://*,*": {
+               "media-stream": {
+                  "audio": "Default",
+                  "video": "Default"
+               }
+            }
+         }
+      },
+      "default_content_setting_values": {
+         "geolocation": 1
+      },
+      "default_content_settings": {
+         "geolocation": 1,
+         "mouselock": 1,
+         "notifications": 1,
+         "popups": 1,
+         "ppapi-broker": 1
+      },
+      "password_manager_enabled": false
+   },
+   "safebrowsing": {
+      "enabled": false
+   },
+   "search": {
+      "suggest_enabled": false
+   },
+   "translate": {
+      "enabled": false
+   }
+}
+[1735460186.984][INFO]: Populating Local State file: {
+   "background_mode": {
+      "enabled": false
+   },
+   "ssl": {
+      "rev_checking": {
+         "enabled": false
+      }
+   }
+}
+[1735460186.984][INFO]: ChromeDriver supports communication with Chrome via pipes. This is more reliable and more secure.
+[1735460186.984][INFO]: Use the --remote-debugging-pipe Chrome switch instead of the default --remote-debugging-port to enable this communication mode.
+[1735460186.984][INFO]: Launching chrome: /home/hamimalam/workspace/shadowdriver-workspace/shadowdriverJS/browser/browserBinary/chrome --allow-pre-commit-input --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-gpu --disable-hang-monitor --disable-infobars --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-logging --log-level=0 --no-first-run --no-service-autorun --password-store=basic --remote-debugging-port=0 --start-maximized --test-type=webdriver --use-mock-keychain --user-data-dir=/tmp/.org.chromium.Chromium.wdFZxl data:,
+[1735460187.348][INFO]: resolved localhost to ["127.0.0.1"]
+[1735460187.387][INFO]: Waiting for pending navigations...
+[1735460187.389][INFO]: Done waiting for pending navigations. Status: ok
+[1735460188.229][INFO]: Waiting for pending navigations...
+[1735460188.795][INFO]: Done waiting for pending navigations. Status: ok
+[1735460191.802][INFO]: Waiting for pending navigations...
+[1735460191.805][INFO]: Done waiting for pending navigations. Status: ok
+[1735460191.821][INFO]: Waiting for pending navigations...
+[1735460191.823][INFO]: Done waiting for pending navigations. Status: ok
+[1735460191.825][INFO]: Waiting for pending navigations...
+[1735460191.827][INFO]: Done waiting for pending navigations. Status: ok
+[1735460191.907][INFO]: Waiting for pending navigations...
+[1735460192.253][INFO]: Done waiting for pending navigations. Status: ok
+[1735460195.258][INFO]: Waiting for pending navigations...
+[1735460195.261][INFO]: Done waiting for pending navigations. Status: ok
+[1735460205.270][INFO]: Waiting for pending navigations...
+[1735460205.272][INFO]: Done waiting for pending navigations. Status: ok

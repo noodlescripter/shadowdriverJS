@@ -1,0 +1,51 @@
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+  push:
+    branches:
+      - main  # Trigger when pushing to the main branch
+
+# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm ci
+      - run: npm run build
+      - name: Prepare package or dist folder
+        run: |
+          # Ensure package.json is in the package or dist folder has required info
+          cp package.json package/
+          cp README.md package/
+          cp LICENSE package/
+          # Copying the shadowReporter templates
+          cp src/shadowReporter/template.html package/shadowReporter/
+      - name: Verify dist or package contents
+        run: ls -la package/
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - name: Install dependencies
+        run: npm ci
+      - name: Publish packages
+        working-directory: package
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.REPO_SHADOWDRIVERJS_NIT_TOKEN }}

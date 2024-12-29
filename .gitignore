@@ -2,3 +2,16 @@ node_modules/
 .idea/
 npmcommands
 mochawesome-report/
+report.html
+installer.js
+xunit.xml
+.env
+dist
+boot.html
+src/node_modules
+*browser
+driver
+package/
+.chromedriver.log
+json-test-report/
+chromedriver.log

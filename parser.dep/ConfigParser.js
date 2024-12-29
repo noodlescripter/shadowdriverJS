@@ -3,12 +3,12 @@ const path = require('path');
 const vm = require('vm');
 const Mocha = require('mocha');
 const glob = require('glob');
-const {initializeDriver} = require('../lib/Driver');
-const shadowdriver = require('../lib/shadowdriver');
-const by = require('../lib/By');
+const {initializeDriver} = require('../lib.dep/Driver');
+const shadowdriver = require('../lib.dep/shadowdriver');
+const by = require('../lib.dep/By');
 const {capabilities} = require("../shadow.conf");
 
-const {fetchOpenAIResponse} = require('../lib/ai/open-ai/ai-engine');
+const {fetchOpenAIResponse} = require('../lib.dep/ai/open-ai/ai-engine');
 
 async function configExe(confFile, commandArgs) {
     // checking if the caps are present!!
@@ -22,16 +22,16 @@ async function configExe(confFile, commandArgs) {
     }
     /*lesson learned !!! need to leave a comment!!! and outstanding logs*/
     if (browserCaps) {
-        console.log("browser caps are present");
+        console.log("browserManager caps are present");
         const caps = browserCaps;
         if (typeof caps === 'object') {
             console.log("caps is present and they are objects");
-            console.log('coming from parser! browser name is: ', caps.browserName);
+            console.log('coming from parser! browserManager name is: ', caps.browserName);
             console.log("yes it is an object passed my client")
             try {
                 global.browser = await initializeDriver(browserCaps);
             } catch (browserCapsError) {
-                console.log("Something went wrong is browser caps, please consider checking");
+                console.log("Something went wrong is browserManager caps, please consider checking");
                 throw browserCapsError;
             }
         }
@@ -66,7 +66,7 @@ async function configExe(confFile, commandArgs) {
     }
 
 
-    global.by = await by;
+    global.by =  by;
     global.shadowdriver = shadowdriver;
 
     if (typeof confFile.onPrepare === 'function') {

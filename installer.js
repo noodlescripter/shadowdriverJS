@@ -26,20 +26,20 @@ function createProjectFolder(projectName) {
     const e2eSampleSpec = "describe('Sample Test Suite', async function () {\n" +
         "\n" +
         "    it('should perform a sample test case', async function () {\n" +
-        "        await browser.get(baseURL);\n" +
-        "        await browser.sleep(3000);\n" +
+        "        await browserManager.get(baseURL);\n" +
+        "        await browserManager.sleep(3000);\n" +
         "        await element(by.xpath('//*[@title=\"Search\"]')).sendKeys(\"Hello\");\n" +
-        "        await browser.sleep(3000);\n" +
+        "        await browserManager.sleep(3000);\n" +
         "        await element(by.xpath('//*[@title=\"Search\"]')).clear();\n" +
         "        await element(by.xpath('//*[@title=\"Search\"]')).sendKeys(\"tor mare chudi\")\n" +
-        "        await browser.sleep(3000);\n" +
-        "        const windows = await browser.getAllWindowHandles();\n" +
+        "        await browserManager.sleep(3000);\n" +
+        "        const windows = await browserManager.getAllWindowHandles();\n" +
         "        if(windows.length > 2){\n" +
         "            console.info(\"Many windows found\");\n" +
         "        } else {\n" +
         "            console.info(\"No window is here only one\");\n" +
         "        }\n" +
-        "        await browser.quit();\n" +
+        "        await browserManager.quit();\n" +
         "    });\n" +
         "});\n"
 
@@ -70,3 +70,5 @@ rl.question('Enter the project name: ', (projectName) => {
         }
     });
 });
+
+//sudo docker run -it -e NGROK_AUTHTOKEN=2CbJfciYTNS7IhvxL1hwfHqLcAN_5mUNYiNzSkr6c2egennQL ngrok/ngrok http host.docker.internal:9090 --url=chatwith.ngrok.dev

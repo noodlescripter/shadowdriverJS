@@ -1,0 +1,30 @@
+{
+  "timestamp": "2024-12-29T08:16:46.437Z",
+  "summary": {
+    "total": 2,
+    "passed": 1,
+    "failed": 0,
+    "skipped": 1,
+    "duration": 19051
+  },
+  "results": [
+    {
+      "title": "should perform a sample test case222222",
+      "suite": "Sample Test Suite22222",
+      "fullTitle": "Sample Test Suite22222 should perform a sample test case222222",
+      "duration": 0,
+      "status": "skipped",
+      "timestamp": "2024-12-29T08:16:27.386Z",
+      "error": null
+    },
+    {
+      "title": "Test using css selector",
+      "suite": "Sample Test Suite22222",
+      "fullTitle": "Sample Test Suite22222 Test using css selector",
+      "duration": 19051,
+      "status": "pass",
+      "timestamp": "2024-12-29T08:16:46.437Z",
+      "error": null
+    }
+  ]
+}
