@@ -34,7 +34,10 @@ jobs:
       # Verify and publish
       - name: Verify package contents
         run: ls -la package/
-      - name: Publish package
-        run: cd package && npm publish
+      - name: CD into Publish package
+        run: cd package
+      - name: Publish
+        run: npm publish
+        
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{secrets.RELEASE_KEY}}
