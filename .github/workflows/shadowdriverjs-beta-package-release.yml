@@ -27,7 +27,6 @@ jobs:
           # Ensure package.json is in the package or dist folder has required info
           cp package.json package/
           cp README.md package/
-          cp LICENSE package/
           # Copying the shadowReporter templates
           cp src/shadowReporter/template.html package/shadowReporter/
       - name: Verify dist or package contents
