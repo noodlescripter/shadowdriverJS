@@ -1,3 +1,5 @@
+name: shadowdriverjs-publish
+
 on:
   workflow_dispatch:
   push:
@@ -49,7 +51,12 @@ jobs:
           path: package
       - name: Install dependencies
         run: npm ci
+      - name: Setup npm auth
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish package
         run: cd package && npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.RELEASE_KEY }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
