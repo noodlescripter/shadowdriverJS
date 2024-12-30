@@ -1,10 +1,10 @@
-const path = require('path')
+const path = require("path")
 module.exports = {
   // Specifies the testing framework to use. In this case, it's Mocha.
   framework: "mocha",
 
   //suites configuration
-  suites:{
+  suites: {
     dummyTest: ["e2e/sample.spec.js", "e2e/sample.spec2.js"],
   },
 
@@ -22,9 +22,11 @@ module.exports = {
     //chromeversion
     version: "131.0.6778.85",
     // Provides Chrome-specific options.
-    //browserPath: path.resolve("browser/browserBinary/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"),
-    browserPath: path.resolve("browser/browserBinary/chrome"),
-    driverPath: path.resolve("driver/browserDriver/chromedriver"),
+    // browserPath: path.resolve("browser/browserBinary/chrome.exe"), //Win 10/11
+    // browserPath: path.resolve("browser/browserBinary/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"), //M Mac OS
+    browserPath: path.resolve("browser/browserBinary/chrome"), //Linux (Ubuntu)
+    driverPath: path.resolve("driver/browserDriver/chromedriver"), // Linux or Mac
+    //driverPath: path.resolve("driver/browserDriver/chromedriver.exe"), //Win 10/11
     "goog:chromeOptions": {
       //binary
       // Passes arguments to the Chrome browser.

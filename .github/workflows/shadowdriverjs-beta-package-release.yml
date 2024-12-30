@@ -1,45 +1,55 @@
-name: shadowdriverjs-beta-package-release
-on: 
-  release:
-    types: [created]
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: action/checkout@v4
-      - uses: action/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
       - run: npm ci
       - run: npm run build
-      - name: Prepare package or dist folder
+      - name: Prepare package
         run: |
-          # ensure package.json is in the package or dist folder has required info
+          mkdir -p package/shadowReporter
           cp package.json package/
           cp README.md package/
-          cp LICENSE package/
-          # copying the shadowReporter templates
-          cp src/shadowReporter/template.html
-          # cp pakcage.json dist/
-          # cp README.md dist/
-          # cp LICENSE dist/
-          #cp src/shadowReporter/template.html
-        - name: verify dist or package contents
-          run: ls -la package
-    publish-npm:
-      needs: build
-      runs-on: ubuntu-latest
-        steps:
-          - uses: action/checkout@v4
-          - uses: action/setup-node@v3
-            with:
-              node-version: 16
-              registry-url: https://registry.npmjs.org/
-          - name: Intall dep
-            run: npm ci
-          - name: Publish packages
-            working-directory: package
-            run: npm publish
-            env:
-              NODE_AUTH_TOKEN: ${{secrets.REPO_SHADOWDRIVERJS_NIT_TOKEN}}
+          cp src/shadowReporter/template.html package/shadowReporter/
+      - name: Verify package contents
+        run: ls -la package/
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-artifact
+          path: package/
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - name: Download package artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: package-artifact
+          path: package
+      - name: Install dependencies
+        run: npm ci
+      - name: Publish package
+        run: cd package && npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.SHADOWDRIVERJS_BETA_TOKEN }}
