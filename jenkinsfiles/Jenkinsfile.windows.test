@@ -28,31 +28,33 @@ pipeline {
             steps {
                 timeout(time: 2, unit: 'MINUTES') {
                     echo 'Installing dependencies...'
-                    sh  'npm i'
+                    bat 'npm i'
                 }
             }
-        }
+        }   
 
-        stage('Prepare the shadowdriverjs build to UI test') {
+
+        stage('Prepare the shadowdriverjs build to UI test'){
             steps {
                 echo 'build shadowdriverjs with bable'
-                sh  'npm run build'
+                bat 'npm run build'
             }
         }
 
-        stage('Download chrome browser') {
-            steps {
+        stage('Download chrome browser'){
+            steps{
                 echo 'Downloading chromedriver and browser'
-                sh  'node ./package/downloader/downloader.js'
+                bat 'node ./package/downloader/downloader.js'
             }
         }
 
-        stage('Run ui test') {
+        stage('Run ui test'){
             steps {
                 echo 'UI TEST step'
-                sh  'node ./package/shadowRunner/runner.js exec shadow.conf.js --spec sample.spec3.js'
+                bat 'node ./package/shadowRunner/runner.js exec shadow.conf.js --spec sample.spec3.js'
             }
         }
+
     }
 
     post {
