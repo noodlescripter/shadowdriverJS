@@ -1,29 +1,56 @@
 {
-  "timestamp": "2024-12-29T08:16:46.437Z",
+  "timestamp": "2025-01-01T04:40:05.821Z",
   "summary": {
-    "total": 2,
-    "passed": 1,
+    "total": 5,
+    "passed": 5,
     "failed": 0,
-    "skipped": 1,
-    "duration": 19051
+    "skipped": 0,
+    "duration": 7047
   },
   "results": [
     {
-      "title": "should perform a sample test case222222",
-      "suite": "Sample Test Suite22222",
-      "fullTitle": "Sample Test Suite22222 should perform a sample test case222222",
-      "duration": 0,
-      "status": "skipped",
-      "timestamp": "2024-12-29T08:16:27.386Z",
+      "title": "get();",
+      "suite": "shadowdriverJS api validation",
+      "fullTitle": "shadowdriverJS api validation get();",
+      "duration": 885,
+      "status": "pass",
+      "timestamp": "2025-01-01T04:39:59.658Z",
       "error": null
     },
     {
-      "title": "Test using css selector",
-      "suite": "Sample Test Suite22222",
-      "fullTitle": "Sample Test Suite22222 Test using css selector",
-      "duration": 19051,
+      "title": "isDisplayed();, sendKeys();",
+      "suite": "shadowdriverJS api validation",
+      "fullTitle": "shadowdriverJS api validation isDisplayed();, sendKeys();",
+      "duration": 373,
       "status": "pass",
-      "timestamp": "2024-12-29T08:16:46.437Z",
+      "timestamp": "2025-01-01T04:40:00.031Z",
+      "error": null
+    },
+    {
+      "title": "click();",
+      "suite": "shadowdriverJS api validation",
+      "fullTitle": "shadowdriverJS api validation click();",
+      "duration": 87,
+      "status": "pass",
+      "timestamp": "2025-01-01T04:40:00.118Z",
+      "error": null
+    },
+    {
+      "title": "waitUntil();",
+      "suite": "shadowdriverJS api validation",
+      "fullTitle": "shadowdriverJS api validation waitUntil();",
+      "duration": 5419,
+      "status": "pass",
+      "timestamp": "2025-01-01T04:40:05.537Z",
+      "error": null
+    },
+    {
+      "title": "getText();",
+      "suite": "shadowdriverJS api validation",
+      "fullTitle": "shadowdriverJS api validation getText();",
+      "duration": 283,
+      "status": "pass",
+      "timestamp": "2025-01-01T04:40:05.820Z",
       "error": null
     }
   ]

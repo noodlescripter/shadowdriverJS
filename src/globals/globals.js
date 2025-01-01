@@ -11,6 +11,7 @@ const {
 } = require("../shadowReporter/html_maker/convert_json_html")
 const { expect } = require("chai")
 const { keyMap } = require("../shadowdriver-utils/keys.js")
+const {until} = require('selenium-webdriver')
 
 /**
  * Sets up global WebDriver and element access for the test environment.
@@ -51,6 +52,9 @@ function _globals(_main) {
 
   //global keyboard's key
   global.key = keyMap
+
+  //global waitUntil
+  global.waitUntil = until
 }
 
 module.exports = { _globals }

@@ -74,6 +74,10 @@ async function _frame_work_mocha(_conf_file, _files) {
         }
 
         await new Promise((resTest) => {
+          const onPrepare = typeof requireConf.onPrepare === "function"
+          const before = typeof requireConf.before === "function"
+          onPrepare ? requireConf.onPrepare() : null
+          before ? requireConf.before() : null
           const runner = mocha_init.run((failures) => {
             if (failures > 0) {
               error(`Test failed in ${spec}: ${failures} failures.`)

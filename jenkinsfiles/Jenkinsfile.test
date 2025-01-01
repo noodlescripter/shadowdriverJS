@@ -1,0 +1,67 @@
+pipeline {
+    agent any
+        tools {
+        nodejs 'NodeJS' // Make sure you have NodeJS configured in Jenkins Global Tool Configuration
+        }
+    environment {
+        GIT_REPO = 'git@github.com:noodlescripter/shadowdriverJS.git' // SSH configured in master Jenkins
+        BRANCH = 'develop'
+    }
+
+    stages {
+        stage('Clean up the workspace') {
+            steps {
+                echo 'Cleaning the previous workspace'
+                cleanWs()
+            }
+        }
+
+        stage('Cloning code base') {
+            steps {
+                echo "Cloning...... ${GIT_REPO}"
+                git branch: "${BRANCH}", url: "${GIT_REPO}"
+            }
+        }
+
+        stage('Install dependencies') {
+            steps {
+                echo 'Installing dependencies...'
+                sh 'npm install'
+            }
+        }
+
+        stage('Run unit tests') {
+            steps {
+                echo 'Running tests...'
+                sh 'npm test'
+            }
+        }
+        
+        stage('build UI test metarial') {
+            steps {
+                echo 'Building UI test'
+                sh 'npm run build'
+            }
+        }
+
+        stage('Run UI Test') {
+            steps {
+                echo 'Building UI test'
+                sh 'node ./package/shadowRunner/runner.js exec shadow.conf.js --spec e2e/sample.spec3.js'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Cleaning up after the run...'
+            cleanWs()
+        }
+        success {
+            echo 'Build and tests completed successfully!'
+        }
+        failure {
+            echo 'Build or tests failed.'
+        }
+    }
+}

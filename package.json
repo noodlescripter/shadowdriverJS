@@ -7,13 +7,15 @@
     "installer.js",
     "lib/**",
     "parser/**",
+    "README.md",
+    "src/shadowReporter/template.html",
     "package/**"
   ],
   "scripts": {
     "test": "mocha",
     "build": "babel src --out-dir package",
     "build4local": "babel src --out-dir package",
-    "run": "node src/shadowRunner/runner.js",
+    "local": "node src/shadowRunner/runner.js",
     "downloadBrowser": "node src/downloader/downloader.js"
   },
   "bin": {

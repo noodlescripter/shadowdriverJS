@@ -17,8 +17,8 @@ module.exports = {
     // Specifies the browser to use for testing. Here, it's Chrome.
     browserName: "chrome",
     //logs
-    browser_log: "OFF",
-    driver_log: "OFF",
+    browser_log: "ALL",
+    driver_log: "ALL",
     //chromeversion
     version: "131.0.6778.85",
     // Provides Chrome-specific options.
@@ -36,7 +36,7 @@ module.exports = {
         // Disables the use of the GPU, which can be helpful for consistency in test environments.
         "--disable-gpu",
         // Starts the browser maximized to ensure the entire web page is visible.
-        "--start-maximized",
+        "--window-size=1920,1080"
       ],
     },
   },
@@ -56,7 +56,7 @@ module.exports = {
   },
   logger: {
     mocha_cap: {
-      log: false,
+      log: true,
     },
   },
   // This hook is executed before the test framework is initialized.
@@ -67,14 +67,17 @@ module.exports = {
   // - Configuring external services
   // - Starting up test servers
   //do not have browser object access
-  onPrepare: () => {},
+  onPrepare: () => {
+    console.log("I am on prepare and I do not have access to the browser")
+  },
+
   // This block defines hooks that run before and after tests.
 
   // This hook runs before all tests in the suite.
   // Access the browser object to manage the browser window.
   // Sets the browser window size to 1920x1080 pixels.
-  before: () => {
-    //browser.manage().window().setSize(1920, 1080);
+  before: async () => {
+    console.log("I am before hook and I have access to the browser")
   },
 
   // This hook runs after all tests in the suite.
