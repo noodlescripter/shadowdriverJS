@@ -14,6 +14,7 @@
   "scripts": {
     "test": "mocha",
     "build": "babel src --out-dir package",
+    "postbuild": "node src/post-builds/copy",
     "build4local": "babel src --out-dir package",
     "local": "node src/shadowRunner/runner.js",
     "downloadBrowser": "node src/downloader/downloader.js"
