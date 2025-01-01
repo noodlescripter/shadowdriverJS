@@ -51,7 +51,7 @@ pipeline {
         stage('Run ui test'){
             steps {
                 echo 'UI TEST step'
-                bat 'node ./package/shadowRunner/runner.js exec shadow.conf.js --spec sample.spec3.js'
+                bat 'node ./package/shadowRunner/runner.js exec shadow.conf.win.js --spec sample.spec3.js'
             }
         }
 
