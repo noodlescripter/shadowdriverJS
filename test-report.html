@@ -1,432 +1,169 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mocha Test Report</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 20px;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-            font-size: 36px;
-            margin-bottom: 40px;
-        }
-        .report-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-        .pass {
-            color: #4caf50;
-        }
-        .fail {
-            color: #f44336;
-        }
-        .test-case {
-            border: 1px solid #e0e0e0;
-            border-left: 5px solid;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-        }
-        .pass {
-            border-left-color: #4caf50;
-        }
-        .fail {
-            border-left-color: #f44336;
-        }
-        h2 {
-            margin: 0;
-            font-size: 22px;
-            color: #333;
-        }
-        p {
-            margin: 5px 0;
-            font-size: 16px;
-        }
-        .test-summary {
-            margin-bottom: 40px;
-        }
-        .test-summary ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .test-summary li {
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #e0e0e0;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-        }
-        .test-summary a {
-            text-decoration: none;
-            color: #007bff;
-            font-size: 16px;
-        }
-        .test-summary a:hover {
-            text-decoration: underline;
-        }
-        .test-case hr {
-            border: none;
-            border-bottom: 1px solid #e0e0e0;
-            margin: 20px 0;
-        }
-        .duration {
-            font-weight: bold;
-            color: #666;
-        }
-    </style>
-</head>
-<body>
-    <h1>shadowdriverJS Report 100/94%</h1>
-    <div class="report-container">
-        <div class="test-summary">
-            <h2>Test Cases Summary</h2>
-            <ul>
-                    <li>
-                        <a href="#should perform a sample test case222222">Sample Test Suite22222 should perform a sample test case222222</a>
-                        <span class="skipped">(skipped)</span>
-                    </li>
-                    <li>
-                        <a href="#Test using css selector">Sample Test Suite22222 Test using css selector</a>
-                        <span class="pass">(pass)</span>
-                    </li>
-            </ul>
-        </div>
-        
-        <div id="report">
-                <div class="test-case skipped" id="should perform a sample test case222222">
-                    <h2>Sample Test Suite22222 should perform a sample test case222222</h2>
-                    <p><strong>Status:</strong> <span class="skipped">skipped</span></p>
-                    <p><strong>Duration:</strong> <span class="duration">0ms</span></p>
-                    <hr />
-                </div>
-                <div class="test-case pass" id="Test using css selector">
-                    <h2>Sample Test Suite22222 Test using css selector</h2>
-                    <p><strong>Status:</strong> <span class="pass">pass</span></p>
-                    <p><strong>Duration:</strong> <span class="duration">19051ms</span></p>
-                    <hr />
-                </div>
-        </div>
-    </div>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShadowdriverJS Test Report</title>
+    <title>Test Results</title>
     <style>
         :root {
-            --color-pass: #4caf50;
-            --color-fail: #f44336;
-            --color-skip: #ff9800;
-            --color-primary: #2196f3;
-            --color-bg: #f9f9f9;
-            --color-text: #333;
-            --color-border: #e0e0e0;
+            --success: #10b981;
+            --error: #ef4444;
+            --warning: #f59e0b;
+            --info: #3b82f6;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+            background: #f3f4f6;
         }
-
+        
         .header {
-            background: linear-gradient(135deg, #1a237e, #0d47a1);
+            background: #1e293b;
             color: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .header h1 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 1rem;
-        }
-
-        .stat-box {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1rem 2rem;
+            padding: 20px;
             border-radius: 8px;
-            text-align: center;
-            backdrop-filter: blur(10px);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
-        .stat-box .number {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .report-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .dashboard {
+        
+        .stats-grid {
             display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
-            overflow: hidden;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            text-align: center;
         }
-
-        .sidebar {
-            background: #fff;
-            padding: 1.5rem;
-            border-right: 1px solid var(--color-border);
-            height: 100%;
-            overflow-y: auto;
+        
+        .number {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
         }
-
-        .main-content {
-            padding: 1.5rem;
-            overflow-y: auto;
-            max-height: 80vh;
-        }
-
-        .test-summary {
-            margin-bottom: 2rem;
-        }
-
-        .test-summary h2 {
-            font-size: 1.2rem;
-            color: var(--color-text);
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--color-border);
-        }
-
-        .test-list {
-            list-style: none;
-        }
-
-        .test-list li {
-            margin-bottom: 0.5rem;
-            padding: 0.5rem;
-            border-radius: 4px;
-            transition: background-color 0.2s;
-        }
-
-        .test-list li:hover {
-            background-color: #f5f5f5;
-        }
-
-        .test-list a {
-            text-decoration: none;
-            color: var(--color-text);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .status-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-
-        .pass .status-indicator {
-            background-color: var(--color-pass);
-        }
-
-        .fail .status-indicator {
-            background-color: var(--color-fail);
-        }
-
-        .skip .status-indicator {
-            background-color: var(--color-skip);
-        }
-
+        
+        .total { color: var(--info); }
+        .passed { color: var(--success); }
+        .failed { color: var(--error); }
+        .skipped { color: var(--warning); }
+        
         .test-case {
             background: white;
+            margin-bottom: 16px;
+            padding: 16px;
             border-radius: 8px;
-            margin-bottom: 1.5rem;
-            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
-
-        .test-case-header {
-            padding: 1rem;
-            border-bottom: 1px solid var(--color-border);
-            background: #f8f9fa;
+        
+        .test-case.failed {
+            border-left: 4px solid var(--error);
         }
-
-        .test-case-content {
-            padding: 1rem;
-        }
-
-        .test-case.pass {
-            border-left: 4px solid var(--color-pass);
-        }
-
-        .test-case.fail {
-            border-left: 4px solid var(--color-fail);
-        }
-
-        .test-case.skip {
-            border-left: 4px solid var(--color-skip);
-        }
-
+        
         .error-details {
-            background: #fff5f5;
-            border-left: 4px solid var(--color-fail);
-            padding: 1rem;
-            margin-top: 1rem;
-            border-radius: 4px;
+            background: #fef2f2;
+            padding: 16px;
+            margin-top: 16px;
+            border-radius: 6px;
         }
-
-        .duration-badge {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            background: #e3f2fd;
-            border-radius: 4px;
-            font-size: 0.875rem;
-            color: var(--color-primary);
+        
+        .error-message {
+            color: var(--error);
+            margin-bottom: 8px;
         }
-
+        
+        .error-stack {
+            font-family: monospace;
+            white-space: pre-wrap;
+            background: #1e293b;
+            color: #e5e7eb;
+            padding: 12px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        .test-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 14px;
+            font-weight: 500;
+            color: white;
+        }
+        
+        .status-badge.pass { background: var(--success); }
+        .status-badge.fail { background: var(--error); }
+        .status-badge.skip { background: var(--warning); }
+        
         @media (max-width: 768px) {
-            .dashboard {
+            .stats-grid {
                 grid-template-columns: 1fr;
             }
-
-            .sidebar {
-                border-right: none;
-                border-bottom: 1px solid var(--color-border);
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .test-case {
-            animation: fadeIn 0.3s ease-out;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>ShadowdriverJS Test Report</h1>
-        <div class="stats-container">
-            <div class="stat-box">
-                <div class="number">2</div>
-                <div>Total Tests</div>
-            </div>
-            <div class="stat-box">
-                <div class="number" style="color: var(--color-pass)">1</div>
-                <div>Passed</div>
-            </div>
-            <div class="stat-box">
-                <div class="number" style="color: var(--color-fail)">0</div>
-                <div>Failed</div>
-            </div>
-            <div class="stat-box">
-                <div class="number" style="color: var(--color-skip)">1</div>
-                <div>Skipped</div>
-            </div>
+        <h1>Test Results <p>by sdr JS</p></h1>
+    </div>
+    
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="number total">2</div>
+            <div>Total Tests</div>
+        </div>
+        <div class="stat-card">
+            <div class="number passed">2</div>
+            <div>Passed</div>
+        </div>
+        <div class="stat-card">
+            <div class="number failed">0</div>
+            <div>Failed</div>
+        </div>
+        <div class="stat-card">
+            <div class="number skipped">0</div>
+            <div>Skipped</div>
         </div>
     </div>
 
-    <div class="report-container">
-        <div class="dashboard">
-            <aside class="sidebar">
-                <div class="test-summary">
-                    <h2>Test Cases</h2>
-                    <ul class="test-list">
-                        <li class="skipped">
-                            <a href="#should perform a sample test case222222">
-                                <span class="status-indicator"></span>
-                                Sample Test Suite22222 should perform a sample test case222222
-                            </a>
-                        </li>
-                        <li class="pass">
-                            <a href="#Test using css selector">
-                                <span class="status-indicator"></span>
-                                Sample Test Suite22222 Test using css selector
-                            </a>
-                        </li>
-                    </ul>
+    <div class="test-cases">
+        
+            <div class="test-case ">
+                <h3>Sample Test Suite should perform a sample test case</h3>
+                <div class="test-meta">
+                    <span class="status-badge pass">pass</span>
+                    <span>Duration: 10656ms</span>
+                    <span>Executed: 2/2/2025, 1:08:57 AM</span>
                 </div>
-            </aside>
-
-            <main class="main-content">
-                <div class="test-case skipped" id="should perform a sample test case222222">
-                    <div class="test-case-header">
-                        <h2>Sample Test Suite22222 should perform a sample test case222222</h2>
-                    </div>
-                    <div class="test-case-content">
-                        <p>
-                            <strong>Status:</strong> 
-                            <span class="skipped">skipped</span>
-                            <span class="duration-badge">0ms</span>
-                        </p>
-                        
-                    </div>
+                
+            </div>
+        
+            <div class="test-case ">
+                <h3>Sample Test Suite Test using css selector and keys</h3>
+                <div class="test-meta">
+                    <span class="status-badge pass">pass</span>
+                    <span>Duration: 22739ms</span>
+                    <span>Executed: 2/2/2025, 1:09:19 AM</span>
                 </div>
-                <div class="test-case pass" id="Test using css selector">
-                    <div class="test-case-header">
-                        <h2>Sample Test Suite22222 Test using css selector</h2>
-                    </div>
-                    <div class="test-case-content">
-                        <p>
-                            <strong>Status:</strong> 
-                            <span class="pass">pass</span>
-                            <span class="duration-badge">19051ms</span>
-                        </p>
-                        
-                    </div>
-                </div>
-            </main>
-        </div>
+                
+            </div>
+        
     </div>
-
-    <script>
-        // Smooth scroll to test cases when clicking links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const element = document.querySelector(this.getAttribute('href'));
-                element.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-            });
-        });
-    </script>
 </body>
 </html>

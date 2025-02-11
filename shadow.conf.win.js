@@ -17,15 +17,15 @@ module.exports = {
     // Specifies the browser to use for testing. Here, it's Chrome.
     browserName: "chrome",
     //logs
-    browser_log: "OFF",
-    driver_log: "OFF",
+    browser_log: "ALL",
+    driver_log: "ALL",
     //chromeversion
-    version: "132.0.6834.110",
+    version: "131.0.6778.85",
     // Provides Chrome-specific options.
     // browserPath: path.resolve("browser/browserBinary/chrome.exe"), //Win 10/11
     // browserPath: path.resolve("browser/browserBinary/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"), //M Mac OS
-    browserPath: path.resolve("browser/browserBinary/chrome"), //Linux (Ubuntu)
-    driverPath: path.resolve("driver/browserDriver/chromedriver"), // Linux or Mac
+    browserPath: path.resolve("browser/browserBinary/chrome.exe"), //Linux (Ubuntu)
+    driverPath: path.resolve("driver/browserDriver/chromedriver.exe"), // Linux or Mac
     //driverPath: path.resolve("driver/browserDriver/chromedriver.exe"), //Win 10/11
     "goog:chromeOptions": {
       //binary
@@ -36,7 +36,7 @@ module.exports = {
         // Disables the use of the GPU, which can be helpful for consistency in test environments.
         "--disable-gpu",
         // Starts the browser maximized to ensure the entire web page is visible.
-        "--start-maximized",
+        "--window-size=1920,1080"
       ],
     },
   },
@@ -56,7 +56,7 @@ module.exports = {
   },
   logger: {
     mocha_cap: {
-      log: false,
+      log: true,
     },
   },
   // This hook is executed before the test framework is initialized.
@@ -67,35 +67,17 @@ module.exports = {
   // - Configuring external services
   // - Starting up test servers
   //do not have browser object access
-  onPrepare: async () => {
-    console.log("I am on prepare and I do not have access to the browser");
-    const mysql = require('mysql2/promise'); // Use the promise version
+  onPrepare: () => {
+    console.log("I am on prepare and I do not have access to the browser")
+  },
 
-    // Create a MySQL connection pool
-    global.con = mysql.createPool({
-        host: "127.0.0.1",
-        user: "root",
-        password: "password",
-        database: "user_db",
-        waitForConnections: true,
-        connectionLimit: 10,
-        queueLimit: 0
-    });
-
-    // Optional: Handle disconnection gracefully if using a pool
-    global.con.on("error", function (err) {
-        console.error("Database error:", err);
-    });
-    
-},
   // This block defines hooks that run before and after tests.
 
   // This hook runs before all tests in the suite.
   // Access the browser object to manage the browser window.
   // Sets the browser window size to 1920x1080 pixels.
-  before: () => {
+  before: async () => {
     console.log("I am before hook and I have access to the browser")
-    //browser.manage().window().setSize(1920, 1080);
   },
 
   // This hook runs after all tests in the suite.
@@ -103,7 +85,6 @@ module.exports = {
     // Closes the browser window.
     browser.quit()
     //generate html report
-    console.log("after is running")
     generate_HTML("./")
   },
 }

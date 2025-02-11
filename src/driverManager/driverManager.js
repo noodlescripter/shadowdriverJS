@@ -26,7 +26,9 @@ async function _driver_manager(_name) {
 
     } catch (driver_is_null_error) {
         // Catch any errors related to the WebDriver initialization and throw a descriptive error.
+        console.error(driver_is_null_error);
         throw new Error(driver_is_null_error);
+        
     }
 }
 

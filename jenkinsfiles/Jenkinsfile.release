@@ -1,0 +1,111 @@
+pipeline {
+    agent any
+    tools {
+        nodejs 'NodeJS'
+    }
+    environment {
+        GIT_REPO = 'git@github.com:noodlescripter/shadowdriverjs.git'
+        BRANCH = 'develop'
+        NPM_TOKEN = credentials('shadowdriverjs-release-token')
+    }
+    parameters {
+        string(name: 'VERSION', defaultValue: '1.0.0', description: 'Version of the npm package to publish')
+    }
+    stages {
+        stage('Cloning code base') {
+            steps {
+                echo "Cloning... ${GIT_REPO}"
+                git branch: "${BRANCH}", url: "${GIT_REPO}"
+            }
+        }
+
+        stage('checkout new branch') {
+            steps {
+                script {
+                    // Using v- prefix instead of release/ to avoid the conflict
+                    sh """
+                        git config user.email 'jenkins@your-domain.com'
+                        git config user.name 'Jenkins'
+                        git checkout -b v-${params.VERSION}
+                    """
+                }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    sh 'npm ci'
+                }
+            }
+        }
+
+        stage('Update Version') {
+            steps {
+                script {
+                    sh "npm --no-git-tag-version version ${params.VERSION}"
+                }
+            }
+        }
+        
+        stage('Build the package for release') {
+            steps {
+                script {
+                    sh 'npm run build'
+                }
+            }
+        }
+
+        stage('Publish to NPM') {
+            steps {
+                script {
+                    // Create .npmrc file with token
+                    writeFile file: '.npmrc', text: "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}"
+
+                    // Publish to NPM with error handling
+                    sh '''
+                        set +e
+                        npm publish
+                        PUBLISH_RESULT=$?
+                        rm -f .npmrc
+                        exit $PUBLISH_RESULT
+                    '''
+                }
+            }
+        }
+
+        stage('Push to repo') {
+            steps {
+                script {
+                    sh """
+                        git add package.json package-lock.json
+                        git commit -m 'Release version ${params.VERSION}'
+                        git push origin v-${params.VERSION}
+                    """
+                }
+            }
+        }
+
+        stage('Cleanup') {
+            steps {
+                script {
+                    // Ensure .npmrc is removed
+                    sh 'rm -f .npmrc'
+                }
+            }
+        }
+
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
+        failure {
+            echo 'Pipeline failed! Check the logs for details.'
+        }
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+    }
+}

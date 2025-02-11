@@ -50,13 +50,49 @@ async function _frame_work_mocha(_conf_file, _files) {
 
   return new Promise(async (resolve, reject) => {
     try {
-      log("Parsed spec= ", specFiles)
-      for (const spec of specFiles) {
-        log(`Starting test for: ${spec}`)
+      //need to run onPrepare hook if exist
+      //TODO - in the future, we can add more hooks and seperate them in different modules
+      if (typeof requireConf.onPrepare === "function") {
+        log("Executing onPrepare hook")
+        try {
+          requireConf.onPrepare()
+        } catch (err) {
+          error("Error in onPrepare hook", err)
+        }
+      }
 
+      await new Promise((resolve, reject) => {
+        if (typeof requireConf.before === "function") {
+          log("Executing before hook")
+          try {
+            requireConf.before()
+            resolve()
+          } catch (err) {
+            error("Error in before hook", err)
+            reject(err)
+          }
+        } else {
+          resolve()
+        }
+      })
+
+      /*    log("Parsed spec= ", specFiles)
+      for(let  index = 0; index < specFiles.length; index++) {
+        log(`Starting test for: ${specFiles[index]}`)
+        //need to check if this is the last file
+        const isLast = index === specFiles.length - 1
+        if(isLast){
+          log("Generating report");
+
+        }
+      } */
+
+      for (const [index, spec] of specFiles.entries()) {
+        log(`Starting test for: ${spec}`)
+        const isLast = index === specFiles.length - 1
         // Create a new Mocha instance for each test file
         const mocha_init = mochaOptions ? new Mocha(mochaOptions) : new Mocha()
-        mocha_init.reporter(ShadowReporter)
+        mocha_init.reporter(ShadowReporter) // only reporting the last spec res
         if (!mochaOptions?.timeout) {
           console.info("Timeout provided......... LOCAL TESTING")
           mocha_init.timeout(60000) // Default timeout of 60 seconds
@@ -92,6 +128,14 @@ async function _frame_work_mocha(_conf_file, _files) {
               })
             }
             resTest()
+          })
+
+          // Handle the start of a test
+          runner.on("start", (err) => {
+            console.log(`on start: ${spec}`)
+            if (requireConf.beforeTest === "function") {
+              requireConf.beforeTest(err)
+            }
           })
 
           // Handle test failures
@@ -141,6 +185,9 @@ async function _frame_work_mocha(_conf_file, _files) {
         if (passed) passedCount++
         else failedCount++
       })
+      if (isLast) {
+        console.log("I will generate the report now")
+      }
       resolve() // Resolve the main promise after all test files are run
     } catch (err) {
       console.error("Critical error during test execution:", err)

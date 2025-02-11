@@ -42,6 +42,8 @@
     "glob": "^10.3.10",
     "handlebars": "^4.7.8",
     "mochawesome": "^7.1.3",
+    "mssql": "^11.0.1",
+    "mysql2": "^3.12.0",
     "selenium-webdriver": "^4.16.0",
     "shadowdriverjs": "^1.0.1-beta.0"
   },

@@ -6,7 +6,8 @@ import FooterComponent from "./component/footer"
 import MainSection from "./component/other/mainSection"
 import RowComponent from "./component/other/row"
 import ColumnComponent from "./component/other/column"
-import PanelComponent from "./component/other/api-v1/panels"
+import PanelComponent from "./component/other/api-v2.0.1/panels"
+import PanelComponent_V1 from "./component/other/api-v2.0.2/panels"
 import NoMobileSupportedComponent from "./component/mobile/not-supported/mobile_not_supported"
 
 function App() {
@@ -172,10 +173,18 @@ function App() {
       <Router>
         <Routes>
           <Route
-            path={`/v1/api`}
+            path={`/v2.0.1/api`}
             element={
               <>
                 <PanelComponent></PanelComponent>
+              </>
+            }
+          ></Route>
+          <Route
+            path={`/v2.0.2/api`}
+            element={
+              <>
+                <PanelComponent_V1></PanelComponent_V1>
               </>
             }
           ></Route>
