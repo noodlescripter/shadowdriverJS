@@ -1,0 +1,3 @@
+[submodule "site/version1"]
+    path = site/version_2.0.beta
+    url = https://github.com/noodlescripter/version_2.0.beta.git
