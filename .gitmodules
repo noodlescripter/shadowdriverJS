@@ -1,3 +1,6 @@
 [submodule "site/version1"]
     path = site/version_2.0.beta
     url = https://github.com/noodlescripter/version_2.0.beta.git
+[submodule "site/version_2_0_beta"]
+	path = site/version_2_0_beta
+	url = git@github.com:noodlescripter/shadowdriverJS.git
