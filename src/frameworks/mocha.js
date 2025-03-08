@@ -86,10 +86,11 @@ async function _frame_work_mocha(_conf_file, _files) {
 
         }
       } */
+      let isLast = false
 
       for (const [index, spec] of specFiles.entries()) {
         log(`Starting test for: ${spec}`)
-        const isLast = index === specFiles.length - 1
+        isLast = index === specFiles.length - 1
         // Create a new Mocha instance for each test file
         const mocha_init = mochaOptions ? new Mocha(mochaOptions) : new Mocha()
         mocha_init.reporter(ShadowReporter) // only reporting the last spec res
@@ -99,66 +100,87 @@ async function _frame_work_mocha(_conf_file, _files) {
         }
 
         // Open a new browser for each test file
+        require("../webdriver-api/webdriver-element-obj-api")
         const _driver = await _driver_manager(_conf_file)
         _globals(_driver)
-
         // Add the test file
         mocha_init.addFile(spec)
 
         if (!_driver) {
           throw new Error("Driver is null. Check why.")
         }
+        try {
+          
+          await new Promise(resolve => setTimeout(resolve, 2000));
 
-        await new Promise((resTest) => {
-          const runner = mocha_init.run((failures) => {
-            if (failures > 0) {
-              error(`Test failed in ${spec}: ${failures} failures.`)
+          await new Promise((resTest) => {
+            const runner = mocha_init.run((failures) => {
+              if (failures > 0) {
+                error(`Test failed in ${spec}: ${failures} failures.`)
+                test_informations.push({
+                  spec,
+                  failures: true,
+                  passed: false,
+                  errors: null,
+                })
+              } else {
+                test_informations.push({
+                  spec,
+                  failures: false,
+                  passed: true,
+                  errors: null,
+                })
+              }
+              resTest()
+            })
+
+            // Handle the start of a test
+            runner.on("start", (err) => {
+              console.log(`on start: ${spec}`)
+              if (requireConf.beforeTest === "function") {
+                requireConf.beforeTest(err)
+              }
+            })
+
+            // Handle test failures
+            runner.on("fail", (test, err) => {
+              console.error(`Test failed in file ${spec}: ${test.title}`)
+              console.error(`${err}`)
               test_informations.push({
                 spec,
                 failures: true,
                 passed: false,
-                errors: null,
+                errors: err,
               })
-            } else {
-              test_informations.push({
-                spec,
-                failures: false,
-                passed: true,
-                errors: null,
-              })
-            }
-            resTest()
-          })
+            })
 
-          // Handle the start of a test
-          runner.on("start", (err) => {
-            console.log(`on start: ${spec}`)
-            if (requireConf.beforeTest === "function") {
-              requireConf.beforeTest(err)
-            }
-          })
-
-          // Handle test failures
-          runner.on("fail", (test, err) => {
-            console.error(`Test failed in file ${spec}: ${test.title}`)
-            console.error(`${err}`)
-            test_informations.push({
-              spec,
-              failures: true,
-              passed: false,
-              errors: err,
+            // Handle the end of all tests for the current file
+            runner.on("end", () => {
+              log(`Finished running tests in ${spec}`)
+              if (typeof requireConf.after === "function") {
+                log("Executing after hook to close the browser")
+                requireConf.after() // Close the browser
+              }
             })
           })
+        } catch (error) {
+          console.error('Error occurred:', error);
 
-          // Handle the end of all tests for the current file
-          runner.on("end", () => {
-            log(`Finished running tests in ${spec}`)
-            if (typeof requireConf.after === "function") {
-              log("Executing after hook to close the browser")
-              requireConf.after() // Close the browser
-            }
-          })
-        })
+          // With styling (red text)
+          console.error('%cError:', 'color: red; font-weight: bold', error);
+
+          // With red underline
+          console.log('%cError: ' + error.message, 'border-bottom: 2px solid red;');
+
+          // Detailed error information
+          console.group('Error Details');
+          console.error('Message:', error.message);
+          console.error('Stack:', error.stack);
+          console.error('Name:', error.name);
+          console.groupEnd();
+
+          throw error; // Re-throw if needed
+        }
       }
       // Summary of all tests after completion
       console.log(styles.header("Test Summary:"))

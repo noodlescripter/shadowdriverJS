@@ -3,9 +3,9 @@ import TemporaryCountdown from "./temp/countdown"
 import { EllipsisVertical, Bot } from "lucide-react"
 
 export default function NavBar() {
-  const default_shadowdriver_version = "v1.0.1"
+  const default_shadowdriver_version = "v2.0.1"
   const [selectedVersion, setSelectedVersion] = useState(null)
-  const shadowdriverVersion = ["v1", "v1.0.1"]
+  const shadowdriverVersion = ["v2.0.1", "v2.0.2"]
   const [release, setRelease] = useState(true) // intentionally set to true on 1/26/2025 to bypass the countdown timer since the it is not needed
   const [version, setVersion] = useState(
     ((key) => {

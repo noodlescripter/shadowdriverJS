@@ -1,0 +1,8 @@
+{
+  "label": "Locators",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Type of locators supported by shadowdriverJS."
+  }
+}

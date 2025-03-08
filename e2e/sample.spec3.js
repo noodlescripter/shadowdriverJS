@@ -26,23 +26,14 @@ describe("shadowdriverJS api validation", function () {
   })
 
   it("click();", async function () {
-    await element(by.id("loginBtn")).click()
+    await element(by.id("loginBtn")).waitFor({condition: "elementIsVisible"})
+    await element(by.id("loginBtn")).click({condition: "isVisible"})
   })
 
   it("waitUntil();", async function () {
     //wait for loading icon to disappear
-    await browser.wait(
-      waitUntil.elementIsVisible(
-        element(by.xpath("//*[contains(text(),'Loading...')]"))
-      ),
-      10000
-    )
-    await browser.wait(
-      waitUntil.elementIsNotVisible(
-        element(by.xpath("//*[contains(text(),'Loading...')]"))
-      ),
-      10000
-    )
+    await element(by.xpath("//*[contains(text(),'Loading...')]")).waitFor({condition:"isVisible"})
+    await element(by.xpath("//*[contains(text(),'Loading...')]")).waitFor({condition:"isNotVisible"}, 5000)
   })
 
   async function waitFor(locator, dTimeout = 10000) {

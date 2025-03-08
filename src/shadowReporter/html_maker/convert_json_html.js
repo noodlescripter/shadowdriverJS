@@ -6,46 +6,48 @@ const path = require("path")
  * @param {string} client_path - Output directory path
  */
 function convert_json_html(client_path) {
-  try {
-    // Setup paths
-    const jsonDir = path.resolve(__dirname, "../../../json-test-report")
-    const outputPath = path.resolve(client_path, "test-report.html")
+    try {
+        // Setup paths
+        const jsonDir = path.resolve(__dirname, "../../../json-test-report")
+        const outputPath = path.resolve(client_path, "test-report.html")
 
-    // Ensure output directory exists
-    if (!fs.existsSync(client_path)) {
-      fs.mkdirSync(client_path, { recursive: true })
-    }
+        // Ensure output directory exists
+        if (!fs.existsSync(client_path)) {
+            fs.mkdirSync(client_path, { recursive: true })
+        }
 
-    // Get all JSON files
-    const jsonFiles = fs
-      .readdirSync(jsonDir)
-      .filter((file) => file.endsWith(".json"))
+        // Get all JSON files
 
-    let totalTests = 0
-    let passedTests = 0
-    let failedTests = 0
-    let skippedTests = 0
-    let testResults = []
 
-    // Process each JSON file
-    jsonFiles.forEach((filename) => {
-      const filePath = path.join(jsonDir, filename)
-      const fileContent = fs.readFileSync(filePath, "utf-8")
-      const testData = JSON.parse(fileContent)
+        let totalTests = 0
+        let passedTests = 0
+        let failedTests = 0
+        let skippedTests = 0
+        let testResults = []
 
-      totalTests += testData.summary?.total || 0
-      passedTests += testData.summary?.passed || 0
-      failedTests += testData.summary?.failed || 0
-      skippedTests += testData.summary?.skipped || 0
+        const jsonFiles = fs
+            .readdirSync(jsonDir)
+            .filter((file) => file.endsWith(".json"))
 
-      // Collect all test results
-      if (testData.results) {
-        testResults.push(...testData.results)
-      }
-    })
+        // Process each JSON file
+        jsonFiles.forEach((filename) => {
+            const filePath = path.join(jsonDir, filename)
+            const fileContent = fs.readFileSync(filePath, "utf-8")
+            const testData = JSON.parse(fileContent)
 
-    // Generate HTML content
-    const html = `<!DOCTYPE html>
+            totalTests += testData.summary?.total || 0
+            passedTests += testData.summary?.passed || 0
+            failedTests += testData.summary?.failed || 0
+            skippedTests += testData.summary?.skipped || 0
+
+            // Collect all test results
+            if (testData.results) {
+                testResults.push(...testData.results)
+            }
+        })
+
+        // Generate HTML content
+        const html = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -191,89 +193,84 @@ function convert_json_html(client_path) {
 
     <div class="test-cases">
         ${testResults
-          .map(
-            (test) => `
+                .map(
+                    (test) => `
             <div class="test-case ${test.status === "fail" ? "failed" : ""}">
                 <h3>${test.fullTitle || test.title}</h3>
                 <div class="test-meta">
-                    <span class="status-badge ${test.status}">${
-              test.status
-            }</span>
+                    <span class="status-badge ${test.status}">${test.status
+                        }</span>
                     <span>Duration: ${test.duration}ms</span>
                     <span>Executed: ${new Date(
-                      test.timestamp
-                    ).toLocaleString()}</span>
+                            test.timestamp
+                        ).toLocaleString()}</span>
                 </div>
-                ${
-                  test.error
-                    ? `
+                ${test.error
+                            ? `
                     <div class="error-details">
                         <div class="error-message">${test.error.message}</div>
-                        ${
-                          test.error.stack
-                            ? `
+                        ${test.error.stack
+                                ? `
                             <pre class="error-stack">${test.error.stack}</pre>
                         `
-                            : ""
-                        }
-                        ${
-                          test.error.diff
-                            ? `
+                                : ""
+                            }
+                        ${test.error.diff
+                                ? `
                             <div class="diff-details">
                                 <h4>Differences:</h4>
                                 <pre class="error-stack">${test.error.diff}</pre>
                             </div>
                         `
-                            : ""
-                        }
-                        ${
-                          test.error.expected || test.error.actual
-                            ? `
+                                : ""
+                            }
+                        ${test.error.expected || test.error.actual
+                                ? `
                             <div class="comparison">
                                 <h4>Expected:</h4>
                                 <pre class="error-stack">${JSON.stringify(
-                                  test.error.expected,
-                                  null,
-                                  2
+                                    test.error.expected,
+                                    null,
+                                    2
                                 )}</pre>
                                 <h4>Actual:</h4>
                                 <pre class="error-stack">${JSON.stringify(
-                                  test.error.actual,
-                                  null,
-                                  2
+                                    test.error.actual,
+                                    null,
+                                    2
                                 )}</pre>
                             </div>
                         `
-                            : ""
-                        }
+                                : ""
+                            }
                     </div>
                 `
-                    : ""
-                }
+                            : ""
+                        }
             </div>
         `
-          )
-          .join("")}
+                )
+                .join("")}
     </div>
 </body>
 </html>`
 
-    fs.writeFileSync(outputPath, html)
-    console.log("\nTest Report Summary:")
-    console.log("-------------------")
-    console.log(`Total Tests: ${totalTests}`)
-    console.log(`Passed: ${passedTests}`)
-    console.log(`Failed: ${failedTests}`)
-    console.log(`Skipped: ${skippedTests}`)
-    console.log(`\nReport saved to: ${outputPath}`)
+        fs.writeFileSync(outputPath, html)
+        console.log("\nTest Report Summary:")
+        console.log("-------------------")
+        console.log(`Total Tests: ${totalTests}`)
+        console.log(`Passed: ${passedTests}`)
+        console.log(`Failed: ${failedTests}`)
+        console.log(`Skipped: ${skippedTests}`)
+        console.log(`\nReport saved to: ${outputPath}`)
 
-    return outputPath
-  } catch (error) {
-    console.error("Error generating report:", error)
-    throw error
-  }
+        return outputPath
+    } catch (error) {
+        console.error("Error generating report:", error)
+        throw error
+    }
 }
 
 module.exports = {
-  convert_json_html,
+    convert_json_html,
 }

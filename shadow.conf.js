@@ -37,6 +37,7 @@ module.exports = {
         "--disable-gpu",
         // Starts the browser maximized to ensure the entire web page is visible.
         "--start-maximized",
+        `--user-data-dir=${path.resolve("userData")}`,
       ],
     },
   },
@@ -68,7 +69,7 @@ module.exports = {
   // - Starting up test servers
   //do not have browser object access
   onPrepare: async () => {
-    console.log("I am on prepare and I do not have access to the browser");
+   /*  console.log("I am on prepare and I do not have access to the browser");
     const mysql = require('mysql2/promise'); // Use the promise version
 
     // Create a MySQL connection pool
@@ -85,7 +86,7 @@ module.exports = {
     // Optional: Handle disconnection gracefully if using a pool
     global.con.on("error", function (err) {
         console.error("Database error:", err);
-    });
+    }); */
     
 },
   // This block defines hooks that run before and after tests.

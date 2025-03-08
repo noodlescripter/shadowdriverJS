@@ -1,0 +1,8 @@
+{
+  "label": "Browser API",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn how shadowdriverJS browser API works."
+  }
+}
