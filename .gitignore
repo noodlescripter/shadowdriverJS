@@ -16,3 +16,15 @@ package/
 json-test-report/
 chromedriver.log
 userData
+*.json
+.env
+test-report.html
+node22
+./chromedriver.log
+*.log
+*.tsbuildinfo
+*.tgz
+package.json
+package-lock.json
+./test-report.html
+recruiting.html

@@ -19,6 +19,7 @@
 
 const { WebElement } = require('selenium-webdriver/lib/webdriver');
 const { until } = require('selenium-webdriver');
+const { conditionMapper } = require("./mapper/waitFor-condition/conditionMapper.js");
 
 // Store the original click method
 const originalClick = WebElement.prototype.click;
@@ -45,38 +46,71 @@ const originalClick = WebElement.prototype.click;
  * 
  * @returns {Promise} Promise resolved when click is complete
  */
-WebElement.prototype.click = async function (options = {}) {
+WebElement.prototype.click = async function (options = { jsClick: false }) {
     const _timeout = options.timeout || 10000
-    if (options.jsClick) {
+
+    /**
+     * this function is used to click on the element using js executor, so this is is completely seperate from the original click function webdriverjs or shadowdriverjs
+     * 
+     */
+    if (options.jsClick === true) {
         console.log("clicking using js executor");
         await this.getDriver().executeScript("arguments[0].click();", this);
-        return;
+        return this; // posibly return the element is not needed
     }
-    if (options.condition) {
-        //await this.getDriver().sleep(1000)
-        const _options = options.condition;
-        if (_options === "isDisplayed") {
-            console.log("Waiting to element to be displayed before clicking")
-            await this.getDriver().wait(async () => {
-                return await this.isDisplayed()
-            }, _timeout)
-        } else if (_options === 'isVisible') {
-            console.log("Waiting for element to be visible before performing click action")
-            await this.getDriver().wait(until.elementIsVisible(this), _timeout)
-        } else if (_options === 'isClickable') {
-            console.log("Waiting for element to be enable before performing click action")
-            await this.getDriver().wait(until.elementIsEnabled(this), _timeout)
-        } else if (_options === 'isPresent') {
-            console.log("Waiting for element to be present before performing click action")
-            await this.getDriver().wait(async () => {
-                return await this.isPresent()
-            }, _timeout)
 
-        } else {
-            console.log("Original Click function....")
-        }
-    }
-    // Call the original click method
+    // Check if a condition is specified in the options
+
+    const isClientGiven_condition = options.condition || options.options;
+
+    // if (isClientGiven_condition) {
+    //     /**
+    //      * Please do not add any hard wait like this.getDriver().sleep(1000) or this.getDriver().wait(1000)
+    //      * add log for only testing purpose
+    //      */
+    //     const _options = isClientGiven_condition ? isClientGiven_condition : null; //if null then it will be undefined
+    //     if (_options === null || _options === undefined) {
+    //         console.log("No condition specified in options");
+    //         throw new Error("No condition specified in options: function is: click()");
+    //     }
+
+
+    //     /**
+    //      * TODO: Never use this code in production, this is only for testing purpose
+    //      * TODO: will be removed in future, but if you want to use the original click function then you can use the original click function.
+    //      * TODO: You can create or imporve the original click function in the shaowdriverjs or webdriverjs. I will be happy to approve the PR (Only for shadowdriverJS).
+    //      */
+
+    //     // //below code will be completely removed
+    //     // if (_options === "isDisplayed") {
+    //     //     //adding log for testing purpose
+    //     //     console.log("Waiting to element to be displayed before clicking")
+
+    //     //     // Wait for the element to be displayed
+    //     //     await this.getDriver().wait(async () => {
+    //     //         return await this.isDisplayed()
+    //     //     }, _timeout)
+
+    //     // } else if (_options === 'isVisible') {
+    //     //     console.log("Waiting for element to be visible before performing click action")
+    //     //     await this.getDriver().wait(until.elementIsVisible(this), _timeout)
+    //     // } else if (_options === 'isClickable') {
+    //     //     console.log("Waiting for element to be enable before performing click action")
+    //     //     await this.getDriver().wait(until.elementIsEnabled(this), _timeout)
+    //     // } else if (_options === 'isPresent') {
+    //     //     console.log("Waiting for element to be present before performing click action")
+    //     //     await this.getDriver().wait(async () => {
+    //     //         return await this.isPresent()
+    //     //     }, _timeout)
+
+    //     // } else {
+    //     //     console.log("Original Click function....")
+    //     // }
+    // }
+
+    /**
+     * ONLY return this if no error occurs, otherwise return error!!!!
+     */
     return originalClick.call(this);
 };
 
@@ -111,65 +145,31 @@ WebElement.prototype.click = async function (options = {}) {
 WebElement.prototype.waitFor = async function (options = {}) {
     try {
         const _timeout = options.timeout;
-        if(_timeout){
-            console.log("timeout given!!!!!!!!!!")
+        if (_timeout) {
+            console.log("timeout is: ", _timeout);
         }
-        if (options.condition) {
-           // await this.getDriver().sleep(1000)
-            const _condition = options.condition;
+        const isClientGiven_condition = options.condition || options.options;
+        console.log(`isClientGiven_condition is: ${isClientGiven_condition}`);
+        if (isClientGiven_condition) {
+            // await this.getDriver().sleep(1000)
+            const _condition = options.condition || options.options;
             console.log(`Waiting for condition: ${_condition} with timeout: ${_timeout}ms`);
+            //new feature added
 
-            // Handle each condition type explicitly
-            if (_condition === "elementIsEnabled" || _condition === "clickAble") {
-                console.log("Waiting for element to be enabled");
-                await this.getDriver().wait(until.elementIsEnabled(this), _timeout);
-            }
-            else if (_condition === "elementIsClickable") {
-                console.log("Waiting for element to be clickable");
-                await this.getDriver().wait(until.elementIsEnabled(this), _timeout);
-            }
-            else if (_condition === "elementIsVisible" || _condition === "isVisible") {
-                console.log("Waiting for element to be visible");
-                await this.getDriver().wait(until.elementIsVisible(this), _timeout);
-            }
-            else if (_condition === "elementSelected") {
-                console.log("Waiting for element to be selected");
-                await this.getDriver().wait(until.elementIsSelected(this), _timeout);
-            }
-            else if (_condition === "elementNotEnabled") {
-                console.log("Waiting for element to be disabled");
-                await this.getDriver().wait(until.elementIsDisabled(this), _timeout);
-            }
-            else if (_condition === 'elementIsNotVisible' || _condition === "isNotVisible") {
-                console.log("Waiting for element to not be visible");
-                await this.getDriver().wait(until.elementIsNotVisible(await this), _timeout);
-            }
-
-            else if (_condition === 'elementNotSelected') {
-                console.log("Waiting for element to not be selected");
-                await this.getDriver().wait(until.elementIsNotSelected(this), _timeout);
-            }
-            else if (_condition === 'isDisplayed') {
-                console.log("Waiting for element to be displayed");
-                await this.getDriver().wait(async () => {
-                    return await this.isDisplayed()
-                }, _timeout);
-            }
-            else if (_condition === 'isPresent') {
-                console.log("Waiting for element to be present");
-                await this.getDriver().wait(async () => {
-                    return await this.isDisplayed();
-                }, _timeout);
-            } else if (_condition === 'isNotPresent') {
-                console.log("Waiting for element to be present");
-                await this.getDriver().wait(async () => {
-                    return !(await this.isDisplayed())
-                }, _timeout);
-            }
-            else {
+            if (conditionMapper.GET_MATCHING_CONDITION(_condition)) {
+                console.log("Matching condition found")
+                const _matchingCondition = conditionMapper.GET_MATCHING_CONDITION(_condition);
+                console.log("Matching condition is: ", _matchingCondition)
+                if (_matchingCondition) {
+                    console.log("Matching condition found")
+                    await this.getDriver().wait(until[_matchingCondition](this), _timeout);
+                } else {
+                    console.error(`Invalid condition provided: ${_condition}`);
+                    throw new Error(`Invalid condition provided: ${_condition}`);
+                }
+            } else {
                 console.error(`Invalid condition provided: ${_condition}`);
                 throw new Error(`Invalid condition provided: ${_condition}`);
-
             }
         } else {
             console.log("No condition specified in options");

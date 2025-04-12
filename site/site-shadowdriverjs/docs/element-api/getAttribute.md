@@ -1,4 +1,4 @@
-# await element.getAttribute
+# await element.getAttribute(...atrbt)
 
 The `await element.getAttribute(attributeName)` function in Selenium WebDriver (used by ShadowdriverJS) is used to retrieve the value of an attribute from a web element. This can be useful for checking the state or properties of elements on a webpage.
 
