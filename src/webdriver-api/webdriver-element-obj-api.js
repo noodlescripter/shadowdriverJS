@@ -46,7 +46,7 @@ const originalClick = WebElement.prototype.click;
  * 
  * @returns {Promise} Promise resolved when click is complete
  */
-WebElement.prototype.click = async function (options = { jsClick: false }) {
+WebElement.prototype.click = async function (options = { jsClick: false, agrs: [] }) {
     const _timeout = options.timeout || 10000
 
     /**
@@ -54,7 +54,7 @@ WebElement.prototype.click = async function (options = { jsClick: false }) {
      * 
      */
     if (options.jsClick === true) {
-        console.log("clicking using js executor");
+        console.log("[WebElement] Using JavaScript executor for click operation");
         await this.getDriver().executeScript("arguments[0].click();", this);
         return this; // posibly return the element is not needed
     }
@@ -62,6 +62,10 @@ WebElement.prototype.click = async function (options = { jsClick: false }) {
     // Check if a condition is specified in the options
 
     const isClientGiven_condition = options.condition || options.options;
+
+    /**
+     * TODO: should go in the future release but not in the current release (2.0.2)
+     */
 
     // if (isClientGiven_condition) {
     //     /**
@@ -146,41 +150,56 @@ WebElement.prototype.waitFor = async function (options = {}) {
     try {
         const _timeout = options.timeout;
         if (_timeout) {
-            console.log("timeout is: ", _timeout);
+            console.log(`[WebElement] Wait timeout set to ${_timeout}ms`);
         }
         const isClientGiven_condition = options.condition || options.options;
-        console.log(`isClientGiven_condition is: ${isClientGiven_condition}`);
+        console.log(`[WebElement] Wait condition requested: ${isClientGiven_condition}`);
+        
         if (isClientGiven_condition) {
-            // await this.getDriver().sleep(1000)
             const _condition = options.condition || options.options;
-            console.log(`Waiting for condition: ${_condition} with timeout: ${_timeout}ms`);
-            //new feature added
+            console.log(`[WebElement] Waiting for condition "${_condition}" with timeout ${_timeout}ms`);
 
             if (conditionMapper.GET_MATCHING_CONDITION(_condition)) {
-                console.log("Matching condition found")
+                console.log(`[WebElement] Found matching condition: ${_condition}`);
                 const _matchingCondition = conditionMapper.GET_MATCHING_CONDITION(_condition);
-                console.log("Matching condition is: ", _matchingCondition)
+                
                 if (_matchingCondition) {
-                    console.log("Matching condition found")
+                    console.log(`[WebElement] Executing wait with condition: ${_matchingCondition}`);
                     await this.getDriver().wait(until[_matchingCondition](this), _timeout);
                 } else {
-                    console.error(`Invalid condition provided: ${_condition}`);
+                    console.error(`[WebElement] Error: Invalid condition mapping for "${_condition}"`);
                     throw new Error(`Invalid condition provided: ${_condition}`);
                 }
             } else {
-                console.error(`Invalid condition provided: ${_condition}`);
+                console.error(`[WebElement] Error: Unsupported condition "${_condition}"`);
                 throw new Error(`Invalid condition provided: ${_condition}`);
             }
         } else {
-            console.log("No condition specified in options");
+            console.log("[WebElement] No wait condition specified in options");
         }
 
         return this;
     } catch (error) {
-        throw error
+        console.error(`[WebElement] Wait operation failed: ${error.message}`);
+        throw error;
     }
-
 }
+
+
+/**
+ * 
+ * TODO: in future release should be added
+ */
+
+// //function like foreach or each only to iterate over the elements and should be only called for element.all
+// WebElement.prototype.each = async function (callback) {
+//     const element = await this.getDriver().findElements(this);
+//     for (let i = 0; i < element.length; i++) {
+//         await callback(element[i], i);
+//     }
+//     return this;
+// }
+
 
 /**
  * Guidelines for Contributors
