@@ -22,3 +22,10 @@ jobs:
 
       - name: Run tests
         run: npm test
+      - name: Check secret existence
+        run: |
+          if [ -n "${{ secrets.SHADOWDRIVERJS }}" ]; then
+            echo "Secret is set"
+          else
+            echo "Secret is not set"
+          fi
