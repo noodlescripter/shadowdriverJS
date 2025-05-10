@@ -10,8 +10,18 @@ permissions:
   id-token: write
 
 jobs:
+  check-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check branch
+        run: |
+          if [ "${{ github.event.release.target_commitish }}" != "2.0.2v_BETA" ]; then
+            echo "::warning::Release created from branch '${{ github.event.release.target_commitish }}' instead of '2.0.2v_BETA'. Skipping workflow."
+            exit 1
+          fi
+
   build:
-    if: github.event.release.target_commitish == '2.0.2v'
+    needs: check-branch
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
