@@ -1,6 +1,6 @@
 {
   "name": "shadowdriverjs",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A JavaScript project using Selenium WebDriverJS for testing or automation with the respect of the Protractor JS",
   "main": "src/shadowRunner/runner.js",
   "files": [
