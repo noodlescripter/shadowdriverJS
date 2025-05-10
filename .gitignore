@@ -28,3 +28,4 @@ package.json
 package-lock.json
 ./test-report.html
 recruiting.html
+*.log

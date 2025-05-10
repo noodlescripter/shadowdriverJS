@@ -11,14 +11,14 @@
   ],
   "scripts": {
     "test": "mocha",
-    "build": "babel src --out-dir package",
-    "build4local": "babel src --out-dir package",
-    "run-ui-tests": "node package/shadowRunner/runner.js exec shadow.conf.win.js",
-    "download-browser": "node package/downloader/downloader.js"
+    "build:prod": "babel src --out-dir package",
+    "build:local": "babel src --out-dir package",
+    "test:ui": "node package/shadowRunner/runner.js exec shadow.conf.win.js",
+    "browser:chrome": "node package/downloader/downloader.js"
   },
   "bin": {
     "shadow": "package/shadowRunner/runner.js",
-    "downloadBrowser": "package/downloader/downloader.js"
+    "browser:chrome": "package/downloader/downloader.js"
   },
   "repository": {
     "type": "git",
@@ -51,7 +51,7 @@
   "bugs": {
     "url": "https://github.com/noodlescripter/shadhowdriver/issues"
   },
-  "homepage": "https://github.com/noodlescripter/shadowdriver#readme",
+  "homepage": "https://shadowdriverjs.dev/",
   "devDependencies": {
     "@babel/cli": "^7.25.6",
     "@babel/core": "^7.25.2",
