@@ -1,9 +1,9 @@
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
+name: ShadowdriverJS Release 2.0.2V
 
+on:
+  release:
+    types: [created]
+   
 permissions:
   contents: read
   pages: write
@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   build:
+    if: github.event.release.target_commitish == '2.0.2v'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
