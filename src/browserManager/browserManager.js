@@ -28,7 +28,7 @@ async function _manager(_name) {
         const customDriverPath = _main.driverPath
         console.log(customDriverPath)
         if (!fs.existsSync(customDriverPath)) {
-          throw new Error("Broken")
+          throw new Error("Chromedriver path does not exist."+customDriverPath)
         }
         let chromeOptions = new Options()
         chromeOptions.setChromeBinaryPath(_main.browserPath)

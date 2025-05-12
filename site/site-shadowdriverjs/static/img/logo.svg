@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <!-- Main rectangular container with rounded corners -->
+  <rect x="50" y="50" width="400" height="400" rx="40" ry="40" fill="none" stroke="#FFE01B" stroke-width="30"/>
+  
+  <!-- Top bar section -->
+  <rect x="50" y="50" width="400" height="100" rx="40" ry="40" fill="none" stroke="#FFE01B" stroke-width="30"/>
+  
+  <!-- Three dots in the top bar -->
+  <circle cx="120" cy="100" r="18" fill="#f51414"/>
+  <circle cx="170" cy="100" r="18" fill="#FFE01B"/>
+  <circle cx="220" cy="100" r="18" fill="#2de32d"/>
+  
+  <!-- Small horizontal line in the top bar -->
+  <rect x="290" y="95" width="80" height="15" rx="7" ry="7" fill="#e3792d"/>
+  
+  <!-- Connect line from top to center -->
+  <rect x="248" y="150" width="8" height="30" fill="#FFE01B"/>
+  
+  <!-- Main content area -->
+  <rect x="50" y="150" width="400" height="300" rx="0" ry="0" fill="none" stroke="#FFE01B" stroke-width="30"/>
+  
+  <!-- Two buttons in the upper part of the main area -->
+  <rect x="130" y="200" width="110" height="45" rx="22" ry="22" fill="none" stroke="#e3792d" stroke-width="15"/>
+  <rect x="260" y="200" width="110" height="45" rx="22" ry="22" fill="none" stroke="#e3792d" stroke-width="15"/>
+  
+  <!-- Code button at the bottom -->
+  <rect x="140" y="300" width="220" height="70" rx="15" ry="15" fill="none" stroke="#FFE01B" stroke-width="15"/>
+  
+  <!-- Code syntax and SD text -->
+  <text x="170" y="345" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#FFE01B">&lt;/&gt;</text>
+  <text x="240" y="345" font-family="Arial, sans-serif" font-size="35" font-weight="bold" fill="#FFE01B">SD</text>
+  
+  <!-- Connection points and dotted lines -->
+  <!-- Left side -->
+  <circle cx="50" cy="150" r="12" fill="#FFE01B"/>
+  <circle cx="50" cy="350" r="12" fill="#FFE01B"/>
+  <line x1="15" y1="150" x2="50" y2="150" stroke="#FFE01B" stroke-width="10"/>
+  <line x1="15" y1="150" x2="15" y2="350" stroke="#FFE01B" stroke-width="14" stroke-dasharray="10,10"/>
+  <line x1="15" y1="350" x2="50" y2="350" stroke="#FFE01B" stroke-width="10"/>
+  
+  <!-- Right side -->
+  <circle cx="450" cy="150" r="12" fill="#FFE01B"/>
+  <circle cx="450" cy="350" r="12" fill="#FFE01B"/>
+  <line x1="450" y1="150" x2="485" y2="150" stroke="#FFE01B" stroke-width="10"/>
+  <line x1="485" y1="150" x2="485" y2="350" stroke="#FFE01B" stroke-width="14" stroke-dasharray="10,10"/>
+  <line x1="450" y1="350" x2="485" y2="350" stroke="#FFE01B" stroke-width="10"/>
+</svg>

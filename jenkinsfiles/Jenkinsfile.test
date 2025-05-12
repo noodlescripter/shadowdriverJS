@@ -1,0 +1,69 @@
+pipeline {
+    agent { label 'shadowdriverJS-release-node' }
+    // Try specifying a specific Node.js version
+    tools {
+        nodejs 'NodeJS' // or whatever version matches your project
+    }
+    environment {
+        GIT_REPO = 'git@github.com:noodlescripter/shadowdriverJS.git' // SSH configured in master Jenkins
+        BRANCH = 'jenkins-test'
+    }
+
+    stages {
+        stage('Clean up the workspace') {
+            steps {
+                echo 'Cleaning the previous workspace'
+                cleanWs()
+            }
+        }
+
+        stage('Cloning code base') {
+            steps {
+                echo "Cloning...... ${GIT_REPO}"
+                git branch: "${BRANCH}", url: "${GIT_REPO}"
+            }
+        }
+
+        stage('Install dependencies') {
+            steps {
+                timeout(time: 2, unit: 'MINUTES') {
+                    echo 'Installing dependencies...'
+                    sh  'npm i'
+                }
+            }
+        }
+
+        stage('Prepare the shadowdriverjs build to UI test') {
+            steps {
+                echo 'build shadowdriverjs with bable'
+                sh  'npm run build'
+            }
+        }
+
+        stage('Download chrome browser') {
+            steps {
+                echo 'Downloading chromedriver and browser'
+                sh  'node ./package/downloader/downloader.js'
+            }
+        }
+
+        stage('Run ui test') {
+            steps {
+                echo 'UI TEST step'
+                sh  'node ./package/shadowRunner/runner.js exec shadow.conf.js --spec sample.spec3.js'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Cleaning up after the run...'
+        }
+        success {
+            echo 'Build and tests completed successfully!'
+        }
+        failure {
+            echo 'Build or tests failed.'
+        }
+    }
+}

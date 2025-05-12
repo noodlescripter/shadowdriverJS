@@ -3,7 +3,7 @@ name: Run Tests on Commit
 on:
   push:
     branches:
-      - "*" # Runs on every branch push
+      - 2.0.2v_BETA # Runs only on main branch push
 jobs:
   run-tests:
     runs-on: ubuntu-latest
@@ -15,10 +15,17 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16 # Adjust this to your project's Node.js version
+          node-version: 18 # Adjust this to your project's Node.js version
 
       - name: Install dependencies
         run: npm ci
 
       - name: Run tests
         run: npm test
+      - name: Check secret existence
+        run: |
+          if [ -n "${{ secrets.SHADOWDRIVERJS }}" ]; then
+            echo "Secret is set"
+          else
+            echo "Secret is not set"
+          fi

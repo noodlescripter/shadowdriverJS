@@ -20,7 +20,7 @@ module.exports = {
     browser_log: "OFF",
     driver_log: "OFF",
     //chromeversion
-    version: "131.0.6778.85",
+    version: "132.0.6834.110",
     // Provides Chrome-specific options.
     // browserPath: path.resolve("browser/browserBinary/chrome.exe"), //Win 10/11
     // browserPath: path.resolve("browser/browserBinary/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"), //M Mac OS
@@ -37,6 +37,7 @@ module.exports = {
         "--disable-gpu",
         // Starts the browser maximized to ensure the entire web page is visible.
         "--start-maximized",
+        `--user-data-dir=${path.resolve("userData")}`,
       ],
     },
   },
@@ -67,13 +68,34 @@ module.exports = {
   // - Configuring external services
   // - Starting up test servers
   //do not have browser object access
-  onPrepare: () => {},
+  onPrepare: async () => {
+   /*  console.log("I am on prepare and I do not have access to the browser");
+    const mysql = require('mysql2/promise'); // Use the promise version
+
+    // Create a MySQL connection pool
+    global.con = mysql.createPool({
+        host: "127.0.0.1",
+        user: "root",
+        password: "password",
+        database: "user_db",
+        waitForConnections: true,
+        connectionLimit: 10,
+        queueLimit: 0
+    });
+
+    // Optional: Handle disconnection gracefully if using a pool
+    global.con.on("error", function (err) {
+        console.error("Database error:", err);
+    }); */
+    
+},
   // This block defines hooks that run before and after tests.
 
   // This hook runs before all tests in the suite.
   // Access the browser object to manage the browser window.
   // Sets the browser window size to 1920x1080 pixels.
   before: () => {
+    console.log("I am before hook and I have access to the browser")
     //browser.manage().window().setSize(1920, 1080);
   },
 
@@ -82,6 +104,7 @@ module.exports = {
     // Closes the browser window.
     browser.quit()
     //generate html report
+    console.log("after is running")
     generate_HTML("./")
   },
 }

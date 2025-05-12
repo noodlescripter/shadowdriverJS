@@ -1,0 +1,206 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1c2833, #283747);
+  }
+  
+  .hero {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .robot-container {
+    width: 300px;
+    height: 450px;
+    position: absolute;
+    transform: scale(0.9);
+  }
+  .robot-container.left{
+    left: 10%;
+  }
+  .robot-container.right{
+    right: 10%;
+  }
+  
+  .robot-body {
+    width: 150px;
+    height: 225px;
+    background: linear-gradient(to bottom, #4CAF50, #2E8B57);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 15px;
+    animation: robot-bob 3s infinite ease-in-out;
+  }
+  
+  .robot-head {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(to bottom, #333, #111);
+    position: absolute;
+    top: -90px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .robot-eye {
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(to bottom, #FFEB3B, #FFC107);
+    border-radius: 50%;
+    margin: 0 15px;
+    animation: eye-blink 3s infinite step-end, eye-glow 2s infinite alternate;
+  }
+  
+  .robot-antenna {
+    width: 3px;
+    height: 60px;
+    background: linear-gradient(to bottom, #f00, #8B0000);
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: antenna-wiggle 3s infinite ease-in-out;
+  }
+  
+  .robot-arm-left,
+  .robot-arm-right {
+    width: 30px;
+    height: 120px;
+    background: linear-gradient(to bottom, #777, #555);
+    position: absolute;
+    bottom: 105px;
+    border-radius: 15px;
+    transform-origin: top center;
+    animation: arm-swing 3s infinite ease-in-out;
+  }
+  
+  .robot-arm-left {
+    left: 15px;
+    transform: rotate(-30deg);
+    animation-direction: alternate-reverse;
+  }
+  
+  .robot-arm-right {
+    right: 15px;
+  }
+  
+  .robot-wheel-left,
+  .robot-wheel-right {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(to bottom, #000, #222);
+    position: absolute;
+    bottom: -22px;
+    border-radius: 50%;
+    animation: wheel-spin 0.5s linear infinite;
+  }
+  
+  .robot-wheel-left {
+    left: 30px;
+  }
+  
+  .robot-wheel-right {
+    right: 30px;
+  }
+  
+  .lightning {
+    position: absolute;
+    width: 60%;
+    height: 5px;
+    background: linear-gradient(to right, transparent, #00BFFF, transparent);
+    animation: lightning-strike 1s infinite linear;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 10px #00BFFF;
+  }
+  
+  .browser-window {
+    width: 400px;
+    height: 300px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  
+  /* Animations */
+  
+  @keyframes robot-bob {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-15px);
+    }
+  }
+  
+  @keyframes eye-blink {
+    0%, 90%, 100% {
+      transform: scaleY(1);
+    }
+    95% {
+      transform: scaleY(0.1);
+    }
+  }
+  
+  @keyframes arm-swing {
+    0%, 100% {
+      transform: rotate(-30deg);
+    }
+    50% {
+      transform: rotate(30deg);
+    }
+  }
+  
+  @keyframes wheel-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes antenna-wiggle {
+    0%, 100% {
+      transform: translateX(-50%) rotate(0deg);
+    }
+    50% {
+      transform: translateX(-50%) rotate(10deg);
+    }
+  }
+  
+  @keyframes eye-glow {
+    0% {
+      box-shadow: 0 0 5px #FFEB3B;
+    }
+    100% {
+      box-shadow: 0 0 20px #FFC107;
+    }
+  }
+  
+  @keyframes lightning-strike {
+    0%, 100% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 0.2;
+    }
+  }

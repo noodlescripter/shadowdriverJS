@@ -1,0 +1,113 @@
+pipeline {
+    agent any
+
+    tools {
+        nodejs 'NodeJS'
+    }
+
+    parameters {
+        string(name: 'Branch', defaultValue: '', description: 'Branch to release from')
+    }
+
+    environment {
+        GIT_REPO = 'git@github.com:noodlescripter/shadowdriverjs.git'
+        BRANCH = "${params.Branch}"
+        NPM_TOKEN = credentials('npm-dummy-token')
+    }
+
+    stages {
+        stage('Prepare Workspace') {
+            steps {
+                script {
+                    // Clean workspace
+                    cleanWs()
+                    git branch: "${BRANCH}", url: "${GIT_REPO}"
+                }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                // Use npm ci for clean install
+                sh 'npm ci'
+            }
+        }
+
+        stage('Unit tests') {
+            steps {
+                // Run tests
+                sh 'npm test'
+            }
+        }
+
+        stage('Building package') {
+            steps {
+                // Run build script
+                sh 'npm run build:prod'
+            }
+        }
+
+        stage('Prepare package') {
+            steps {
+                sh '''
+                    mkdir -p package/shadowReporter
+                    cp package.json package/
+                    cp README.md package/
+                    cp src/shadowReporter/template.html package/shadowReporter/
+                '''
+            }
+        }
+
+        stage('Verify package contents') {
+            steps {
+                sh 'ls -la package/'
+                sh 'cd package/'
+            }
+        }
+
+        stage('Preparing NPM access') {
+            steps {
+                script {
+                    // Create .npmrc file with token
+                    writeFile file: '.npmrc', text: "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}"
+
+                    // Publish to NPM
+                    sh '''
+                        echo "NPM access prepared"
+                    '''
+                }
+            }
+        }
+
+        stage('Publishing to NPM') {
+            steps {
+                sh '''
+                    echo "Publishing to NPM"
+                    npm publish
+                '''
+            }
+        }
+
+        stage('Archive package artifact') {
+            steps {
+                archiveArtifacts artifacts: 'package/**', fingerprint: true
+            }
+        }
+
+    }
+
+    post {
+        always {
+            // Always clean workspace
+            cleanWs()
+        }
+
+        success {
+            echo 'Release process completed successfully!'
+        }
+
+        failure {
+            echo 'Release process failed. Check logs for details.'
+        }
+    }
+}

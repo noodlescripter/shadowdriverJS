@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <!-- Gradient for metallic effect -->
+    <linearGradient id="metallic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(30, 41, 59, 0.85)"/>
+      <stop offset="100%" style="stop-color:rgba(15, 23, 42, 0.85)"/>
+    </linearGradient>
+    
+    <!-- Enhanced glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Browser Window Base -->
+  <rect x="60" y="60" width="280" height="280" rx="15" 
+        fill="url(#metallic)" 
+        stroke="#FFD700" 
+        stroke-width="3"/>
+
+  <!-- Browser Bar -->
+  <rect x="60" y="60" width="280" height="50" rx="15" 
+        fill="rgba(255, 215, 0, 0.15)" 
+        stroke="#FFD700" 
+        stroke-width="3"/>
+
+  <!-- Browser Buttons -->
+  <circle cx="95" cy="85" r="6" fill="#FFD700"/>
+  <circle cx="120" cy="85" r="6" fill="#FFD700"/>
+  <circle cx="145" cy="85" r="6" fill="#FFD700"/>
+
+  <!-- Robot Face in Browser -->
+  <g transform="translate(110, 140)">
+    <!-- Robot Eyes (with scanning animation) -->
+    <g filter="url(#glow)">
+      <rect x="20" y="0" width="50" height="15" rx="7" fill="#FFD700">
+        <animate attributeName="opacity"
+                 values="1;0.5;1" dur="2s"
+                 repeatCount="indefinite"/>
+      </rect>
+      <rect x="90" y="0" width="50" height="15" rx="7" fill="#FFD700">
+        <animate attributeName="opacity"
+                 values="0.5;1;0.5" dur="2s"
+                 repeatCount="indefinite"/>
+      </rect>
+    </g>
+
+    <!-- Robot Antenna -->
+    <path d="M80 -35 L80 -20 M65 -45 L95 -45" 
+          stroke="#FFD700" 
+          stroke-width="5" 
+          stroke-linecap="round"
+          fill="none"/>
+
+    <!-- Robot Mouth (Code Line) -->
+    <g transform="translate(0, 50)">
+      <rect width="160" height="40" rx="8" 
+            fill="rgba(255, 215, 0, 0.15)" 
+            stroke="#FFD700" 
+            stroke-width="3"/>
+      <text x="20" y="27" 
+            font-family="monospace" 
+            font-size="22" 
+            fill="#FFD700">&lt;/&gt;</text>
+      <text x="80" y="27" 
+            font-family="monospace" 
+            font-size="22" 
+            fill="#FFD700"
+            font-weight="bold">SD</text>
+    </g>
+  </g>
+
+  <!-- Automation Lines -->
+  <g stroke="#FFD700" stroke-width="3" stroke-linecap="round">
+    <path d="M60 280 L30 280 L30 120 L60 120" 
+          fill="none" 
+          stroke-dasharray="8,8">
+      <animate attributeName="stroke-dashoffset"
+               values="0;16" dur="1s"
+               repeatCount="indefinite"/>
+    </path>
+    <path d="M340 280 L370 280 L370 120 L340 120" 
+          fill="none" 
+          stroke-dasharray="8,8">
+      <animate attributeName="stroke-dashoffset"
+               values="0;16" dur="1s"
+               repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Connection Nodes -->
+  <g fill="#FFD700">
+    <circle cx="30" cy="120" r="7"/>
+    <circle cx="30" cy="280" r="7"/>
+    <circle cx="370" cy="120" r="7"/>
+    <circle cx="370" cy="280" r="7"/>
+  </g>
+</svg>

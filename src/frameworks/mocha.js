@@ -50,71 +50,137 @@ async function _frame_work_mocha(_conf_file, _files) {
 
   return new Promise(async (resolve, reject) => {
     try {
-      log("Parsed spec= ", specFiles)
-      for (const spec of specFiles) {
-        log(`Starting test for: ${spec}`)
+      //need to run onPrepare hook if exist
+      //TODO - in the future, we can add more hooks and seperate them in different modules
+      if (typeof requireConf.onPrepare === "function") {
+        log("Executing onPrepare hook")
+        try {
+          requireConf.onPrepare()
+        } catch (err) {
+          error("Error in onPrepare hook", err)
+        }
+      }
 
+      await new Promise((resolve, reject) => {
+        if (typeof requireConf.before === "function") {
+          log("Executing before hook")
+          try {
+            requireConf.before()
+            resolve()
+          } catch (err) {
+            error("Error in before hook", err)
+            reject(err)
+          }
+        } else {
+          resolve()
+        }
+      })
+
+      /*    log("Parsed spec= ", specFiles)
+      for(let  index = 0; index < specFiles.length; index++) {
+        log(`Starting test for: ${specFiles[index]}`)
+        //need to check if this is the last file
+        const isLast = index === specFiles.length - 1
+        if(isLast){
+          log("Generating report");
+
+        }
+      } */
+      let isLast = false
+
+      for (const [index, spec] of specFiles.entries()) {
+        log(`Starting test for: ${spec}`)
+        isLast = index === specFiles.length - 1
         // Create a new Mocha instance for each test file
         const mocha_init = mochaOptions ? new Mocha(mochaOptions) : new Mocha()
-        mocha_init.reporter(ShadowReporter)
+        mocha_init.reporter(ShadowReporter) // only reporting the last spec res
         if (!mochaOptions?.timeout) {
           console.info("Timeout provided......... LOCAL TESTING")
           mocha_init.timeout(60000) // Default timeout of 60 seconds
         }
 
         // Open a new browser for each test file
+        require("../webdriver-api/webdriver-element-obj-api")
         const _driver = await _driver_manager(_conf_file)
         _globals(_driver)
-
         // Add the test file
         mocha_init.addFile(spec)
 
         if (!_driver) {
           throw new Error("Driver is null. Check why.")
         }
+        try {
+          
+          await new Promise(resolve => setTimeout(resolve, 2000));
 
-        await new Promise((resTest) => {
-          const runner = mocha_init.run((failures) => {
-            if (failures > 0) {
-              error(`Test failed in ${spec}: ${failures} failures.`)
+          await new Promise((resTest) => {
+            const runner = mocha_init.run((failures) => {
+              if (failures > 0) {
+                error(`Test failed in ${spec}: ${failures} failures.`)
+                test_informations.push({
+                  spec,
+                  failures: true,
+                  passed: false,
+                  errors: null,
+                })
+              } else {
+                test_informations.push({
+                  spec,
+                  failures: false,
+                  passed: true,
+                  errors: null,
+                })
+              }
+              resTest()
+            })
+
+            // Handle the start of a test
+            runner.on("start", (err) => {
+              console.log(`on start: ${spec}`)
+              if (requireConf.beforeTest === "function") {
+                requireConf.beforeTest(err)
+              }
+            })
+
+            // Handle test failures
+            runner.on("fail", (test, err) => {
+              console.error(`Test failed in file ${spec}: ${test.title}`)
+              console.error(`${err}`)
               test_informations.push({
                 spec,
                 failures: true,
                 passed: false,
-                errors: null,
+                errors: err,
               })
-            } else {
-              test_informations.push({
-                spec,
-                failures: false,
-                passed: true,
-                errors: null,
-              })
-            }
-            resTest()
-          })
+            })
 
-          // Handle test failures
-          runner.on("fail", (test, err) => {
-            console.error(`Test failed in file ${spec}: ${test.title}`)
-            console.error(`${err}`)
-            test_informations.push({
-              spec,
-              failures: true,
-              passed: false,
-              errors: err,
+            // Handle the end of all tests for the current file
+            runner.on("end", () => {
+              log(`Finished running tests in ${spec}`)
+              if (typeof requireConf.after === "function") {
+                log("Executing after hook to close the browser")
+                requireConf.after() // Close the browser
+              }
             })
           })
+        } catch (error) {
+          console.error('Error occurred:', error);
 
-          // Handle the end of all tests for the current file
-          runner.on("end", () => {
-            log(`Finished running tests in ${spec}`)
-            if (typeof requireConf.after === "function") {
-              log("Executing after hook to close the browser")
-              requireConf.after() // Close the browser
-            }
-          })
-        })
+          // With styling (red text)
+          console.error('%cError:', 'color: red; font-weight: bold', error);
+
+          // With red underline
+          console.log('%cError: ' + error.message, 'border-bottom: 2px solid red;');
+
+          // Detailed error information
+          console.group('Error Details');
+          console.error('Message:', error.message);
+          console.error('Stack:', error.stack);
+          console.error('Name:', error.name);
+          console.groupEnd();
+
+          throw error; // Re-throw if needed
+        }
       }
       // Summary of all tests after completion
       console.log(styles.header("Test Summary:"))
@@ -141,6 +207,9 @@ async function _frame_work_mocha(_conf_file, _files) {
         if (passed) passedCount++
         else failedCount++
       })
+      if (isLast) {
+        console.log("I will generate the report now")
+      }
       resolve() // Resolve the main promise after all test files are run
     } catch (err) {
       console.error("Critical error during test execution:", err)

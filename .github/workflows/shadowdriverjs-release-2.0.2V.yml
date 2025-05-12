@@ -1,0 +1,70 @@
+name: ShadowdriverJS Release 2.0.2V
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_branch:
+        description: 'Branch to release from'
+        required: true
+        default: '2.0.2v_BETA'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  check-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check branch
+        run: |
+          if [ "${{ github.ref_name }}" != "${{ github.event.inputs.target_branch }}" ]; then
+            echo "::warning::Workflow triggered from branch '${{ github.ref_name }}' instead of '${{ github.event.inputs.target_branch }}'. Skipping workflow."
+            exit 1
+          fi
+
+  build:
+    needs: check-branch
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm run build
+      - name: Prepare package
+        run: |
+          mkdir -p package/shadowReporter
+          cp package.json package/
+          cp README.md package/
+          cp src/shadowReporter/template.html package/shadowReporter/
+      - name: Verify package contents
+        run: ls -la package/
+      - name: Upload package artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-artifact
+          path: package/
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - name: Download package artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: package-artifact
+          path: package
+      - name: Install dependencies
+        run: npm ci
+      - name: Publish package
+        run: cd package && npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.SHADOWDRIVERJS }}
