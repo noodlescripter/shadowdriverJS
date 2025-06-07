@@ -11,7 +11,7 @@ ShadowdriverJS IntelliSense is a **Visual Studio Code extension** that provides 
 
 
 ### 1. Install via VSIX File (Advanced)
-1. Download the [shadowdriverjs-intellisense-0.0.1.vsix](https://github.com/noodlescripter/shadowdriverJS/tree/develop/shadowdriverjs-intellisense/shadowdriverjs-intellisense-0.0.1.vsixshadowdriverjs-intellisense-0.0.1.vsix) file from the official release. (Note: You are welcome to update and edit the existing browser, elements and by commands 🙂)
+1. Download the [shadowdriverjs-intellisense-0.0.1.vsix](https://github.com/noodlescripter/shadowdriverJS/raw/refs/heads/develop/shadowdriverjs-intellisense/shadowdriverjs-intellisense-0.0.1.vsix) file from the official release. (Note: You are welcome to update and edit the existing browser, elements and by commands 🙂)
 2. In VS Code, go to:  
    `Help > Extensions: Install from VSIX`
 3. Select the downloaded file and follow prompts
