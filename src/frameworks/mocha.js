@@ -110,7 +110,7 @@ async function _frame_work_mocha(_conf_file, _files) {
           throw new Error("Driver is null. Check why.")
         }
         try {
-          
+
           await new Promise(resolve => setTimeout(resolve, 2000));
 
           await new Promise((resTest) => {
@@ -189,7 +189,8 @@ async function _frame_work_mocha(_conf_file, _files) {
       console.log(styles.separator("-".repeat(50)))
 
       let passedCount = 0
-      let failedCount = 0
+      //need to return false to error for jenkins
+      var failedCount = 0
 
       test_informations.forEach(({ spec, failures, passed, errors }) => {
         const statusSymbol = passed ? "✔" : "✖"
@@ -208,9 +209,19 @@ async function _frame_work_mocha(_conf_file, _files) {
         else failedCount++
       })
       if (isLast) {
-        console.log("I will generate the report now")
+        console.log("Generating report... Please wait...")
       }
-      resolve() // Resolve the main promise after all test files are run
+      if (failedCount > 0) {
+        /**
+         * @Issue = Jenkins always returns true no matter what.
+         * need to reject if there is any kind of failures. aka, is complaining about Jenkins always returns true no matter what.
+         * 
+         * @Added By = @haminatorr
+         *  */
+        reject("Test failed, check the report for more details and fix the issues or contact your lead developer.")
+      } else {
+        resolve() // Resolve the main promise after all test files are run
+      }
     } catch (err) {
       console.error("Critical error during test execution:", err)
       reject(err) // Reject only if a critical error occurs outside of tests

@@ -32,6 +32,7 @@ describe("shadowdriverJS api validation", function () {
       await element.getText().then((text) => {
         console.log("toast body: ", text)
         expect(text).contains("test@test.com")
+        
       })
     })
   })

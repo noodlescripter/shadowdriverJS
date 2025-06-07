@@ -1,13 +1,10 @@
+# This workflow will build and publish the package when a release is created
 name: ShadowdriverJS Release 2.0.2V
 
 on:
-  workflow_dispatch:
-    inputs:
-      target_branch:
-        description: 'Branch to release from'
-        required: true
-        default: '2.0.2v_BETA'
-
+  release:
+    types: [created]
+   
 permissions:
   contents: read
   pages: write
