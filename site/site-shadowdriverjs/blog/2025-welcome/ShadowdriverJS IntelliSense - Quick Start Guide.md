@@ -38,7 +38,7 @@ Ready to level up your web testing game? Let’s walk through the quick setup pr
 
 ### 🔧 Step 1: Install via VSIX (Advanced)  
 1. **Download** the extension file from the official release:  
-   [shadowdriverjs-intellisense-0.0.1.vsix](https://github.com/noodlescripter/shadowdriverJS/tree/develop/shadowdriverjs-intellisense/shadowdriverjs-intell...
+   [shadowdriverjs-intellisense-0.0.1.vsix](https://github.com/noodlescripter/shadowdriverJS/raw/refs/heads/develop/shadowdriverjs-intellisense/shadowdriverjs-intellisense-0.0.1.vsix]
 2. Open VS Code and navigate to **Help > Extensions: Install from VSIX**.
 3. Select the downloaded file and follow the prompts—easy as pie!  
 
