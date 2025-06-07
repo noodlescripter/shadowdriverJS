@@ -189,7 +189,8 @@ async function _frame_work_mocha(_conf_file, _files) {
       console.log(styles.separator("-".repeat(50)))
 
       let passedCount = 0
-      let failedCount = 0
+      //need to return false to error for jenkins
+      var failedCount = 0
 
       test_informations.forEach(({ spec, failures, passed, errors }) => {
         const statusSymbol = passed ? "✔" : "✖"
@@ -215,6 +216,7 @@ async function _frame_work_mocha(_conf_file, _files) {
       console.error("Critical error during test execution:", err)
       reject(err) // Reject only if a critical error occurs outside of tests
     }
+    return failedCount > 0 ? false : true
   })
 }
 module.exports = { _frame_work_mocha, _get_spec_file }
