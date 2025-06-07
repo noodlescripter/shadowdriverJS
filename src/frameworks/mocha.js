@@ -110,7 +110,7 @@ async function _frame_work_mocha(_conf_file, _files) {
           throw new Error("Driver is null. Check why.")
         }
         try {
-          
+
           await new Promise(resolve => setTimeout(resolve, 2000));
 
           await new Promise((resTest) => {
@@ -211,12 +211,15 @@ async function _frame_work_mocha(_conf_file, _files) {
       if (isLast) {
         console.log("I will generate the report now")
       }
-      resolve() // Resolve the main promise after all test files are run
+      if (failedCount > 0) {
+        resolve(new Error("Test still does not pass, please check the logs and fix the issues.")) // return false to error for jenkins
+      } else {
+        resolve() // Resolve the main promise after all test files are run
+      }
     } catch (err) {
       console.error("Critical error during test execution:", err)
       reject(err) // Reject only if a critical error occurs outside of tests
     }
-    return failedCount > 0 ? false : true
   })
 }
 module.exports = { _frame_work_mocha, _get_spec_file }
