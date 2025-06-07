@@ -24,8 +24,8 @@ node22
 *.log
 *.tsbuildinfo
 *.tgz
-package.json
-package-lock.json
 ./test-report.html
 recruiting.html
+*.log
+/shadowdriverjs-intellisense/out/
 *.log

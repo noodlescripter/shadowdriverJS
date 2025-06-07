@@ -13,7 +13,7 @@ const version = require('./versions');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Shadowdriver JS',
-  tagline: 'shadowdriverjs is cool',
+  tagline: 'A powerful JavaScript library for web automation and testing',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -24,11 +24,24 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'shadowdriverjs', // Usually your repo name.
+  organizationName: 'haminatorr', // Updated to match your GitHub username
+  projectName: 'shadowdriverJS', // Updated to match your repository name
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+
+  headTags: [
+    { tagName: 'meta', attributes: { name: 'description', content: 'ShadowdriverJS - A powerful JavaScript library for web automation and testing. Simplify your web testing workflow with our intuitive API.' } },
+    { tagName: 'meta', attributes: { name: 'keywords', content: 'shadowdriverjs, web automation, testing, javascript, selenium alternative, webdriver' } },
+    { tagName: 'meta', attributes: { name: 'robots', content: 'index, follow' } },
+    { tagName: 'meta', attributes: { name: 'googlebot', content: 'index, follow' } },
+    { tagName: 'meta', attributes: { name: 'twitter:card', content: 'summary_large_image' } },
+    { tagName: 'meta', attributes: { name: 'twitter:title', content: 'ShadowdriverJS' } },
+    { tagName: 'meta', attributes: { name: 'twitter:description', content: 'A powerful JavaScript library for web automation and testing' } },
+    { tagName: 'meta', attributes: { property: 'og:title', content: 'ShadowdriverJS' } },
+    { tagName: 'meta', attributes: { property: 'og:description', content: 'A powerful JavaScript library for web automation and testing' } },
+    { tagName: 'meta', attributes: { property: 'og:type', content: 'website' } },
+  ],
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -49,8 +62,8 @@ const config = {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl:
+          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
@@ -60,8 +73,8 @@ const config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl:
+          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -78,7 +91,19 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.png',
+      image: 'img/shadowdriverjs-card.png',
+      metadata: [
+        { name: 'description', content: 'ShadowdriverJS - A powerful JavaScript library for web automation and testing. Simplify your web testing workflow with our intuitive API.' },
+        { name: 'keywords', content: 'shadowdriverjs, web automation, testing, javascript, selenium alternative, webdriver' },
+        { name: 'robots', content: 'index, follow' },
+        { name: 'googlebot', content: 'index, follow' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'ShadowdriverJS' },
+        { name: 'twitter:description', content: 'A powerful JavaScript library for web automation and testing' },
+        { name: 'og:title', content: 'ShadowdriverJS' },
+        { name: 'og:description', content: 'A powerful JavaScript library for web automation and testing' },
+        { name: 'og:type', content: 'website' },
+      ],
       navbar: {
         title: 'ShadowdriverJS',
         logo: {

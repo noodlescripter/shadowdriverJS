@@ -32,6 +32,7 @@ describe("Sample Test Suite", async function () {
       .sendKeys("ture")
       .perform()
     await browser.actions().keyDown(key.Return).perform()
-    await browser.sleep(5000)
+   
+    
   })
 })

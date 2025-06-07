@@ -1,13 +1,13 @@
-[1741402979.488][INFO]: Starting ChromeDriver 132.0.6834.110 (df453a35f099772fdb954e33551388add2ca3cde-refs/branch-heads/6834_101@{#3}) on port 46378
-[1741402979.488][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-[1741402979.534][INFO]: ChromeDriver was started successfully on port 46378
-[1741402979.553][INFO]: [9fcfe04b4199360da3f7c01504eb7c6f] COMMAND InitSession {
+[1745047644.964][INFO]: Starting ChromeDriver 132.0.6834.110 (df453a35f099772fdb954e33551388add2ca3cde-refs/branch-heads/6834_101@{#3}) on port 46040
+[1745047644.964][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1745047644.999][INFO]: ChromeDriver was started successfully on port 46040
+[1745047645.049][INFO]: [5a66af5e6004dd54e7c138ec831ef78a] COMMAND InitSession {
    "capabilities": {
       "alwaysMatch": {
          "browserName": "chrome",
          "goog:chromeOptions": {
-            "args": [ "--disable-infobars", "--disable-gpu", "--start-maximized", "--user-data-dir=/home/hamimalam/workspace/shadowdriverjs-workspace/shadowdriverJS/userData" ],
-            "binary": "/home/hamimalam/workspace/shadowdriverjs-workspace/shadowdriverJS/browser/browserBinary/chrome"
+            "args": [ "--disable-infobars", "--disable-gpu", "--start-maximized", "--user-data-dir=/home/sarthok/workspace/shadowdriverjs-workspace/shadowdriverJS/userData" ],
+            "binary": "/home/sarthok/workspace/shadowdriverjs-workspace/shadowdriverJS/browser/browserBinary/chrome"
          },
          "goog:loggingPrefs": {
             "browser": "OFF",
@@ -18,16 +18,16 @@
       } ]
    }
 }
-[1741402979.555][INFO]: Populating Preferences file: {
+[1745047645.052][INFO]: Populating Preferences file: {
    "NewTabPage": {
-      "PrevNavigationTime": "13385384779522676"
+      "PrevNavigationTime": "13387881922568635"
    },
    "accessibility": {
       "captions": {
          "live_caption_language": "en-US"
       }
    },
-   "account_tracker_service_last_update": "13385365006261947",
+   "account_tracker_service_last_update": "13387878597681450",
    "alternate_error_pages": {
       "backup": false
    },
@@ -40,20 +40,37 @@
    "browser": {
       "check_default_browser": false,
       "window_placement": {
-         "bottom": 1499,
-         "left": 3238,
-         "maximized": false,
-         "right": 4823,
+         "bottom": 1479,
+         "left": 38,
+         "maximized": true,
+         "right": 2583,
          "top": 59,
          "work_area_bottom": 1440,
-         "work_area_left": 3200,
-         "work_area_right": 8320,
+         "work_area_left": 0,
+         "work_area_right": 5120,
          "work_area_top": 0
       }
    },
-   "commerce_daily_metrics_last_update_time": "13385365006243630",
+   "commerce_daily_metrics_last_update_time": "13387878597611092",
    "default_search_provider": {
       "guid": ""
+   },
+   "devtools": {
+      "adb_key": "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCwgyctItk/XaZNE/Hm0vkGxhfuvanjSlaFAjZvZz7gl544+UQLZTkTAkASJr5uxXaet2spZAk7cBtRlcuUyGHECc/LJMmFZYybSulYMyfApOfdyRe5IT092z9BU33+m5Ro/QlzcAWV/lf+tRbdWDTHai4P3ZiWpLRX2JjSNzEhnE4tZK2RPThFRfR2uWEDTGBhDGfm1X+92CytMZBaleeLa0QGUHN4napfHWtyI2Dmx+rMTabNoaxmOJBSBQL6z6H7KfMciRuRyK0LwrkOKw7MccddMNV6Iz2ouEtwxkWhxkCGykYhouWoBT6t1jHtAvTlS03acC+BS3Lo2dXM/GkRAgMBAAECggEAATMcU/gfFLPrfS3JRgRsOQb6zdPVViw2FdMrxl/j2MLBtR6WlI2Ue3lXW6Lj8PH1H4OHc4F7TD+JDqnPYicRfl5YXpz/pKE0eTAOEXF5j/De+uN9aTPytrCpMlBhtGu0xhjlf0wahvLdVhJqLHNyGmKG8R3UW2kU/l2EaQtYfA4RGGH/PDD4ZFjDurKsLIhjgU7eMdKpSUskz7+bdmqsmd3nkEvcqHS6cAPXfWc6HJpGPIXolGkm1jC9UpPucTS2lxyLKSu0BiKtfS20BRXwYO4QyRqMjhH0xRTymDfWd29mRK/XekeC69J/Qqr8m15FiWatFZHVt60lSAuCcMjeFQKBgQDZdRszjdtKCBAY5j1YtDfZSgv4ENbj4ogYa1OMr+5CXgNyz7qnEebz2a/MITOr7L92Y7C6wa+oTrIMPsUDZmeOUaszoqIZ7r5uo6yuJGrym1KGQ/7vIChJ18EbcM3GF7YMkvfqKzUq0TCX9hbLLSJlvVZuywhO9axlxe98xlMoVQKBgQDPzDTQWxq14DQjPLlpd1L2F/wTq+35bAtiiDlfd86rbZT5eTPIe5DLEnZ66y2UN+5lfGf8lB9HSKuID0W79/B0s+g/kYuCqd5xpC4RW0korA2mD2Ar06z5oz6LuEM0VKQtlKN4lRBc0haOMkPpx0ZkJIeI8m2B5eL9s0vGZLGpzQKBgQCQtjLk6wk8ygLUXxwCFOR5sKIociRfQNhqz7mpDUcUWXYYCI9hMTOtoXcw9ANr7UA46/ynO8/GxKAOMBNxwMs3VbgFw7v2X//QpxF6Tffx/VU8zrEvtwm4omD6/uWhZxQaaA+dgSV/mfipl/XxPdb/N7H2Rxz/VtRkYgWO1nhuhQKBgHZJLf80/R1vBP7SAFFy5TzFJm8kPZDv2gM6vD4F+xVGibkBL2L+Q8v1NJB/8zAeLoyCpsb2ol93lH0dBHsdhjlId/pHpXy5qbBS3w5uQlTuq85NjlckZaCtNltehpLxY4u2wt9PK0NLLB/BqTsYfo9e4/Am4ANDk1ULjSTgCOo5AoGBAIgyL6Y+3AsmZNi47LPOB+u2jeZ5pdHDqW6MTt04VQBdWnFtlT5K7AzAZoSNL8fNkCpcf6z6V5Iy5OUrpNxE6i6yef2kAl6hQzY35eOUBa6Fobxj4ryzfow9t+zR5/g93/58yYWDan1rBe+c/f3y+lwa9aA1dFcHqKg3vhzPIFLB",
+      "last_open_timestamp": "13387196063662",
+      "preferences": {
+         "closeable-tabs": "{\"security\":true,\"freestyler\":true,\"chrome-recorder\":true}",
+         "currentDockState": "\"right\"",
+         "elements.styles.sidebar.width": "{\"vertical\":{\"size\":0,\"showMode\":\"OnlyMain\"}}",
+         "inspector-view.split-view-state": "{\"vertical\":{\"size\":0}}",
+         "inspector.drawer-split-view-state": "{\"horizontal\":{\"size\":0,\"showMode\":\"OnlyMain\"}}",
+         "inspectorVersion": "38",
+         "styles-pane-sidebar-tab-order": "{\"styles\":10,\"computed\":20}"
+      },
+      "synced_preferences_sync_disabled": {
+         "adorner-settings": "[{\"adorner\":\"grid\",\"isEnabled\":true},{\"adorner\":\"subgrid\",\"isEnabled\":true},{\"adorner\":\"flex\",\"isEnabled\":true},{\"adorner\":\"ad\",\"isEnabled\":true},{\"adorner\":\"scroll-snap\",\"isEnabled\":true},{\"adorner\":\"container\",\"isEnabled\":true},{\"adorner\":\"slot\",\"isEnabled\":true},{\"adorner\":\"top-layer\",\"isEnabled\":true},{\"adorner\":\"reveal\",\"isEnabled\":true},{\"adorner\":\"media\",\"isEnabled\":false},{\"adorner\":\"scroll\",\"isEnabled\":true}]",
+         "syncedInspectorVersion": "38"
+      }
    },
    "distribution": {
       "import_bookmarks": false,
@@ -66,9 +83,9 @@
       "enabled": false
    },
    "domain_diversity": {
-      "last_reporting_timestamp": "13385365265835063"
+      "last_reporting_timestamp": "13387878597609780"
    },
-   "enterprise_profile_guid": "d46b418a-06a5-4314-9686-2e5212e3a26d",
+   "enterprise_profile_guid": "843af01a-b267-475e-881f-3e9d5c82dcac",
    "extensions": {
       "alerts": {
          "initialized": true
@@ -90,12 +107,12 @@
             "content_settings": [  ],
             "creation_flags": 1,
             "events": [  ],
-            "first_install_time": "13384921840126594",
+            "first_install_time": "13387192634515973",
             "from_webstore": false,
             "incognito_content_settings": [  ],
             "incognito_preferences": {
             },
-            "last_update_time": "13384921840126594",
+            "last_update_time": "13387192634515973",
             "location": 5,
             "manifest": {
                "app": {
@@ -116,7 +133,7 @@
             },
             "needs_sync": true,
             "page_ordinal": "n",
-            "path": "/home/hamimalam/workspace/shadowdriverjs-workspace/shadowdriverJS/browser/browserBinary/resources/web_store",
+            "path": "/home/sarthok/workspace/shadowdriverjs-workspace/shadowdriverJS/browser/browserBinary/resources/web_store",
             "preferences": {
             },
             "regular_only_preferences": {
@@ -138,12 +155,12 @@
             "content_settings": [  ],
             "creation_flags": 1,
             "events": [  ],
-            "first_install_time": "13384921840127013",
+            "first_install_time": "13387192634516316",
             "from_webstore": false,
             "incognito_content_settings": [  ],
             "incognito_preferences": {
             },
-            "last_update_time": "13384921840127013",
+            "last_update_time": "13387192634516316",
             "location": 5,
             "manifest": {
                "content_security_policy": "script-src 'self' 'wasm-eval' blob: filesystem: chrome://resources chrome://webui-test; object-src * blob: externalfile: file: filesystem: data:",
@@ -160,7 +177,7 @@
                } ],
                "version": "1"
             },
-            "path": "/home/hamimalam/workspace/shadowdriverjs-workspace/shadowdriverJS/browser/browserBinary/resources/pdf",
+            "path": "/home/sarthok/workspace/shadowdriverjs-workspace/shadowdriverJS/browser/browserBinary/resources/pdf",
             "preferences": {
             },
             "regular_only_preferences": {
@@ -172,7 +189,7 @@
       }
    },
    "gaia_cookie": {
-      "changed_time": 1740448240.660987,
+      "changed_time": 1742719035.094478,
       "hash": "2jmj7l5rSw0yVb/vlWAYkK/YBwk=",
       "last_list_accounts_data": "[\"gaia.l.a.r\",[]]"
    },
@@ -181,8 +198,14 @@
    },
    "google": {
       "services": {
-         "signin_scoped_device_id": "2b5a4559-08cb-456b-a2cd-c9c077e68b80"
+         "signin_scoped_device_id": "85d38635-9186-4dd9-8b60-3520bd19ec05"
       }
+   },
+   "in_product_help": {
+      "recent_session_enabled_time": "13387196062595729",
+      "recent_session_start_times": [ "13387196062595729" ],
+      "session_last_active_time": "13387196062595729",
+      "session_start_time": "13387196062595729"
    },
    "intl": {
       "selected_languages": "en-US,en"
@@ -193,10 +216,10 @@
       }
    },
    "media_router": {
-      "receiver_id_hash_token": "YhztA8H+AfkL4jBwijxR5kFKAJTeMzb85PJtM6PfOmoEuB0dXjHrYppOYyN1MZwvmf3YxVbt/Ad3LZSsKEe/0A=="
+      "receiver_id_hash_token": "zXyGRQ6z3jNLvFUfOD97KFDmz9CLE2gB1HIpTYnsE4nrZ92VTL2OLaqdpBeiAz8dermhjFnoJH3N4036YR7ISw=="
    },
    "ntp": {
-      "num_personal_suggestions": 2
+      "num_personal_suggestions": 1
    },
    "optimization_guide": {
       "hintsfetcher": {
@@ -238,7 +261,7 @@
       "content_settings": {
          "did_migrate_adaptive_notification_quieting_to_cpss": true,
          "disable_quiet_permission_ui_time": {
-            "notifications": "13384921840127591"
+            "notifications": "13387192634516976"
          },
          "enable_cpss": {
             "notifications": true
@@ -292,12 +315,7 @@
             },
             "cookie_controls_metadata": {
                "file:///*,*": {
-                  "last_modified": "13385384781156902",
-                  "setting": {
-                  }
-               },
-               "https://[*.]google.com,*": {
-                  "last_modified": "13384922707316363",
+                  "last_modified": "13387881924851034",
                   "setting": {
                   }
                }
@@ -316,7 +334,7 @@
             },
             "fedcm_idp_signin": {
                "https://accounts.google.com:443,*": {
-                  "last_modified": "13384921840661704",
+                  "last_modified": "13387192635094859",
                   "setting": {
                      "chosen-objects": [ {
                         "idp-origin": "https://accounts.google.com",
@@ -376,17 +394,6 @@
             "local_fonts": {
             },
             "media_engagement": {
-               "https://www.google.com:443,*": {
-                  "expiration": "13392698717545646",
-                  "last_modified": "13384922717545648",
-                  "lifetime": "7776000000000",
-                  "setting": {
-                     "hasHighScore": false,
-                     "lastMediaPlaybackTime": 0.0,
-                     "mediaPlaybacks": 0,
-                     "visits": 5
-                  }
-               }
             },
             "media_stream_camera": {
             },
@@ -434,21 +441,12 @@
             },
             "site_engagement": {
                "chrome://newtab/,*": {
-                  "last_modified": "13385384779600009",
+                  "last_modified": "13387881922775155",
                   "setting": {
-                     "lastEngagementTime": 1.3385384779599996e+16,
+                     "lastEngagementTime": 1.338788192277512e+16,
                      "lastShortcutLaunchTime": 0.0,
                      "pointsAddedToday": 15.0,
-                     "rawScore": 43.665285763905516
-                  }
-               },
-               "https://www.google.com:443,*": {
-                  "last_modified": "13385381119721291",
-                  "setting": {
-                     "lastEngagementTime": 1.3385053919816484e+16,
-                     "lastShortcutLaunchTime": 0.0,
-                     "pointsAddedToday": 0.0,
-                     "rawScore": 9.0
+                     "rawScore": 29.06279522304
                   }
                }
             },
@@ -503,7 +501,7 @@
          },
          "pref_version": 1
       },
-      "creation_time": "13384921703411316",
+      "creation_time": "13387192382842417",
       "default_content_setting_values": {
          "geolocation": 1
       },
@@ -519,9 +517,8 @@
       "exit_type": "Normal",
       "family_link_user_state": 6,
       "family_member_role": "not_in_family",
-      "last_engagement_time": "13385384779599997",
-      "last_time_obsolete_http_credentials_removed": 1740448300.182465,
-      "last_time_password_store_metrics_reported": 1740892040.741986,
+      "last_engagement_time": "13387881922775119",
+      "last_time_password_store_metrics_reported": 1742721540.223009,
       "managed": {
          "locally_parent_approved_extensions": {
          },
@@ -530,8 +527,7 @@
       "managed_user_id": "",
       "name": "Person 1",
       "password_hash_data_list": [  ],
-      "password_manager_enabled": false,
-      "were_old_google_logins_removed": true
+      "password_manager_enabled": false
    },
    "protection": {
       "macs": {
@@ -546,8 +542,8 @@
          },
          "extensions": {
             "settings": {
-               "ahfgeienlihckogmohjhadlkjgocpleb": "C69F5C37681AB11B8AB5C7B526E8C70891CDCC488EF14F9AE9C3E18A6C4A708C",
-               "mhjfbmdgcfjbbpaeojofohoefgiehjai": "883FA3C85D6C4C81195F7C20EE317CC663ABC3D88AA11124820061027BE49F06"
+               "ahfgeienlihckogmohjhadlkjgocpleb": "0E651D689581F2B870BF630F0E13D34A737C32DFB0FAB7514A1E7D4F3B78BE85",
+               "mhjfbmdgcfjbbpaeojofohoefgiehjai": "2A578759B99A8141C84142BE64DE6152372815340B72D473A12037E72EA995E6"
             },
             "ui": {
                "developer_mode": "55A29C051727FCAC1BDA847CCDE40838B2068CFA589E88819EA9FB17E4BD7320"
@@ -583,7 +579,7 @@
       "enabled": false,
       "event_timestamps": {
       },
-      "metrics_last_log_time": "13385365006",
+      "metrics_last_log_time": "13387878597",
       "scout_reporting_enabled_when_deprecated": false
    },
    "safety_hub": {
@@ -600,120 +596,114 @@
       "suggest_enabled": false
    },
    "segmentation_platform": {
-      "client_result_prefs": "CuUCChFjcm9zc19kZXZpY2VfdXNlchLPAgrDAg0AAIA/EM+jioeGteMXGrACCqcCGqQCChkNAACAPxISTm9Dcm9zc0RldmljZVVzYWdlChgNAAAAQBIRQ3Jvc3NEZXZpY2VNb2JpbGUKGQ0AAEBAEhJDcm9zc0RldmljZURlc2t0b3AKGA0AAIBAEhFDcm9zc0RldmljZVRhYmxldAoiDQAAoEASG0Nyb3NzRGV2aWNlTW9iaWxlQW5kRGVza3RvcAohDQAAwEASGkNyb3NzRGV2aWNlTW9iaWxlQW5kVGFibGV0CiINAADgQBIbQ3Jvc3NEZXZpY2VEZXNrdG9wQW5kVGFibGV0CiANAAAAQRIZQ3Jvc3NEZXZpY2VBbGxEZXZpY2VUeXBlcwoXDQAAEEESEENyb3NzRGV2aWNlT3RoZXISEk5vQ3Jvc3NEZXZpY2VVc2FnZRIEEAcYBCACEPCjioeGteMXClIKDXNob3BwaW5nX3VzZXISQQo2DQAAAAAQkfmktbK94xcaJAocChoNAAAAPxIMU2hvcHBpbmdVc2VyGgVPdGhlchIEEAIYBCADELH5pLWyveMX",
-      "device_switcher_util": {
-         "result": {
-            "labels": [ "NotSynced" ]
-         }
-      },
-      "last_db_compaction_time": "13385260799000000",
-      "uma_in_sql_start_time": "13384921840125191"
+      "client_result_prefs": "CuUCChFjcm9zc19kZXZpY2VfdXNlchLPAgrDAg0AAIA/EOXpqaLGhuQXGrACCqcCGqQCChkNAACAPxISTm9Dcm9zc0RldmljZVVzYWdlChgNAAAAQBIRQ3Jvc3NEZXZpY2VNb2JpbGUKGQ0AAEBAEhJDcm9zc0RldmljZURlc2t0b3AKGA0AAIBAEhFDcm9zc0RldmljZVRhYmxldAoiDQAAoEASG0Nyb3NzRGV2aWNlTW9iaWxlQW5kRGVza3RvcAohDQAAwEASGkNyb3NzRGV2aWNlTW9iaWxlQW5kVGFibGV0CiINAADgQBIbQ3Jvc3NEZXZpY2VEZXNrdG9wQW5kVGFibGV0CiANAAAAQRIZQ3Jvc3NEZXZpY2VBbGxEZXZpY2VUeXBlcwoXDQAAEEESEENyb3NzRGV2aWNlT3RoZXISEk5vQ3Jvc3NEZXZpY2VVc2FnZRIEEAcYBCACEPDqqaLGhuQXCmAKEXJlc3VtZV9oZWF2eV91c2VyEksKQA0AAAAAEIbrqaLGhuQXGi4KJgokDQAAAD8SFlJlc3VtZUhlYXZ5VXNlclNlZ21lbnQaBU90aGVyEgQQDhgEIAIQmeuposaG5BcKcwoVcGFzc3dvcmRfbWFuYWdlcl91c2VyEloKTw0AAAAAEPjsqaLGhuQXGj0KNQozDQAAAD8SE1Bhc3N3b3JkTWFuYWdlclVzZXIaF05vdF9QYXNzd29yZE1hbmFnZXJVc2VyEgQQBxgEIAEQxO2posaG5BcKZAoLc2VhcmNoX3VzZXISVQpKDQAAAAAQou2posaG5BcaOAowGi4KCg0AAIA/EgNMb3cKDQ0AAKBAEgZNZWRpdW0KCw0AALBBEgRIaWdoEgROb25lEgQQBxgEIAIQ1+2posaG5BcKUgoNc2hvcHBpbmdfdXNlchJBCjYNAAAAABDd6KmixobkFxokChwKGg0AAAA/EgxTaG9wcGluZ1VzZXIaBU90aGVyEgQQAhgEIAMQmumposaG5Bc=",
+      "uma_in_sql_start_time": "13387192634513418"
    },
    "sessions": {
       "event_log": [ {
          "did_schedule_command": true,
          "first_session_service": true,
          "tab_count": 1,
-         "time": "13385382815250426",
+         "time": "13387880984951648",
          "type": 2,
          "window_count": 1
       }, {
          "crashed": false,
-         "time": "13385382996939041",
+         "time": "13387881014167275",
          "type": 0
       }, {
          "did_schedule_command": true,
          "first_session_service": true,
          "tab_count": 1,
-         "time": "13385383015072274",
+         "time": "13387881026900764",
          "type": 2,
          "window_count": 1
       }, {
          "crashed": false,
-         "time": "13385383070890610",
+         "time": "13387881038095353",
          "type": 0
       }, {
          "did_schedule_command": true,
          "first_session_service": true,
          "tab_count": 1,
-         "time": "13385383083676992",
+         "time": "13387881049811104",
          "type": 2,
          "window_count": 1
       }, {
          "crashed": false,
-         "time": "13385383187687212",
+         "time": "13387881068474744",
          "type": 0
       }, {
          "did_schedule_command": true,
          "first_session_service": true,
          "tab_count": 1,
-         "time": "13385383200344846",
+         "time": "13387881081147115",
          "type": 2,
          "window_count": 1
       }, {
          "crashed": false,
-         "time": "13385383207415420",
+         "time": "13387881339514772",
          "type": 0
       }, {
          "did_schedule_command": true,
          "first_session_service": true,
          "tab_count": 1,
-         "time": "13385383220006179",
+         "time": "13387881344019808",
          "type": 2,
          "window_count": 1
       }, {
          "crashed": false,
-         "time": "13385383235982567",
+         "time": "13387881394264357",
          "type": 0
       }, {
          "did_schedule_command": true,
          "first_session_service": true,
          "tab_count": 1,
-         "time": "13385383257027155",
+         "time": "13387881402580144",
          "type": 2,
          "window_count": 1
       }, {
          "crashed": false,
-         "time": "13385384695500681",
+         "time": "13387881488989863",
          "type": 0
       }, {
          "did_schedule_command": true,
          "first_session_service": true,
          "tab_count": 1,
-         "time": "13385384697182869",
+         "time": "13387881497252124",
          "type": 2,
          "window_count": 1
       }, {
          "crashed": false,
-         "time": "13385384718036215",
+         "time": "13387881836003781",
          "type": 0
       }, {
          "did_schedule_command": true,
          "first_session_service": true,
          "tab_count": 1,
-         "time": "13385384725695285",
+         "time": "13387881844370322",
          "type": 2,
          "window_count": 1
       }, {
          "crashed": false,
-         "time": "13385384758180321",
+         "time": "13387881859502502",
          "type": 0
       }, {
          "did_schedule_command": true,
          "first_session_service": true,
          "tab_count": 1,
-         "time": "13385384765738898",
+         "time": "13387881872069965",
          "type": 2,
          "window_count": 1
       }, {
          "crashed": false,
-         "time": "13385384779463066",
+         "time": "13387881922489985",
          "type": 0
       }, {
          "did_schedule_command": true,
          "first_session_service": true,
          "tab_count": 1,
-         "time": "13385384786539036",
+         "time": "13387881930722966",
          "type": 2,
          "window_count": 1
       } ],
@@ -737,8 +727,6 @@
    "toolbar": {
       "pinned_chrome_labs_migration_complete": true
    },
-   "total_passwords_available_for_account": 0,
-   "total_passwords_available_for_profile": 0,
    "translate": {
       "enabled": false
    },
@@ -750,14 +738,14 @@
       "last_preinstall_synchronize_version": "132"
    }
 }
-[1741402979.556][INFO]: Populating Local State file: {
+[1745047645.054][INFO]: Populating Local State file: {
    "accessibility": {
       "captions": {
          "soda_registered_language_packs": [ "en-US" ]
       }
    },
    "autofill": {
-      "ablation_seed": "MoAIdlnMAeg="
+      "ablation_seed": "R5l3ZOV0fg0="
    },
    "background_mode": {
       "enabled": false
@@ -770,14 +758,14 @@
    },
    "breadcrumbs": {
       "enabled": false,
-      "enabled_time": "13384921840112152"
+      "enabled_time": "13387192634495430"
    },
    "browser": {
       "whats_new": {
          "enabled_order": [ "LensOverlayTranslateButton", "PdfSearchify", "ToolbarPinning", "PerformanceInterventionUI" ]
       }
    },
-   "chrome_labs_activation_threshold": 56,
+   "chrome_labs_activation_threshold": 13,
    "chrome_labs_new_badge_dict": {
    },
    "fingerprinting_protection_filter": {
@@ -800,10 +788,10 @@
    },
    "network_time": {
       "network_time_mapping": {
-         "local": 1.740911085754833e+12,
-         "network": 1.740911085702e+12,
-         "ticks": 22843969550.0,
-         "uncertainty": 10053391.0
+         "local": 1.743406875978341e+12,
+         "network": 1.743406875882e+12,
+         "ticks": 52018112090.0,
+         "uncertainty": 10048292.0
       }
    },
    "optimization_guide": {
@@ -811,8 +799,7 @@
       },
       "on_device": {
          "last_version": "132.0.6834.110",
-         "model_crash_count": 0,
-         "performance_class": 7
+         "model_crash_count": 0
       }
    },
    "os_crypt": {
@@ -822,18 +809,18 @@
       }
    },
    "performance_intervention": {
-      "last_daily_sample": "13385365006230743"
+      "last_daily_sample": "13387878597596102"
    },
    "policy": {
-      "last_statistics_update": "13385365005995990"
+      "last_statistics_update": "13387878597327748"
    },
    "privacy_budget": {
-      "meta_experiment_activation_salt": 0.9890715594695301
+      "meta_experiment_activation_salt": 0.30262390800234995
    },
    "profile": {
       "info_cache": {
          "Default": {
-            "active_time": 1740911085.60108,
+            "active_time": 1743404997.591962,
             "avatar_icon": "chrome://theme/IDR_PROFILE_AVATAR_26",
             "background_apps": false,
             "default_avatar_fill_color": -2890755,
@@ -861,15 +848,15 @@
       "metrics": {
          "next_bucket_index": 2
       },
-      "profile_counts_reported": "13385365006009642",
+      "profile_counts_reported": "13387878597346027",
       "profiles_order": [ "Default" ]
    },
    "profile_network_context_service": {
       "http_cache_finch_experiment_groups": "EnableFeatureForTests None None None 20240814-CrossSiteNavBool"
    },
-   "session_id_generator_last_value": "1720004666",
+   "session_id_generator_last_value": "49887670",
    "signin": {
-      "active_accounts_last_emitted": "13385365005831260"
+      "active_accounts_last_emitted": "13387878597098647"
    },
    "ssl": {
       "rev_checking": {
@@ -878,9 +865,9 @@
    },
    "subresource_filter": {
       "ruleset_version": {
-         "checksum": 544953455,
-         "content": "9.55.0",
-         "format": 36
+         "checksum": 0,
+         "content": "",
+         "format": 0
       }
    },
    "tab_stats": {
@@ -889,7 +876,7 @@
       "discards_proactive": 0,
       "discards_suggested": 0,
       "discards_urgent": 0,
-      "last_daily_sample": "13385365005954353",
+      "last_daily_sample": "13387878597277568",
       "max_tabs_per_window": 1,
       "reloads_external": 0,
       "reloads_frozen": 0,
@@ -907,186 +894,15 @@
       "persisted_logs": [  ]
    },
    "uninstall_metrics": {
-      "installation_date2": "1740448240"
-   },
-   "updateclientdata": {
-      "apps": {
-         "cffplpkejcbdpfnfabnjikeicbedmifn": {
-            "cohort": "1:27gl:",
-            "cohortname": "Dogfood",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "248bdc30-adc9-456d-972f-8c7ea60415bd"
-         },
-         "eeigpngbgcognadeebkilcpcaedhellh": {
-            "cohort": "1:w59:",
-            "cohortname": "Auto",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "16908d32-375e-4ae1-add9-d7a50fc4f434"
-         },
-         "efniojlnjndmcbiieegkicadnoecjjef": {
-            "cohort": "1:18ql:",
-            "cohortname": "Auto Stage3",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "f00cbcc3-95b7-4301-8cee-70d9b178abb7"
-         },
-         "gcmjkmgdlgnkkcocmoeiminaijmmjnii": {
-            "cohort": "1:bm1:",
-            "cohortname": "Stable",
-            "dlrc": 6631,
-            "fp": "1.6af08fc2b0dd497e30e40290efcb817b9b1f7dc7f734ab1a9dd000ae01f36050",
-            "installdate": 6629,
-            "max_pv": "9.54.0",
-            "pf": "cf2f5c3b-6059-4325-9102-c7e4ca048cfb",
-            "pv": "9.55.0"
-         },
-         "ggkkehgbnfjpeggfpleeakpidbkibbmn": {
-            "cohort": "1:ut9/1a0f/2sn9:2snf@0.5",
-            "cohortname": "Rollout",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "c7c2b2af-9848-4cfb-bd89-cc32e132acd5"
-         },
-         "giekcmmlnklenlaomppkphknjmnnpneh": {
-            "cohort": "1:j5l:",
-            "cohortname": "Auto",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "54d0860d-a958-4ed1-ae3a-ae2013b872e6"
-         },
-         "gonpemdgkjcecdgbnaabipppbmgfggbe": {
-            "cohort": "1:z1x:2w1f@0.1",
-            "cohortname": "Auto",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "eb35afe3-b2ab-4392-b6a5-fb058f3b68e5"
-         },
-         "hfnkpimlhhgieaddgfemjhofmfblmnib": {
-            "cohort": "1:287f:",
-            "cohortname": "Auto full",
-            "dlrc": 6631,
-            "fp": "1.aaa9bdbdbe19d30ccbc0ab68a71b99538b68f2efb5d7b3eef236dbec224f0c75",
-            "installdate": 6629,
-            "max_pv": "0.0.0.0",
-            "pf": "86d4e7e1-0c94-4dba-82fd-dd276a2eb9b1",
-            "pv": "9574"
-         },
-         "jamhcnnkihinmdlkakkaopbjbbcngflc": {
-            "cohort": "1:wvr:",
-            "cohortname": "Auto",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "695c5ecc-303e-4562-8a57-dde34c816c4e"
-         },
-         "jflhchccmppkfebkiaminageehmchikm": {
-            "cohort": "1:26yf:",
-            "cohortname": "Stable",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "4e0db48f-e127-4138-8fa0-a434bb9f804b"
-         },
-         "jflookgnkcckhobaglndicnbbgbonegd": {
-            "cohort": "1:s7x:",
-            "cohortname": "Auto",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "0585ba3d-b59a-4b9f-a2dc-7bb5d0b55030"
-         },
-         "kgdbnmlfakkebekbaceapiaenjgmlhan": {
-            "cohort": "1:2uw3:",
-            "cohortname": "All users",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "32f6b762-6911-4486-abe3-cd8c1e2c974a"
-         },
-         "khaoiebndkojlmppeemjhbpbandiljpe": {
-            "cohort": "1:cux:",
-            "cohortname": "Auto",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "db059ec5-0422-4723-9f6c-180fbd4e5778"
-         },
-         "kiabhabjdbkjdpjbpigfodbdjmbglcoo": {
-            "cohort": "1:v3l:",
-            "cohortname": "Auto",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "74a98adf-cf2c-4c87-be34-f090740e885c"
-         },
-         "laoigpblnllgcgjnjnllmfolckpjlhki": {
-            "cohort": "1:10zr:",
-            "cohortname": "Auto",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "32978aba-cb37-402b-bcdd-ae795ebb0b6e"
-         },
-         "llkgjffcdpffmhiakmfcdcblohccpfmo": {
-            "cohort": "1::",
-            "cohortname": "",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "ef006f34-047d-472d-8686-0601f0a3845d"
-         },
-         "lmelglejhemejginpboagddgdfbepgmp": {
-            "cohort": "1:lwl:",
-            "cohortname": "Auto",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "aefb437d-cbc4-4230-a2b8-5364296bfcea"
-         },
-         "mcfcpknbdmljknapnofahjlmhmddmfkb": {
-            "cohort": "1:2k5l:",
-            "cohortname": "Rollout Stable",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "3279b394-8216-4750-96a2-d4e8732b2415"
-         },
-         "niikhdgajlphfehepabhhblakbdgeefj": {
-            "cohort": "1:1uh3:",
-            "cohortname": "Auto Main Cohort.",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "8931dcdb-6d6b-42e8-aa66-8eeaf561ed47"
-         },
-         "obedbbhbpmojnkanicioggnmelmoomoc": {
-            "cohort": "1:s6f:2w6x@0.1",
-            "cohortname": "Auto",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "cf5c856e-e15f-47c2-a7c6-b3ec514b090b"
-         },
-         "oimompecagnajdejgnnjijobebaeigek": {
-            "cohort": "1:2qw3:2w9r@0.025,2vzx@0.025",
-            "cohortname": "Auto",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "d4378d53-f767-4f5b-9002-35645cd79635"
-         },
-         "ojhpjlocmbogdgmfpkhlaaeamibhnphh": {
-            "cohort": "1:w0x:",
-            "cohortname": "All users",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "608d3765-aac8-48c9-be38-663b4947ab8d"
-         },
-         "pkomkdjpmjfbkgjjmmaioegaojgdahkm": {
-            "cohort": "1:2m6f:",
-            "cohortname": "Everybody",
-            "dlrc": 6631,
-            "installdate": 6629,
-            "pf": "ea87801e-6aac-4310-8f7e-2c00f192e97a"
-         }
-      }
+      "installation_date2": "1742719034"
    },
    "user_experience_metrics": {
-      "limited_entropy_randomization_source": "A204DEA5545DFCFED29BA09BA69C743F",
-      "low_entropy_source3": 3345,
-      "pseudo_low_entropy_source": 2590,
-      "session_id": 182,
+      "limited_entropy_randomization_source": "1D4127741B18506309C6B3AEE935EB6E",
+      "low_entropy_source3": 5405,
+      "pseudo_low_entropy_source": 3396,
+      "session_id": 50,
       "stability": {
-         "browser_last_live_timestamp": "13385384786547799",
+         "browser_last_live_timestamp": "13387881930735964",
          "exited_cleanly": true,
          "stats_buildtime": "1737474076",
          "stats_version": "132.0.6834.110-64-devel"
@@ -1095,100 +911,76 @@
    "variations_google_groups": {
       "Default": [  ]
    },
-   "variations_limited_entropy_synthetic_trial_seed_v2": "51",
+   "variations_limited_entropy_synthetic_trial_seed_v2": "49",
    "was": {
       "restarted": false
    }
 }
-[1741402979.557][INFO]: ChromeDriver supports communication with Chrome via pipes. This is more reliable and more secure.
-[1741402979.557][INFO]: Use the --remote-debugging-pipe Chrome switch instead of the default --remote-debugging-port to enable this communication mode.
-[1741402979.557][INFO]: Launching chrome: /home/hamimalam/workspace/shadowdriverjs-workspace/shadowdriverJS/browser/browserBinary/chrome --allow-pre-commit-input --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-gpu --disable-hang-monitor --disable-infobars --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-logging --log-level=0 --no-first-run --no-service-autorun --password-store=basic --remote-debugging-port=0 --start-maximized --test-type=webdriver --use-mock-keychain --user-data-dir=/home/hamimalam/workspace/shadowdriverjs-workspace/shadowdriverJS/userData
-[1741402980.272][INFO]: resolved localhost to ["127.0.0.1"]
-[1741402982.414][INFO]: Waiting for pending navigations...
-[1741402982.427][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.440][INFO]: Waiting for pending navigations...
-[1741402982.484][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.488][INFO]: Waiting for pending navigations...
-[1741402982.491][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.508][INFO]: Waiting for pending navigations...
-[1741402982.511][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.515][INFO]: Waiting for pending navigations...
-[1741402982.518][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.531][INFO]: Waiting for pending navigations...
-[1741402982.533][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.536][INFO]: Waiting for pending navigations...
-[1741402982.538][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.547][INFO]: Waiting for pending navigations...
-[1741402982.548][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.550][INFO]: Waiting for pending navigations...
-[1741402982.552][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.616][INFO]: Waiting for pending navigations...
-[1741402982.624][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.627][INFO]: Waiting for pending navigations...
-[1741402982.627][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.639][INFO]: Waiting for pending navigations...
-[1741402982.640][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.643][INFO]: Waiting for pending navigations...
-[1741402982.644][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.654][INFO]: Waiting for pending navigations...
-[1741402982.655][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.657][INFO]: Waiting for pending navigations...
-[1741402982.658][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.662][INFO]: Waiting for pending navigations...
-[1741402982.663][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.666][INFO]: Waiting for pending navigations...
-[1741402982.667][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.730][INFO]: Waiting for pending navigations...
-[1741402982.731][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.734][INFO]: Waiting for pending navigations...
-[1741402982.736][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.748][INFO]: Waiting for pending navigations...
-[1741402982.750][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.752][INFO]: Waiting for pending navigations...
-[1741402982.754][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.759][INFO]: Waiting for pending navigations...
-[1741402982.761][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.762][INFO]: Waiting for pending navigations...
-[1741402982.763][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.769][INFO]: Waiting for pending navigations...
-[1741402982.770][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.772][INFO]: Waiting for pending navigations...
-[1741402982.774][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.782][INFO]: Waiting for pending navigations...
-[1741402982.783][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.785][INFO]: Waiting for pending navigations...
-[1741402982.786][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.849][INFO]: Waiting for pending navigations...
-[1741402982.850][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.853][INFO]: Waiting for pending navigations...
-[1741402982.855][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.865][INFO]: Waiting for pending navigations...
-[1741402982.867][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.870][INFO]: Waiting for pending navigations...
-[1741402982.871][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.878][INFO]: Waiting for pending navigations...
-[1741402982.880][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.883][INFO]: Waiting for pending navigations...
-[1741402982.883][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.888][INFO]: Waiting for pending navigations...
-[1741402982.890][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.892][INFO]: Waiting for pending navigations...
-[1741402982.893][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.898][INFO]: Waiting for pending navigations...
-[1741402982.899][INFO]: Done waiting for pending navigations. Status: ok
-[1741402982.901][INFO]: Waiting for pending navigations...
-[1741402982.903][INFO]: Done waiting for pending navigations. Status: ok
-[1741402988.189][INFO]: Waiting for pending navigations...
-[1741402988.190][INFO]: Done waiting for pending navigations. Status: ok
-[1741402988.192][INFO]: Waiting for pending navigations...
-[1741402988.193][INFO]: Done waiting for pending navigations. Status: ok
-[1741402988.200][INFO]: Waiting for pending navigations...
-[1741402988.202][INFO]: Done waiting for pending navigations. Status: ok
-[1741402988.404][INFO]: Waiting for pending navigations...
-[1741402988.406][INFO]: Done waiting for pending navigations. Status: ok
-[1741402988.414][INFO]: Waiting for pending navigations...
-[1741402988.417][INFO]: Done waiting for pending navigations. Status: ok
-[1741402988.419][INFO]: Waiting for pending navigations...
-[1741402988.420][INFO]: Done waiting for pending navigations. Status: ok
-[1741402988.432][INFO]: Waiting for pending navigations...
-[1741402988.434][INFO]: Done waiting for pending navigations. Status: ok
+[1745047645.056][INFO]: ChromeDriver supports communication with Chrome via pipes. This is more reliable and more secure.
+[1745047645.056][INFO]: Use the --remote-debugging-pipe Chrome switch instead of the default --remote-debugging-port to enable this communication mode.
+[1745047645.056][INFO]: Launching chrome: /home/sarthok/workspace/shadowdriverjs-workspace/shadowdriverJS/browser/browserBinary/chrome --allow-pre-commit-input --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-gpu --disable-hang-monitor --disable-infobars --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-automation --enable-logging --log-level=0 --no-first-run --no-service-autorun --password-store=basic --remote-debugging-port=0 --start-maximized --test-type=webdriver --use-mock-keychain --user-data-dir=/home/sarthok/workspace/shadowdriverjs-workspace/shadowdriverJS/userData
+[1745047647.470][INFO]: resolved localhost to ["127.0.0.1"]
+[1745047649.577][INFO]: Waiting for pending navigations...
+[1745047649.583][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.596][INFO]: Waiting for pending navigations...
+[1745047649.631][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.645][INFO]: Waiting for pending navigations...
+[1745047649.646][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.659][INFO]: Waiting for pending navigations...
+[1745047649.660][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.662][INFO]: Waiting for pending navigations...
+[1745047649.663][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.727][INFO]: Waiting for pending navigations...
+[1745047649.733][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.735][INFO]: Waiting for pending navigations...
+[1745047649.736][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.745][INFO]: Waiting for pending navigations...
+[1745047649.746][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.748][INFO]: Waiting for pending navigations...
+[1745047649.748][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.798][INFO]: Waiting for pending navigations...
+[1745047649.799][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.801][INFO]: Waiting for pending navigations...
+[1745047649.801][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.810][INFO]: Waiting for pending navigations...
+[1745047649.811][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.815][INFO]: Waiting for pending navigations...
+[1745047649.816][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.823][INFO]: Waiting for pending navigations...
+[1745047649.824][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.825][INFO]: Waiting for pending navigations...
+[1745047649.827][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.899][INFO]: Waiting for pending navigations...
+[1745047649.900][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.902][INFO]: Waiting for pending navigations...
+[1745047649.904][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.917][INFO]: Waiting for pending navigations...
+[1745047649.917][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.921][INFO]: Waiting for pending navigations...
+[1745047649.923][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.932][INFO]: Waiting for pending navigations...
+[1745047649.933][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.935][INFO]: Waiting for pending navigations...
+[1745047649.936][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.943][INFO]: Waiting for pending navigations...
+[1745047649.945][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.947][INFO]: Waiting for pending navigations...
+[1745047649.949][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.957][INFO]: Waiting for pending navigations...
+[1745047649.958][INFO]: Done waiting for pending navigations. Status: ok
+[1745047649.960][INFO]: Waiting for pending navigations...
+[1745047649.962][INFO]: Done waiting for pending navigations. Status: ok
+[1745047655.223][INFO]: Waiting for pending navigations...
+[1745047655.224][INFO]: Done waiting for pending navigations. Status: ok
+[1745047655.226][INFO]: Waiting for pending navigations...
+[1745047655.227][INFO]: Done waiting for pending navigations. Status: ok
+[1745047655.233][INFO]: Waiting for pending navigations...
+[1745047655.234][INFO]: Done waiting for pending navigations. Status: ok
+[1745047655.437][INFO]: Waiting for pending navigations...
+[1745047655.438][INFO]: Done waiting for pending navigations. Status: ok
+[1745047655.443][INFO]: Waiting for pending navigations...
+[1745047655.444][INFO]: Done waiting for pending navigations. Status: ok
+[1745047655.445][INFO]: Waiting for pending navigations...
+[1745047655.446][INFO]: Done waiting for pending navigations. Status: ok
+[1745047655.456][INFO]: Waiting for pending navigations...
+[1745047655.457][INFO]: Done waiting for pending navigations. Status: ok

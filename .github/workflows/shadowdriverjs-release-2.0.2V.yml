@@ -1,9 +1,10 @@
+# This workflow will build and publish the package when a release is created
 name: ShadowdriverJS Release 2.0.2V
 
 on:
   release:
     types: [created]
-   
+
 permissions:
   contents: read
   pages: write
@@ -15,8 +16,8 @@ jobs:
     steps:
       - name: Check branch
         run: |
-          if [ "${{ github.event.release.target_commitish }}" != "2.0.2v_BETA" ]; then
-            echo "::warning::Release created from branch '${{ github.event.release.target_commitish }}' instead of '2.0.2v_BETA'. Skipping workflow."
+          if [ "${{ github.ref_name }}" != "${{ github.event.inputs.target_branch }}" ]; then
+            echo "::warning::Workflow triggered from branch '${{ github.ref_name }}' instead of '${{ github.event.inputs.target_branch }}'. Skipping workflow."
             exit 1
           fi
 

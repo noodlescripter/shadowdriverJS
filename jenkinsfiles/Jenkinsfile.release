@@ -40,6 +40,15 @@ pipeline {
             }
         }
 
+        stage('ShadowdriverJS-Intellisense Build') {
+            steps {
+                // Run tests
+                sh 'cd shadowdriverjs-intellisense'
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+
         stage('Building package') {
             steps {
                 // Run build script
