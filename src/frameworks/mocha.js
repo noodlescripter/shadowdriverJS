@@ -209,10 +209,16 @@ async function _frame_work_mocha(_conf_file, _files) {
         else failedCount++
       })
       if (isLast) {
-        console.log("I will generate the report now")
+        console.log("Generating report... Please wait...")
       }
       if (failedCount > 0) {
-        reject("Test failed, check the report for more details and fix the issues.")
+        /**
+         * @Issue = Jenkins always returns true no matter what.
+         * need to reject if there is any kind of failures. aka, is complaining about Jenkins always returns true no matter what.
+         * 
+         * @Added By = @haminatorr
+         *  */
+        reject("Test failed, check the report for more details and fix the issues or contact your lead developer.")
       } else {
         resolve() // Resolve the main promise after all test files are run
       }
