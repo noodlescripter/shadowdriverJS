@@ -212,7 +212,7 @@ async function _frame_work_mocha(_conf_file, _files) {
         console.log("I will generate the report now")
       }
       if (failedCount > 0) {
-        resolve(new Error("Test still does not pass, please check the logs and fix the issues.")) // return false to error for jenkins
+        reject("Test failed, check the report for more details and fix the issues.")
       } else {
         resolve() // Resolve the main promise after all test files are run
       }
